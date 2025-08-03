@@ -1,0 +1,644 @@
+<!DOCTYPE html>  
+<html lang="en" manifest="https://smtechnology133.github.io/africaonline"> 
+ <head>
+	<title>Africa Online Home Page</title>  
+	 
+	 <meta charset="UTF-8"/>  
+	 
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+ 	
+ 	<meta name="keywords" content="Africa Online, Africa, Malawi"/>
+
+<meta name="Author" content="Salmanda"/>
+
+<meta name="revised" content="Profiler, 2/7/2025"/>
+ 
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+    
+    <meta name="mobile-web-app-capable" content="yes"/>
+    
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    
+    <meta name="msapplication-starturl" content=""/>
+    
+     <meta name="robots"
+content="noindex,nofollow"/>
+    
+    <meta name="theme-color" content="teal"/>
+  
+  <link rel="icon" type="image" href="africaOnlineIcon.png"/>
+  
+	
+	 <link rel="stylesheet" href="profiler.css" type="text/css"/>
+		 
+		 <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+
+	 <style> 
+	 	.all{
+	 		border-radius:4px;
+	 		}
+	 	
+	 	 	html:active{
+	 		background: maroon;
+	 		}
+	 	
+	 	#africaOnline{
+height: 200px;
+width: 100%;
+border-radius: 4px;
+border: 1px solid orange;
+}
+
+footer{
+	color: white;
+	font-size: 10px;
+	border: 1px solid orange;
+	border-radius: 6px;
+	background: teal;
+	font-family: courier;
+}
+
+p{
+	font-size: 8px;
+	border: 1px solid orange;
+	border-radius: 6px;
+	background: teal;
+	color: orange;
+}
+ 
+h1{
+	color: white;
+	font-size: 18px;
+	border: 1px solid orange;
+	border-radius: 8px;
+	background: teal;
+	color: white;
+}
+
+h6{
+	font-size: 20px;
+	border: 1px solid orange;
+	border-radius: 8px;
+	color: orange;
+	background: linear-gradient(to right, teal, maroon);
+}
+
+button{
+	color: white;
+	font-size: 12px;
+	border-radius: 4px;
+}
+	 	
+	 	a{
+	color:maroon;
+	border:none;
+}
+     .dropup {
+      position: relative;
+      display: inline-block;
+    }
+
+/*css drop up menu*/
+    .dropup-content {
+      display: none;
+      position: absolute;
+      bottom: 40px; /* Distance above the button */
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 12px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 4px;
+      background: linear-gradient(to right, teal, maroon);
+      border: 1px solid orange;
+    }
+
+    .dropup-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropup-content a:hover {
+      background-color: orange;
+    }
+
+    .dropup:hover .dropup-content {
+      display: block;
+    }
+
+    .dropup button:hover {
+      background-color: orange;
+    }
+    /*end css drop up menu*/
+    
+    mark{
+    	border: 1px solid orange;
+    	background-color: orange;
+    	color: teal;
+    	border-radius: 4px;
+    	padding: 1px;
+    }
+    
+    .new{
+    	border: 1px solid orange;
+    	background-color: teal;
+    	color: teal;
+    	border-radius: 4px;
+    	padding: 6px;
+    }
+    
+    #sidebar {
+      width: 250px;
+      height: 96.8vh;
+      position: fixed;
+      top: 0;
+      left: -250px;
+      transition: left 0.3s ease;
+      padding-top: 60px;
+      background: linear-gradient(to right, teal, maroon);
+      border-radius: 3px;
+      border: 1px solid orange;
+      margin-top: 2px;
+    }
+    
+    #sidebar.active {
+      left: 0;
+    }
+    
+    #sidebar .nav-link {
+      color: white;
+    }
+    
+    #toggle-btn {
+      position: fixed;
+      top: 20px;
+      left: 15px;
+      z-index: 1050;
+    }
+    
+    .sidebar {
+      position: fixed;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      background-color: orange;
+      padding: 10px 0;
+      border-radius: 8px 0 0 8px;
+      margin-left: 4px;
+      background: linear-gradient(to right, teal, maroon);
+      border-radius: 4px;
+      border: 1px solid orange;
+      margin-right: 5px;
+    }
+
+    .sidebar a {
+      text-align: center;
+      padding: 12px 15px;
+      color: white;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: orange;
+    }
+
+    .content {
+      padding: 20px;
+    }
+	 	
+body{
+ text-align: center;
+	font-weight: bolder;
+ /*font-variant: small-caps;
+ font-stretch:extra-expanded;*/
+ font-family: georgia;
+}
+
+span{
+	font-size: 14px;
+	color: orange;
+	border-radius: 3px;
+}
+
+p{
+	font-size: 12px;
+}
+
+h1{
+	color: white;
+}
+
+button{
+	color: orange;
+	background:teal;
+	border: solid orange 1px;
+}
+
+	/*css for custom alert*/
+    #customAlert {
+      display: none;
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      border: 2px solid #333;
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      z-index: 9999;
+      border-radius: 8px;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      width: 100%;
+      border: solid orange 1px;
+    }
+
+    #customAlert button {
+      margin-top: 15px;
+      padding: 8px 16px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #customAlert button:hover {
+      background-color: #0056b3;
+    }
+
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 9998;
+    }
+    /*end css for custom alert*/
+    
+    .treanding{
+    	width:100%px;
+    	border: solid orange 1px;
+    	border-radius: 3px;
+    }
+    
+	</style>
+	
+ </head>
+ 
+	 <body>
+	<div style="border:1px solid orange; padding:4px; margin-top: 2px;" id="gradclass" class="all">
+	 		
+	<!--javascript code for time-->
+ <p style="font-size: 10px; color: white; font-family: courier;" id="demo"></p> 
+ <script> 
+var d = new Date(); document.getElementById("demo").innerHTML = d; 
+</script>
+  <!--end javascript code for time-->
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span onclick="color(this)" data-toggle="modal" data-target="#recommendation">Recommended</span>
+ &nbsp;&nbsp;
+ 
+ <span onclick="color(this)" data-toggle="modal" data-target="#treanding">Hot Deals</span> &nbsp;&nbsp;
+ 
+ <span onclick="showAlert('This application contains adverts, while navigating the system you will only to close the ads, or follow that link, if is of any interest. Within virtual library you will need to subscribe to access Examination material.'); color(this)">Help</span>
+  
+<br><img onclick="vlibraryy()" id="africaOnline" src="library.png">
+<br><br>
+	
+	<img onclick="africaOnlineHome()" id="africaOnline" src="africaOnlineIcon.png">
+	<br><br>
+	
+	<!--simple drop up menu-->
+	<div class="new">
+	<div class="dropup">
+  <button onclick="color(this)"><mark>📰 News Feed ⏏</mark></button>
+  <div class="dropup-content">
+    <a onclick="color(this)" style="color: orange; " href="#"><mark>Learning 📖</mark></a>
+    
+    <a onclick="color(this)" style="color: orange" href="#"><mark>Entertain 👀</mark></a></div></div>
+    <!--end simple drop up menu-->
+    &nbsp;&nbsp;&nbsp;
+    
+    <!--simple drop up menu-->
+	<div class="dropup">
+  <button onclick="color(this)"><mark>💢 Options ⏏</mark></button>
+  <div class="dropup-content">
+    <a onclick="color(this)" style="color: orange; " href="#"><mark>Vitual Library 📕</mark></a>
+    
+    <a onclick="color(this)" style="color: orange" href="#"><mark>Africa Online ⏺</mark></a>
+    
+    <a onclick="color(this)" style="color: orange" href="#"><mark>Advertisments 🎉</mark></a></div>
+    <!--end simple drop up menu-->
+&nbsp;&nbsp;&nbsp;
+    
+ <button onclick="shareWebsite(); color(this)"><mark>↪ Share</mark></button></div><br>
+
+</div><br>
+	
+	<!--side bar-->
+	<!-- Toggle Button for sidebar-->
+  <button onclick="color(this)" style="border: solid orange 1px;" id="toggle-btn" class="btn btn-dark">
+    <i class="bi bi-list">☰</i>
+  </button>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="bg-dark">
+  	
+  	<img style="border-radius: 1px;" onclick="vlibraryy()" id="africaOnline" src="library.png">
+  	
+<ul class="nav flex-column p-3">
+  <li class="nav-item">
+  <a onclick="color(this)" style="color: orange; border: solid orange 1px; background: teal; font-size: 13px;" class="nav-link" href="#">
+<i class="bi bi-house-door me-2">
+</i>Virtual Library📕</a></li>
+      
+<li class="nav-item">
+<a onclick="color(this)" style="color: orange; border: solid orange 1px; background: teal; font-size: 13px;" class="nav-link" href="#">
+<i class="bi bi-info-circle me-2">
+</i>Africa Online⏺</a></li>
+      
+<li class="nav-item">
+<a onclick="color(this)" style="color: orange; border: solid orange 1px; background: teal; font-size: 13px;" class="nav-link" href="#">
+<i class="bi bi-gear me-2">
+</i>Subscription🔑</a></li>
+      
+<!--code for alert of terms of service-->
+<li class="nav-item">
+<a onclick="showAlert('This application contains adverts, while navigating the system you will only to close the ads, or follow that link, if is of any interest. Within virtual library you will need to subscribe to access Examination material.'); color(this)"
+        
+         style="color: orange; border: solid orange 1px; background: teal; font-size: 13px;" class="nav-link" href="#">
+<i class="bi bi-gear me-2">
+</i>Learn More 📰</a>
+         <!--end code for alert of terms of service--> 
+      </li>
+    </ul>
+  </div>
+  
+  <!--side bar-->
+  <div class="sidebar"> 
+    <a onclick="color(this)" href="#" title="My President">👑</a>
+    
+  <a onclick="color(this)" href="#" title="PDF Files">📚</a>
+  
+  <a onclick="color(this)" href="#" title="Android apps">📥</a>
+  
+ <a onclick="color(this)" href="#" title="Exam material">❓</a>
+ 
+ <a onclick="color(this)" href="#" title="GPT-300">🤖</a>
+     
+    <a onclick="seer(); color(this)" title="Seer">👁</a>
+    
+    <a onclick="seer(); color(this)" title="Seer">📄</a>
+  </div>
+  <!--end side bar-->
+  
+  <!--treanding modal -->
+<div id="treanding" class="modal fade" >
+<div class="modal-dialog; modal-lg"> 
+<div class="modal-content"> 
+<div class="modal-header"> 
+
+<h6 class="modal-title">ONLINE BUSINESS DEALS</h6> 
+</div> 
+<div class="modal-body; salma"> 
+<br>
+
+<!--treanding bussiness deals-->
+ <p>Online Business deals what's hot...</p>
+<div class="container;">
+    <div class="row">
+      <div class="col-xs-4">
+        <div style="background: orange" class="thumbnail">
+          <img class="clickable-image treanding" src="myName.jpeg" alt="Sample Image">
+          	
+          <div class="caption">
+            
+<p><a href="#">My Name Mix-Tape</a></p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-xs-4">
+        <div style="background: orange" class="thumbnail">
+          <img class="clickable-image treanding" src="africaOnlineIcon.png" alt="Sample Image">
+          <div class="caption">
+           
+     <p><a href="#">Cras justo odio jjj.</a></p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-xs-4">
+        <div style="background: orange" class="thumbnail">
+          <img class="clickable-image treanding" src="africaOnlineIcon.png" alt="Sample Image">
+          <div class="caption">
+            
+     <p><a href="#">Comedy hjjjhh yyu</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <p>More online deals...</p>
+  
+  <div class="container;">
+    <div class="row">
+      <div class="col-xs-4">
+        <div style="background: orange" class="thumbnail">
+          <img style="height: 90px;" class="clickable-image treanding" src="mosi.png" alt="Sample Image">
+          <div class="caption">
+            
+<p><a href="#"> Mosi Black Pather</a></p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-xs-4">
+        <div style="background: orange" class="thumbnail">
+          <img class="clickable-image treanding" src="africaOnlineIcon.png" alt="Sample Image">
+          <div class="caption">
+           
+     <p><a href="#">Cras justo odio jjj.</a></p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-xs-4">
+        <div style="background: orange" class="thumbnail">
+          <img class="clickable-image treanding" src="africaOnlineIcon.png" alt="Sample Image">
+          <div class="caption">
+            
+     <p><a href="#">Comedy hjjjhh yyu</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+<div class="modal-footer"> 
+<button style="border: solid orange 1px;" type="button" class="btn btn-secondary btn-sm"><mark>For more Bussness deals Visit Page here</mark></button> 
+
+<button style="border: solid orange 1px;" type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><mark>Close &times;</mark></button> 
+</div> 
+</div> 
+</div> 
+</div>
+<!--end treanding Business deals -->
+
+<!--recommendation modal -->
+<div id="recommendation" class="modal fade" >
+<div class="modal-dialog; modal-lg"> 
+<div class="modal-content"> 
+<div class="modal-header"> 
+
+<h6 class="modal-title">RECOMMENDED SERVICES</h6> 
+
+</div> 
+<div class="modal-body; salma"> 
+<br>
+	
+<!--recommended services-->
+ <p>Here are some recommended services...</p>
+<div class="container;">
+    <div class="row">
+      <div class="col-xs-4">
+        <div style="background: orange" class="thumbnail">
+          <img style="height: 90px;" class="clickable-image treanding" src="pdfIcon.png" alt="Sample Image">
+          <div class="caption">
+            
+<p><a href="#">PDF Files Subjects</a></p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-xs-4">
+        <div style="background: orange" class="thumbnail">
+          <img class="clickable-image treanding" src="androidIcon.png" alt="Sample Image">
+          <div class="caption">
+           
+     <p><a href="#">Android Apps</a></p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-xs-4">
+        <div style="background: orange" class="thumbnail">
+          <img class="clickable-image treanding" src="helpBooks.png" alt="Sample Image">
+          <div class="caption">
+            
+     <p><a href="#">All about Exams</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--recommended services-->
+  <p>More Recommended services...</p>
+  
+  <div class="container;">
+    <div class="row">
+      <div class="col-xs-4">
+        <div style="background: orange" class="thumbnail">
+          <img class="clickable-image treanding" src="africaOnlineIcon.png" alt="Sample Image">
+          <div class="caption">
+            
+<p><a href="#">AR 3D Figures</a></p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-xs-4">
+        <div style="background: orange" class="thumbnail">
+          <img class="clickable-image treanding" src="africaOnlineIcon.png" alt="Sample Image">
+          <div class="caption">
+           
+<p><a href="#">Seer, Who am l?</a></p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-xs-4">
+        <div style="background: orange" class="thumbnail">
+          <img class="clickable-image treanding" src="africaOnlineIcon.png" alt="Sample Image">
+          <div class="caption">
+            
+     <p><a href="#">Africa my President</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+<div class="modal-footer"> 
+<button style="border: solid orange 1px;" type="button" class="btn btn-secondary btn-sm"><mark>🤖 GPT-s300</mark></button>
+
+<button style="border: solid orange 1px;"  type="button" class="btn btn-secondary btn-sm" data-dismiss="modal"><mark>Close &times;</mark></button> 
+</div> 
+</div> 
+</div> 
+</div>
+<!--end recommendation modal -->
+	 	 	
+	 	 	<footer>|&copy | 2025 | SM Technology|</footer>
+	 	 	
+	 	 	<script>
+  	//side bar javascript
+    const toggleBtn = document.getElementById('toggle-btn');
+    const sidebar = document.getElementById('sidebar');
+
+    toggleBtn.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+    });
+     	//end side bar javascript
+  </script>
+  
+  <!--code to show custom alert-->
+<div id="overlay"></div>
+<div id="customAlert">
+  <p style="font-size: 12px; font-family: courier;" id="alertMessage"></p>
+  <button style="background: maroon; color: orange;" onclick="closeAlert()">OK</button>
+</div>
+
+<!-- Sound file (you can replace this with another link or base64) -->
+<audio id="alertSound" src="https://www.soundjay.com/button/beep-07.mp3" preload="auto"></audio>
+<!--end code to show custom alert-->
+
+<script>
+//script of custom alert
+  function showAlert(message) {
+    document.getElementById("alertMessage").textContent = message;
+    document.getElementById("customAlert").style.display = "block";
+    document.getElementById("overlay").style.display = "block";
+
+    // Play the alert sound
+    const sound = document.getElementById("alertSound");
+    sound.currentTime = 0;
+    sound.play();
+  }
+
+  function closeAlert() {
+    document.getElementById("customAlert").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
+  }
+  //end script of custom alert
+</script>
+	 	 	
+	<!--external scripts links-->
+<script src="jquery.min.js"></script>
+
+<script src="jquery-ui.min.js"></script>
+ 
+<script src="bootstrap.min.js"></script>
+
+<script src="profiler.js"></script>
+<!--end external scripts links-->
+</body>
+</html>

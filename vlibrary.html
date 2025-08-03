@@ -1,0 +1,468 @@
+ <!DOCTYPE html>    
+ <html lang="en" manifest="https://smtechnology133.github.io/africaonline/vlibrary.html">
+ <head>
+	<title>Africa Online Virtual Library</title> 
+	 
+	 <meta charset="UTF-8"/>
+	 
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+ 	
+ 	<meta name="keywords" content="Library, Books, Reading, Application, PDF Files"/>
+
+<meta name="Author" content="Salmanda"/> 
+
+<meta name="revised" content="Profiler, 2/7/2025"/>
+ 
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+    
+    <meta name="mobile-web-app-capable" content="yes"/>
+    
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    
+    <meta name="msapplication-starturl" content=""/>
+    
+     <meta name="robots"
+content="noindex,nofollow"/> 
+    
+    <meta name="theme-color" content="teal"/>
+  
+  <link rel="icon" type="image" href="africaOnlineIcon.png"/>
+  
+	
+	 <link rel="stylesheet" href="profiler.css" type="text/css"/>
+		 
+		 <link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>
+
+	 <style>
+	 	.all{
+	 		border-radius:px;
+	 		}
+	 	
+	 	 	html:active{
+	 		background: maroon;
+	 		}
+	 	
+	 	img{
+height: 250px;
+width: 100%;
+border-radius: 10px;
+border: 1px solid teal; 
+padding: 1px;
+}
+
+body{
+ text-align: center;
+	font-weight: bolder;
+ font-stretch:extra-expanded;
+ font-family: georgia;
+}
+
+span{
+	font-size: 16px;
+	color: white;
+}
+
+ul,p,h5{
+	font-size: 12px;
+}
+
+h6{
+	font-size: 12px;
+	background: teal;
+	border: 1px solid orange;
+	border-radius: 8px;
+}
+
+h1{
+	color: white;
+}
+
+button{
+	color: orange;
+	font-size: 6px;
+}
+	 	
+	 	a{
+	color: maroon;
+	border: solid orange 1px;
+	border-radius:6px;
+	font-size: 12px;
+	background: teal;
+} 
+
+mark{
+	border-radius: 3px;
+	background-color: orange;
+	color: teal;
+}
+
+/*css image carousels */
+  .carousel { 
+   background: #2f4357; 
+   margin-top: 2px; 
+  } 
+   
+  .carousel .item img { 
+   margin: 0 auto; 
+   /* Align slide image horizontally center */ 
+  } 
+   
+  .bs-example { 
+   margin: 0px; 
+  } 
+  /*css image carousels */
+  
+  /*css search web application input*/
+  input { 
+    padding: 6px; 
+    width: 300px; 
+    border: solid orange 1px;
+    border-radius: 3px;
+    color: teal;
+    }
+    
+    #results a { 
+    display: block; 
+    margin: 5px 0; 
+    color: orange; 
+    text-decoration: none; 
+    font-size:14px;
+    background-color: teal;
+    font-family: courier;
+    }
+    /*end css search web application input*/
+    
+    /*floating button css*/
+    .floating-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 10px;
+      background-color:teal;
+      color: white;
+      border: solid orange 1px;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      z-index: 1000;
+      transition: background-color 0.3s; 
+    } 
+
+    .floating-btn:hover {
+      background-color: orange;
+    }
+    /*end floating button css*/
+    
+    .quizz{
+border: solid orange 1px;
+border-radius: 3px;
+background: teal;
+margin: 6px;
+font-size: 10px;
+}
+    
+.picturee{
+width: 30px;
+height: 30px;
+border: 1px solid orange;
+border-radius: 20px;
+padding: 1px;
+margin-top: 6px;
+}
+
+	/*custom alert css*/
+    #customAlert {
+      display: none;
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: linear-gradient(to right, teal, maroon);
+      border: 1px solid orange;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      z-index: 9999;
+      border-radius: 8px;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: orange;
+      width:100%;
+    }
+
+    #customAlert button {
+      margin-top: 15px;
+      padding: 8px 16px;
+      background-color: maroon;
+      color: orange;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #customAlert button:hover {
+      background-color: #0056b3;
+    }
+
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 9998;
+    }
+    /*end custom alert css*/
+    
+    p{
+	font-size: 10px;
+	border: 1px solid orange;
+	border-radius: 6px;
+	background: teal;
+	color: orange;
+}
+	</style>
+	
+ </head>
+ 
+	<body style="border: solid orange 1px; border-radius: 2px;">
+ 
+ <nav style="font-size: 4px;" role="navigation" class="navbar navbar-default navbar-fixed-top" id="gradclass">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button><br>
+      <a style="color: orange; font-size: 20px; background: teal;" onclick="africaOnlineHome()" class="navbar-brand">Africa Online</a> 
+      
+      <img class="picturee" src="africaOnlineIcon.png"/>
+    </div><br>
+    
+    <!-- Collection of nav links, forms, and other content for toggling -->
+    <div id="navbarCollapse" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+ <li><a onclick="africaOnlineHome(); color(this)" style="color: orange;"><mark>🏡Home</mark></a></li>
+        
+        <li><a onclick="s300(); color(this)" style="background: teal;" href="#"><mark>🤖 GPT-S300</mark></a></li>
+        
+        <li class="dropdown">
+          <a onclick="color(this)" style="color: orange; background: teal; border: solid orange 1px; margin-left: 8px;" data-toggle="dropdown" class="dropdown-toggle" href="#"><mark>📄Exam<b class="caret"></b></mark></a>
+          
+          <ul role="menu" class="dropdown-menu">
+            <li ><a style="color: orange; background: teal;" href="file:///storage/emulated/0/projects/vlibrary/passcode.html">📄PSLC Level Section</a></li>
+            
+           <li><a style="color: orange; background: teal;" href="file:///storage/emulated/0/projects/examMaterial/jceExams/englishExam/subjects.html">📄JCE Level Section</a></li>
+  
+            <li><a style="color: orange; background: teal;" href="file:///storage/emulated/0/projects/examMaterial/pslcExams/englishExam/subjects.html">📄MSCE Level Section</a></li>
+          </ul>
+        </li>
+      </ul>
+	 
+	 <!--search my web application-->
+      <form role="search" class="navbar-form navbar-left">
+        <div class="form-group">
+          <input style="border: solid orange 1px;" type="text" id="searchBox" placeholder="🔎 Search application" oninput="searchSite()" class="form-control">
+<div id="results"></div>
+        </div>
+     <!--end search my web application-->
+      </form>
+      
+   <!--button to share website-->
+	 <button onclick="shareWebsite(); color(this)" style="border-color: orange" type="button" class="btn btn-secondary btn-sm">Share  ↪</button>
+<!--end button to share website-->
+
+	 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+	 <button onclick="showAlert('Hello! This is a custom alert with sound! salmanda open everything as you wish');color(this)" style="border-color:orange" type="button"  class="btn btn-secondary btn-sm">Help 📰</button> 
+ 
+ &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;
+		<button onclick="color(this)" style="border-color:orange" type="button" class="btn btn-secondary btn-sm">Connect  💬</button>
+</br></br></div>
+</nav><br><br><br>
+	 
+	 	<div style="border:1px solid gray; padding:2px; border-radius: 1px;" id="gradclass" class="all">
+	 		
+	 		<!--javascript code-->
+  <script type="text/javascript">
+document.write("<h5>"+Date()+"</h5>");
+  </script>
+  <!--end javascript code-->
+	 		
+	 		<h1><span>Africa Online Vitual Library</span></h1>
+	 		
+	 		<h2><span>"Knowledge is Power"</span></h2>
+	 				
+	 		<div class="salmanda">
+	 		<div class="salma" style = "box-shadow: 4px 4px maroon;">
+	 			
+	 			
+	 	<!-- images Carousels --> 
+	 			<div class="wrapper clearfix"> 
+<div class="pull-center">	
+
+ <div class="bs-example"> 
+  <div id="myCarousel" class="carousel slide" data-ride="carousel"> 
+   
+<!-- Wrapper 4 carousel items --> 
+   <div class="carousel-inner"> 
+    <div class="item active"> 
+    <img src="childReading.png" alt="Profiler Logo"/> 
+    </div> 
+    <div class="item"> 
+    <img src="books.png" alt="Profiler Logo"/> 
+    </div>  
+    <div class="item"> 
+    <img src="childReading.png" alt="Profiler Logo"/>
+    </div> 
+   </div> 
+   <!-- Carousel controls --> 
+   <a class="carousel-control left" href="#myCarousel" data-slide="prev"> 
+    <span style="background: orange" class="glyphicon glyphicon-chevron-left"></span> 
+   </a> 
+   <a class="carousel-control right" href="#myCarousel" data-slide="next"> 
+    <span style="background: orange" class="glyphicon glyphicon-chevron-right"></span> 
+   </a> 
+  </div> 
+ </div> 
+	<!-- images Carousels --> 
+</div> 
+</div>
+<!--end images-->
+
+<!--details modal -->
+<div id="myModal1" class="modal fade" >
+<div class="modal-dialog; modal-lg"> 
+<div class="modal-content"> 
+<div class="modal-header"> 
+
+<h6 class="modal-title">From SM Tech, Welcome knowledge Seeker.</h6> 
+</div> 
+<div class="modal-body; salma"> 
+<p style="color: orange; font-size: 12px;">(Replace this text in here)</p> 
+
+</div> 
+<div class="modal-footer"> 
+<button style="border: solid orange 1px; border-radius: 4px;" type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close &times;
+</button> 
+</div> 
+</div> 
+</div> 
+</div>
+<!--end details modal -->
+	
+	 <p><a style="text-decoration: none;" href="file:///storage/emulated/0/projects/vlibrary/pdf.html">
+	 	<span>SECTION FOR PDF FILES</span></a></p><br>
+	 
+	 <p><a style="text-decoration: none;" href="file:///storage/emulated/0/projects/vlibrary/apps.html">
+	 	<span>SECTION FOR APPLICATIONS</span></a></p><br>
+	 
+	 <!--button-->
+	 <button style="border-color: orange" type="button" class="btn btn-secondary btn-sm" onclick="learning();color(this)">
+🎓 Learning </button>
+
+	 &nbsp; &nbsp;
+	 <!--drop up menu-->
+	 <div class="btn-group dropup"> 
+  <div class="btn-group"> 
+	 <button onclick="color(this)" style="border-color: orange" type="button" data-toggle="dropdown" class="btn btn-secondary btn-sm dropdown-toggle">🔖 Options ⏏</button> 
+	 
+	 <ul style="background: teal; border: solid orange 1px;" class="dropdown-menu"> 
+   <li><a style="color: orange;" href="file:///storage/emulated/0/projects/examMaterial/msceExams/englishExam/subjects.html">PSLC Level Section</a></li> 
+   
+      <li><a style="color: orange;" href="file:///storage/emulated/0/projects/examMaterial/jceExams/englishExam/subjects.html">JCE Level Section</a></li> 
+    
+    <li><a style="color: orange;" href="file:///storage/emulated/0/projects/examMaterial/pslcExams/englishExam/subjects.html">MSCE Level Section</a></li>  
+    
+    <li><a onclick="wikipedia();" style="color: orange;">🌐 Wikipedia</a></li>
+    
+     <li><a onclick="seer();" style="color: orange;">👁 Seer</a></li>
+   </ul> 
+  </div> 
+ </div> 
+ <!--end drop up menu-->
+ 
+ &nbsp; &nbsp; 
+		<button style="border-color: orange" type="button" class="btn btn-secondary btn-sm" onclick="profiler0();color(this)">🔊 Play audio </button>
+</br></br>
+	   <!--end button-->
+	   
+	   <button onclick="ar();" style="background: teal; border: solid orange 1px; color: orange" type="button" class="btn btn-primary btn-sm btn-block"> 🔘 Explore AR 3D Figures</button> 
+	   
+<button onclick="adverts();" style="background: teal; border: solid orange 1px; color: orange" type="button" class="btn btn-primary btn-sm btn-block"> 🎉 Bussness Advertisments</button> 
+	    
+	     <button id="shbtn1" style="background: teal; border: solid orange 1px; color: orange" type="button" class="btn btn-primary btn-sm btn-block">🔎&nbsp; Search Content from the web</button><br>
+	     
+	     <!--toggle function for searching google-->
+<div class="quizz" id="d1" style="display:none"><br>
+  <input type="text" id="searchInput" placeholder="Enter search term...">
+  <button style="font-size: 10px; margin: 4px;" onclick="search()">Search</button>
+<br></div>
+<!--end toggle function for searching google-->
+	   
+	   <!--button-->
+	 <button onclick="color(this)" style="border-color: orange" type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#myModal1"><mark>📰 See details</mark></button>
+
+	 &nbsp; &nbsp;
+	 <button onclick="color(this)" style="border-color: orange" type="button" data-toggle="dropdown" class="btn btn-secondary btn-sm dropdown-toggle"><mark>💬 Connect</mark></button>
+ &nbsp; &nbsp; 
+ 
+		<button onclick="color(this)" style="border-color: orange" type="button" class="btn btn-secondary btn-sm"><mark>👁 Views 80 k</mark></button>
+	 </br></br>
+	   <!--end button-->
+</div></div></br>
+
+<!--links back & forward--> 		
+	 <span><a href="#" style="text-decoration: none; font-size: 16px;" style="color:yellow">&laquo;Home Page</a> |
+	 	
+	 <a href="#" style="text-decoration: none; font-size: 16px;" style="color:yellow">Resource Page &raquo;</a>	</span><br>	<br>	
+	 
+	  	<footer>&copy 2025 Copyright SM Technology</footer>
+	 </div>
+	 	<!--end links back & forward-->
+	 	
+	 	<!--custom alert box-->
+<div id="overlay"></div>
+<div id="customAlert">
+  <p style="color: orange; font-family: georgia;" id="alertMessage"></p>
+  <button onclick="closeAlert()">OK</button>
+</div>
+
+<!-- Sound file (you can replace this with another link or base64) -->
+<audio id="alertSound" src="https://www.soundjay.com/button/beep-07.mp3" preload="auto"></audio>
+<!--end custom alert box-->
+	 	
+	 	<!--floating button-->
+	 	<button class="floating-btn" onclick="scrollToTop(); s300();">🤖</button>
+
+	 	  <script>
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+  <!--end floating button-->
+  
+  <!--script to search google-->
+   <script>
+    function search() {
+      const query = document.getElementById("searchInput").value;
+      if (query.trim() !== "") {
+        window.open("https://www.google.com/search?q=" +- encodeURIComponent(query), "_blank");
+      }
+    }
+  </script>
+  <!--end script to search google-->
+	 	
+	<!--external scripts links-->
+<script src="jquery.min.js"></script>
+
+<script src="jquery-ui.min.js"></script>
+ 
+<script src="bootstrap.min.js"></script>
+
+<script src="profiler.js"></script>
+<!--end external scripts links-->
+</body>
+</html>
