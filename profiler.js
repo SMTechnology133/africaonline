@@ -237,7 +237,7 @@ s300=()=>{
 //________________________________
 
 vlibrary=()=>{
-	open("file:///storage/emulated/0/projects/vlibrary/homePage.html");
+	open("https://smtechnology133.github.io/africaonline/");
 }
 
 //________________________________
