@@ -1,0 +1,309 @@
+<!DOCTYPE html>  
+<html lang="en" manifest="https://smtechnology133.github.io/africaonline/index.html">
+ <head>
+	<title>Africa Online Landing Page</title>
+	 
+	 <meta charset="UTF-8"/>
+	 
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+ 	
+ 	<meta name="keywords" content="Africa Online, Africa, Malawi"/>
+
+<meta name="Author" content="Salmanda"/>
+
+<meta name="revised" content="Profiler, 2/7/2025"/>
+ 
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+    
+    <meta name="mobile-web-app-capable" content="yes"/>
+    
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    
+    <meta name="msapplication-starturl" content=""/>
+    
+     <meta name="robots"
+content="noindex,nofollow"/>
+    
+    <meta name="theme-color" content="teal"/>
+  
+  <link rel="icon" type="image" href="africaOnlineIcon.png"/>
+  
+	
+	 <link rel="stylesheet" href="profiler.css" type="text/css"/>
+		 
+		 <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+
+	 <style>
+	 	.all{
+	 		border-radius:6px;
+	 		}
+	 	
+	 	 	html:active{
+	 		background: maroon;
+	 		} 
+	 	
+	 	#africaOnline{
+height: 200px;
+width: 200px;
+border-radius: 100px;
+border: 1px solid orange;
+padding: 3px;
+}
+
+body{
+ text-align: center;
+ font-family: georgia;
+ margin-top: 2px;
+}
+
+footer{
+	color: white;
+	font-size: 10px;
+	border: 1px solid orange;
+	border-radius: 6px;
+	background: teal;
+	font-family: courier;
+}
+
+span{
+	font-size: 30px;
+	color: white;
+}
+
+p{
+	border: 1px solid orange;
+	border-radius: 6px;
+	background: teal;
+	color: orange;
+	font-family: courier;
+}
+
+h1{
+	color: orange;
+	font-size: 18px;
+	border: 1px solid orange;
+	border-radius: 6px;
+	background: teal;
+}
+
+h3{
+	color: white;
+	font-size: 20px;
+	border: 1px solid orange;
+	border-radius: 8px;
+	background: teal;
+	color: orange;
+}
+
+button{
+	color: orange;
+	font-size: 12px;
+	f
+}
+
+/*css for QR Code*/
+    button {
+      padding: 4px 6px;
+      font-size: 12px;
+      background-color: teal;
+      color: teal;
+      border: solid orange 1px;
+      border-radius: 5px;
+      cursor: pointer;
+      color: orange;
+    }
+
+    /* Modal backdrop */
+    .modal {
+      position: fixed;
+      display: none;
+      z-index: 1;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal.show {
+      display: block;
+      opacity: 1;
+    }
+
+    .modal.hide {
+      opacity: 0;
+    }
+
+    /* Modal content box */
+    .modal-content {
+      background: linear-gradient(to right, teal, maroon);
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 12px;
+      width: 340px;
+      position: relative;
+      text-align: center;
+      animation: slideUp 0.3s ease forwards;
+      border: solid orange 1px;
+    }
+
+    .modal.hide .modal-content {
+      animation: slideDown 0.3s ease forwards;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 18px;
+      color: orange;
+      cursor: pointer;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(30px); opacity: 0; }
+    }
+    /*end css for QR Code*/
+    
+     	/*css for custom alert*/
+    #customAlert {
+      display: none;
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      border: 2px solid #333;
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      z-index: 9999;
+      border-radius: 8px;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      width: 100%;
+      border: solid orange 1px;
+    }
+
+    #customAlert button {
+      margin-top: 15px;
+      padding: 8px 16px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #customAlert button:hover {
+      background-color: #0056b3;
+    }
+
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 9998;
+    }
+    /*end css for custom alert*/
+    
+    mark{
+	border-radius: 3px;
+	background-color: orange;
+	color: teal;
+}
+	</style>
+	
+ </head>
+ 
+	 <body>
+	 
+	 	<div style="border:1px solid orange; padding:4px" id="gradclass" class="all">
+	 		
+ <p style="font-size: 10px; color: white; font-family: courier;" id="demo"></p> 
+ 
+ <!--javascript code to display time-->
+ <script> 
+var d = new Date(); document.getElementById("demo").innerHTML = d; 
+</script>
+<br><br><br>
+  <!--end javascript code to display time-->
+  	
+<img id="africaOnline" src="africaOnlineIcon.png">
+<br><br>
+	<h1>Welcome to Africa Online</h1>
+	<br>
+		
+	<p style="font-size: 12px; color: orange;">By using this application you agree to the terms of service 
+<button onclick="showAlert('This application contains adverts, while navigating the system you will only to close the ads, or follow that link, if is of any interest. Within virtual library you will need to subscribe to access Examination material.'); color(this)"><mark>Learn more</mark></button>
+
+<button onclick="showModal(); color(this)"><mark>QR Code</mark></button>
+
+<button onclick="shareWebsite(); color(this)"><mark>↪</mark></button>
+<br><br></p><br>
+		
+	 <button onclick="vlibrary();" style="background: teal; border: solid orange 1px; color: orange" type="button" class="btn btn-primary btn-sm btn-block">Continue...</button><br> <br>
+	 
+	 <!--QR Code Modal -->
+<div id="qrModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">Close&times;</span>
+    <h3>Scan the QR Code</h3>
+    <div id="qrcode"></div>
+  </div>
+</div>
+<!--end QR Code Modal -->
+
+<!--code to show custom alert-->
+<div id="overlay"></div>
+<div id="customAlert">
+  <p style="font-size: 12px; font-family: courier;" id="alertMessage"></p>
+  <button style="background: maroon; color: orange;" onclick="closeAlert()">OK</button>
+</div>
+
+<!-- Sound file (you can replace this with another link or base64) -->
+<audio id="alertSound" src="https://www.soundjay.com/button/beep-07.mp3" preload="auto"></audio>
+<!--end code to show custom alert-->
+
+<script>
+//script of custom alert
+  function showAlert(message) {
+    document.getElementById("alertMessage").textContent = message;
+    document.getElementById("customAlert").style.display = "block";
+    document.getElementById("overlay").style.display = "block";
+
+    // Play the alert sound
+    const sound = document.getElementById("alertSound");
+    sound.currentTime = 0;
+    sound.play();
+  }
+
+  function closeAlert() {
+    document.getElementById("customAlert").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
+  }
+  //end script of custom alert
+</script>
+
+<footer>|&copy | 2025 | SM Technology|</footer>
+	
+	<!--external scripts-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
+</script>
+	
+<script src="jquery.min.js"></script>
+
+<script src="jquery-ui.min.js"></script>
+ 
+<script src="bootstrap.min.js"></script>
+
+<script src="profiler.js"></script>
+<!--end external scripts links-->
+</body>
+</html>
