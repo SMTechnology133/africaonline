@@ -353,10 +353,10 @@ document.write("<h5>"+Date()+"</h5>");
 </div>
 <!--end details modal -->
 	
-	 <p><a style="text-decoration: none;" href="file:///storage/emulated/0/projects/vlibrary/pdf.html">
+	 <p><a style="text-decoration: none;" href="https://smtechnology133.github.io/EnglishPDF/englishPdf.html">
 	 	<span>SECTION FOR PDF FILES</span></a></p><br>
 	 
-	 <p><a style="text-decoration: none;" href="file:///storage/emulated/0/projects/vlibrary/apps.html">
+	 <p><a style="text-decoration: none;" href="https://smtechnology133.github.io/EnglishAPP/englishApps.html">
 	 	<span>SECTION FOR APPLICATIONS</span></a></p><br>
 	 
 	 <!--button-->
@@ -464,5 +464,122 @@ document.write("<h5>"+Date()+"</h5>");
 
 <script src="profiler.js"></script>
 <!--end external scripts links-->
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Radial Progress Loader</title>
+  <style>
+    /* Loader Overlay */
+    #loader-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: teal;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      flex-direction: column;
+    }
+
+    /* SVG Circle Container */
+    .progress-circle {
+      position: relative;
+      width: 120px;
+      height: 120px;
+    }
+
+    svg {
+      transform: rotate(-90deg);
+    }
+
+    /* Percentage Text */
+    .percentage {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+
+    /* Fade Out Animation */
+    .fade-out {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Loader Overlay -->
+  <div id="loader-overlay">
+    <div class="progress-circle">
+      <svg width="120" height="120">
+        <circle cx="60" cy="60" r="50" stroke="#eee" stroke-width="10" fill="none"/>
+        <circle id="progress-bar" cx="60" cy="60" r="50" stroke="url(#gradient)" stroke-width="10" fill="none" stroke-dasharray="314" stroke-dashoffset="314" />
+        <defs>
+          <linearGradient id="gradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="orange"/>
+            <stop offset="50%" stop-color="teal"/>
+            <stop offset="100%" stop-color="maroon"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="percentage" id="percentage-text">0%</div>
+    </div>
+  </div>
+
+  <!-- Page Content -->
+  <div style="padding: 20px;">
+    <h1>Welcome to My Website</h1>
+    <p>This is your page content...</p>
+  </div>
+
+  <script>
+    let percentage = 0;
+    const percentageText = document.getElementById('percentage-text');
+    const progressBar = document.getElementById('progress-bar');
+    const loader = document.getElementById('loader-overlay');
+
+    const totalLength = 314; // Circumference of the circle (2 * PI * r)
+
+    const interval = setInterval(() => {
+      percentage += Math.floor(Math.random() * 3) + 1; // Increase by 1-3%
+      if (percentage >= 100) {
+        percentage = 100;
+        clearInterval(interval);
+        loader.classList.add('fade-out');
+        setTimeout(() => loader.style.display = 'none', 500);
+      }
+
+      // Update Text
+      percentageText.textContent = percentage + '%';
+
+      // Update Circle Stroke Offset
+      const offset = totalLength - (totalLength * percentage / 100);
+      progressBar.setAttribute('stroke-dashoffset', offset);
+    }, 50);
+
+    // Failsafe to hide loader after actual load
+    window.addEventListener('load', function() {
+      if (percentage < 100) {
+        percentage = 100;
+        percentageText.textContent = '100%';
+        clearInterval(interval);
+        progressBar.setAttribute('stroke-dashoffset', 0);
+        loader.classList.add('fade-out');
+        setTimeout(() => loader.style.display = 'none', 500);
+      }
+    });
+  </script>
+
 </body>
 </html>
