@@ -242,8 +242,8 @@ vlibrary=()=>{
 
 //________________________________
 
-vlibraryy=()=>{
-	open("file:///storage/emulated/0/projects/vlibrary/vlibrary.html");
+vlibrary1=()=>{
+	open("https://smtechnology133.github.io/africaonline/vlibrary.html");
 }
 
 //________________________________
