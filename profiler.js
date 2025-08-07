@@ -230,7 +230,7 @@ learning=()=>{
 
 //________________________________
 
-s300=()=>{
+GPT3000=()=>{
 	open("https:///www.salmandascript.github.io/wikipedia");
 }
 
@@ -248,8 +248,20 @@ vlibrary1=()=>{
 
 //________________________________
 
-adverts=()=>{
+onlineShoping=()=>{
 	open("file:///storage/emulated/0/projects/adverts/adverts.html");
+}
+
+primaryLevel=()=>{
+	open("https://smtechnology133.github.io/africaonline/EnglishMSCE/subjects.html");
+}
+
+juniorLevel=()=>{
+	open("https://smtechnology133.github.io/africaonline/EnglishMSCE/subjects.html");
+}
+
+seniorLevel=()=>{
+	open("https://smtechnology133.github.io/africaonline/EnglishMSCE/subjects.html");
 }
 //endfunctions to open various pages
 

@@ -291,17 +291,17 @@ margin-top: 6px;
       <ul class="nav navbar-nav">
  <li><a onclick="africaOnlineHome(); color(this)" style="color: orange;"><mark>🏡Home</mark></a></li>
         
-        <li><a onclick="s300(); color(this)" style="background: teal;" href="#"><mark>🤖 GPT-S300</mark></a></li>
+        <li><a onclick="GPT-3000(); color(this)" style="background: teal;" href="#"><mark>🤖 GPT3000</mark></a></li>
         
         <li class="dropdown">
-          <a onclick="color(this)" style="color: orange; background: teal; border: solid orange 1px; margin-left: 8px;" data-toggle="dropdown" class="dropdown-toggle" href="#"><mark>📄Exam<b class="caret"></b></mark></a>
+          <a onclick="color(this)" style="color: orange; background: teal; border: solid orange 1px; margin-left: 8px;" data-toggle="dropdown" class="dropdown-toggle" href="#"><mark>📄Learn<b class="caret"></b></mark></a>
           
           <ul role="menu" class="dropdown-menu">
-            <li ><a style="color: orange; background: teal;" href="file:///storage/emulated/0/projects/vlibrary/passcode.html">📄PSLC Level Section</a></li>
+            <li ><a style="color: orange; background: teal;" onclick="primaryLevel();">📄PSLC Level Section</a></li>
             
-           <li><a style="color: orange; background: teal;" href="file:///storage/emulated/0/projects/examMaterial/jceExams/englishExam/subjects.html">📄JCE Level Section</a></li>
+           <li><a style="color: orange; background: teal;" onclick="juniorLevel();">📄JCE Level Section</a></li>
   
-            <li><a style="color: orange; background: teal;" href="file:///storage/emulated/0/projects/examMaterial/pslcExams/englishExam/subjects.html">📄MSCE Level Section</a></li>
+            <li><a style="color: orange; background: teal;" onclick="seniorLevel();">📄MSCE Level Section</a></li>
           </ul>
         </li>
       </ul>
@@ -398,10 +398,10 @@ document.write("<h5>"+Date()+"</h5>");
 <!--end details modal -->
 	
 	 <p><a style="text-decoration: none;" href="https://smtechnology133.github.io/africaonline/pdf.html">
-	 	<span>SECTION FOR PDF FILES</span></a></p><br>
+	 	<span>A SECTION OF PDF DOCUMENTS</span></a></p>
 	 
-	 <p><a style="text-decoration: none;" href="https://smtechnology133.github.io/africaonline/apps.html">
-	 	<span>SECTION FOR APPLICATIONS</span></a></p><br>
+	 <!--<p><a style="text-decoration: none;" href="https://smtechnology133.github.io/africaonline/apps.html">
+	 	<span>SECTION FOR APPLICATIONS</span></a></p><br>-->
 	 
 	 <!--button-->
 	 <button style="border-color: orange" type="button" class="btn btn-secondary btn-sm" onclick="learning();color(this)">
@@ -414,11 +414,12 @@ document.write("<h5>"+Date()+"</h5>");
 	 <button onclick="color(this)" style="border-color: orange" type="button" data-toggle="dropdown" class="btn btn-secondary btn-sm dropdown-toggle">🔖 Options ⏏</button> 
 	 
 	 <ul style="background: teal; border: solid orange 1px;" class="dropdown-menu"> 
-   <li><a style="color: orange;" href="file:///storage/emulated/0/projects/examMaterial/msceExams/englishExam/subjects.html">PSLC Level Section</a></li> 
+   <li><a style="color: orange;"
+   onclick="primaryLevel();">PSLC Level Section</a></li> 
    
-      <li><a style="color: orange;" href="file:///storage/emulated/0/projects/examMaterial/jceExams/englishExam/subjects.html">JCE Level Section</a></li> 
+      <li><a style="color: orange;" onclick="juniorLevel();">JCE Level Section</a></li> 
     
-    <li><a style="color: orange;" href="file:///storage/emulated/0/projects/examMaterial/pslcExams/englishExam/subjects.html">MSCE Level Section</a></li>  
+    <li><a style="color: orange;" onclick="seniorLevel();">MSCE Level Section</a></li>  
     
     <li><a onclick="wikipedia();" style="color: orange;">🌐 Wikipedia</a></li>
     
@@ -435,7 +436,7 @@ document.write("<h5>"+Date()+"</h5>");
 	   
 	   <button onclick="ar();" style="background: teal; border: solid orange 1px; color: orange" type="button" class="btn btn-primary btn-sm btn-block"> 🔘 Explore AR 3D Figures</button> 
 	   
-<button onclick="adverts();" style="background: teal; border: solid orange 1px; color: orange" type="button" class="btn btn-primary btn-sm btn-block"> 🎉 Bussness Advertisments</button> 
+<button onclick="onlineShoping();" style="background: teal; border: solid orange 1px; color: orange" type="button" class="btn btn-primary btn-sm btn-block"> 🎉 Online Business adverts</button> 
 	    
 	     <button id="shbtn1" style="background: teal; border: solid orange 1px; color: orange" type="button" class="btn btn-primary btn-sm btn-block">🔎&nbsp; Search Content from the web</button><br>
 	     
@@ -555,7 +556,7 @@ document.write("<h5>"+Date()+"</h5>");
         setTimeout(() => loader.style.display = 'none', 500);
       }
     });
-    	//end page loading animation javascript
+ //end page loading animation javascript
   </script>
 	 	
 	<!--external scripts links-->
