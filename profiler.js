@@ -253,15 +253,15 @@ onlineShoping=()=>{
 }
 
 primaryLevel=()=>{
-	open("https://smtechnology133.github.io/africaonline/EnglishMSCE/subjects.html");
+	open("https://smtechnology133.github.io/africaonline/passcode.html");
 }
 
 juniorLevel=()=>{
-	open("https://smtechnology133.github.io/africaonline/EnglishMSCE/subjects.html");
+	open("https://smtechnology133.github.io/africaonline/passcode.html");
 }
 
 seniorLevel=()=>{
-	open("https://smtechnology133.github.io/africaonline/EnglishMSCE/subjects.html");
+	open("https://smtechnology133.github.io/africaonline/passcode.html");
 }
 //endfunctions to open various pages
 
