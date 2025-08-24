@@ -58,7 +58,7 @@ body{
 }
 
 span{
-	font-size: 16px;
+	font-size: 15px;
 	color: white;
 }
 
@@ -107,7 +107,7 @@ mark{
    /* Align slide image horizontally center */ 
   } 
    
-  .bs-example { 
+  .bs-example {  
    margin: 0px; 
   } 
   /*css image carousels */
@@ -291,17 +291,17 @@ margin-top: 6px;
       <ul class="nav navbar-nav">
  <li><a onclick="africaOnlineHome(); color(this)" style="color: orange;"><mark>🏡Home</mark></a></li>
         
-        <li><a onclick="GPT-3000(); color(this)" style="background: teal;" href="#"><mark>🤖 GPT3000</mark></a></li>
+        <li><a onclick="color(this);GPT3000();" style="background: teal;" href="#"><mark>🤖 GPT3000</mark></a></li>
         
         <li class="dropdown">
           <a onclick="color(this)" style="color: orange; background: teal; border: solid orange 1px; margin-left: 8px;" data-toggle="dropdown" class="dropdown-toggle" href="#"><mark>📄Learn<b class="caret"></b></mark></a>
           
           <ul role="menu" class="dropdown-menu">
-            <li ><a style="color: orange; background: teal;" onclick="primaryLevel();">📄PSLC Level Section</a></li>
+        <!--<li ><a style="color: orange; background: teal;" onclick="primaryLevel();">📄Primary Level Section</a></li>-->
             
-           <li><a style="color: orange; background: teal;" onclick="juniorLevel();">📄JCE Level Section</a></li>
+           <li><a style="color: orange; background: teal;" onclick="color(this);passcode();">📄Junior Level Section</a></li>
   
-            <li><a style="color: orange; background: teal;" onclick="seniorLevel();">📄MSCE Level Section</a></li>
+            <li><a style="color: orange; background: teal;" onclick="color(this);passcode();">📄Senior Level Section</a></li>
           </ul>
         </li>
       </ul>
@@ -397,33 +397,37 @@ document.write("<h5>"+Date()+"</h5>");
 </div>
 <!--end details modal -->
 	
-	 <p><a style="text-decoration: none;" href="https://smtechnology133.github.io/africaonline/pdf.html">
-	 	<span>A SECTION OF PDF DOCUMENTS</span></a></p>
+	 <p><a style="text-decoration: none;" href="https://smtechnology133.github.io/africaonline/juniorSubjects.html">
+	 	<span>SECTION FOR JUNIOR LEVEL PDF FILES</span></a></p>
 	 
-	 <!--<p><a style="text-decoration: none;" href="https://smtechnology133.github.io/africaonline/apps.html">
-	 	<span>SECTION FOR APPLICATIONS</span></a></p><br>-->
+	 <p><a style="text-decoration: none;" href="https://smtechnology133.github.io/africaonline/seniorSubjects.html">
+	 	<span>SECTION FOR SENIOR LEVEL PDF FILES</span></a></p>
 	 
-	 <!--button-->
-	 <button style="border-color: orange" type="button" class="btn btn-secondary btn-sm" onclick="learning();color(this)">
-🎓 Learning </button>
+<!--button-->
+<!--drop up menu-->
+	 <div class="btn-group dropup"> 
+  <div class="btn-group"> 
+	 <button onclick="color(this)" style="border-color: orange" type="button" data-toggle="dropdown" class="btn btn-secondary btn-sm dropdown-toggle">🎓 Learning ⏏</button> 
+	 
+	 <ul style="background: teal; border: solid orange 1px;" class="dropdown-menu"> 
+     
+     <li><a onclick="color(this);passcode();" style="color: orange;">📄 Junior Level Section</a></li>
+     
+      <li><a onclick="color(this);passcode();" style="color: orange;">📄 Senior Level Section</a></li>
+   </ul> 
+  </div> 
+ </div> 
+ <!--end drop up menu-->
 
 	 &nbsp; &nbsp;
 	 <!--drop up menu-->
 	 <div class="btn-group dropup"> 
   <div class="btn-group"> 
-	 <button onclick="color(this)" style="border-color: orange" type="button" data-toggle="dropdown" class="btn btn-secondary btn-sm dropdown-toggle">🔖 Options ⏏</button> 
+	 <button onclick="color(this)" style="border-color: orange" type="button" data-toggle="dropdown" class="btn btn-secondary btn-sm dropdown-toggle">🔖 Option ⏏</button> 
 	 
 	 <ul style="background: teal; border: solid orange 1px;" class="dropdown-menu"> 
-   <li><a style="color: orange;"
-   onclick="primaryLevel();">PSLC Level Section</a></li> 
-   
-      <li><a style="color: orange;" onclick="juniorLevel();">JCE Level Section</a></li> 
-    
-    <li><a style="color: orange;" onclick="seniorLevel();">MSCE Level Section</a></li>  
-    
-    <li><a onclick="wikipedia();" style="color: orange;">🌐 Wikipedia</a></li>
-    
-     <li><a onclick="seer();" style="color: orange;">👁 Seer</a></li>
+     
+     <li><a onclick="color(this);wikipedia();" style="color: orange;">🌐 Wikipedia Search</a></li>
    </ul> 
   </div> 
  </div> 
@@ -460,9 +464,9 @@ document.write("<h5>"+Date()+"</h5>");
 </div></div></br>
 
 <!--links back & forward--> 		
-	 <span><a href="#" style="text-decoration: none; font-size: 16px;" style="color:yellow">&laquo;Home Page</a> |
+	 <span><a href="#" style="text-decoration: none; font-size: 14px;" style="color:yellow">&laquo;Home Page</a> |
 	 	
-	 <a href="#" style="text-decoration: none; font-size: 16px;" style="color:yellow">Resource Page &raquo;</a>	</span><br>	<br>	
+	 <a href="#" style="text-decoration: none; font-size: 14px;" style="color:yellow">Resource Page &raquo;</a>	</span><br>	<br>	
 	 
 	  <!-- page loading animation -->
   <div id="loader-overlay">
@@ -499,7 +503,7 @@ document.write("<h5>"+Date()+"</h5>");
 <!--end custom alert box-->
 	 	
 	 	<!--floating button-->
-	 	<button class="floating-btn" onclick="scrollToTop(); s300();">🤖</button>
+	 	<button class="floating-btn" onclick="scrollToTop(); GPT3000();">🤖</button>
 
 	 	  <script>
     function scrollToTop() {

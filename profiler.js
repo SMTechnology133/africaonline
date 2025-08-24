@@ -224,8 +224,8 @@ wikipedia=()=>{
 
 //________________________________
 
-learning=()=>{
-	open("file:///storage/emulated/0/projects/learning/learning.html");
+seniorLearning=()=>{
+	open("https://smtechnology133.github.io/africaonline/passcode.html");
 }
 
 //________________________________
@@ -249,11 +249,7 @@ vlibrary1=()=>{
 //________________________________
 
 onlineShoping=()=>{
-	open("file:///storage/emulated/0/projects/adverts/adverts.html");
-}
-
-primaryLevel=()=>{
-	open("https://smtechnology133.github.io/africaonline/passcode.html");
+	open("https://smtechnology133.github.io/OnlineShopping/onlineShopping.html");
 }
 
 juniorLevel=()=>{
@@ -261,6 +257,10 @@ juniorLevel=()=>{
 }
 
 seniorLevel=()=>{
+	open("https://smtechnology133.github.io/africaonline/passcode.html");
+}
+
+arApps=()=>{
 	open("https://smtechnology133.github.io/africaonline/passcode.html");
 }
 //endfunctions to open various pages
