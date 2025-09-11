@@ -252,18 +252,10 @@ onlineShoping=()=>{
 	open("https://smtechnology133.github.io/OnlineShopping/onlineShopping.html");
 }
 
-juniorLevel=()=>{
+passcode=()=>{
 	open("https://smtechnology133.github.io/africaonline/passcode.html");
 }
-
-seniorLevel=()=>{
-	open("https://smtechnology133.github.io/africaonline/passcode.html");
-}
-
-arApps=()=>{
-	open("https://smtechnology133.github.io/africaonline/passcode.html");
-}
-//endfunctions to open various pages
+//end functions to open various pages
 
 //functione to change button background color on click
 function color(element) {

@@ -30,7 +30,7 @@ content="noindex,nofollow"/>
   
 	
 	 <link rel="stylesheet" href="profiler.css" type="text/css"/>
-		 
+	 
 		 <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 
 	 <style>
@@ -75,7 +75,7 @@ p{
 	border-radius: 6px;
 	background: teal;
 	color: orange;
-	font-family: courier;
+	font-family: georgia;
 }
 
 h1{
@@ -104,7 +104,7 @@ button{
 /*css for QR Code*/
     button {
       padding: 4px 6px;
-      font-size: 12px;
+      font-size: 9px;
       background-color: teal;
       color: teal;
       border: solid orange 1px;
@@ -114,7 +114,7 @@ button{
     }
 
     /* Modal backdrop */
-    .modal {
+    .modall {
       position: fixed;
       display: none;
       z-index: 1;
@@ -125,12 +125,12 @@ button{
       transition: opacity 0.3s ease;
     }
 
-    .modal.show {
+    .modall.show {
       display: block;
       opacity: 1;
     }
 
-    .modal.hide {
+    .modall.hide {
       opacity: 0;
     }
 
@@ -241,9 +241,11 @@ var d = new Date(); document.getElementById("demo").innerHTML = d;
 	<br>
 		
 	<p style="font-size: 12px; color: orange;">By using this application you agree to the terms of service 
-<button onclick="showAlert('This application contains adverts, while navigating the system you will only to close the ads, or follow that link, if is of any interest. Within virtual library you will need to subscribe to access Examination material.'); color(this)"><mark>Learn more</mark></button>
+<button onclick="showAlert('This application is still under development, if you have any feedback +265 982177920 is the number to use, if it happens that you have a legitimate business there is an advertising space on africa online market. you are welcome.'); color(this)"><mark>Learn more</mark></button>
 
-<button onclick="showModal(); color(this)"><mark>QR Code</mark></button>
+<button onclick="color(this); showModal();"><mark>QR Code</mark></button>
+
+<button onclick="color(this);" data-toggle="modal" data-target="#myModal1"><mark>App Info</mark></button>
 
 <button onclick="shareWebsite(); color(this)"><mark>↪</mark></button>
 <br><br></p><br>
@@ -251,7 +253,7 @@ var d = new Date(); document.getElementById("demo").innerHTML = d;
 	 <button onclick="vlibrary();" style="background: teal; border: solid orange 1px; color: orange" type="button" class="btn btn-primary btn-sm btn-block">Continue...</button><br> <br>
 	 
 	 <!--QR Code Modal -->
-<div id="qrModal" class="modal">
+<div id="qrModal" class="modall">
   <div class="modal-content">
     <span class="close" onclick="closeModal()">Close&times;</span>
     <h3>Scan the QR Code</h3>
@@ -260,11 +262,35 @@ var d = new Date(); document.getElementById("demo").innerHTML = d;
 </div>
 <!--end QR Code Modal -->
 
+<!--details modal -->
+<div id="myModal1" class="modal fade">
+<div class="modal-dialog; modal-lg"> 
+<div class="modal-content"> 
+
+<h6 class="modal-title" style="color: orange;"><img class="pictureee" src="africaOnlineIcon.png"> Application Information.</h6> 
+<br> 
+<div class="modal-body; salma">
+<p style="color: orange; font-size: 12px; margin: 4px;">App Name:&nbsp; Africa Online <br>
+		App Version:&nbsp; 1.0.0.0<br>
+	Developer:&nbsp; SM Technology<br>
+	
+			Location:&nbsp; Lilongwe, Malawi<br>
+				Phone:&nbsp; +265 982177920<br>
+					E-mail:&nbsp; smtechnology133@gmail.com</p>
+</div> 
+<br> 
+<button onclick="color(this);"style="border: solid orange 1px; border-radius: 4px;" type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close &times;
+</button> 
+</div> 
+</div> 
+</div>
+<!--end details modal -->
+
 <!--code to show custom alert-->
 <div id="overlay"></div>
 <div id="customAlert">
-  <p style="font-size: 12px; font-family: courier;" id="alertMessage"></p>
-  <button style="background: maroon; color: orange;" onclick="closeAlert()">OK</button>
+  <p style="font-size: 10px; font-family: georgia;" id="alertMessage"></p>
+  <button style="background: maroon; color: orange; border: 1px solid orange;" onclick="closeAlert()">OK</button>
 </div>
 
 <!-- Sound file (you can replace this with another link or base64) -->
@@ -304,6 +330,7 @@ var d = new Date(); document.getElementById("demo").innerHTML = d;
 <script src="bootstrap.min.js"></script>
 
 <script src="profiler.js"></script>
+
 <!--end external scripts links-->
 </body>
 </html>

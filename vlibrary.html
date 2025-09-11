@@ -1,4 +1,4 @@
- <!DOCTYPE html>    
+ <!DOCTYPE html>     
  <html lang="en" manifest="https://smtechnology133.github.io/africaonline/vlibrary.html">
  <head>
 	<title>Africa Online Virtual Library</title> 
@@ -257,7 +257,7 @@ margin-top: 6px;
       font-size: 20px;
       font-family: Arial, sans-serif;
       color: #333;
-    }
+    } 
 
     /* Fade Out Animation */
     .fade-out {
@@ -272,6 +272,7 @@ margin-top: 6px;
  
 	<body style="border: solid orange 1px; border-radius: 2px;">
  
+ <!--navigation menu-->
  <nav style="font-size: 4px;" role="navigation" class="navbar navbar-default navbar-fixed-top" id="gradclass">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -281,7 +282,7 @@ margin-top: 6px;
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button><br>
-      <a style="color: orange; font-size: 20px; background: teal;" onclick="africaOnlineHome()" class="navbar-brand">Africa Online</a> 
+      <a style="color: orange; font-size: 16px; background: teal;" onclick="africaOnlineHome()" class="navbar-brand">Africa Online VLibrary</a> 
       
       <img class="picturee" src="africaOnlineIcon.png"/>
     </div><br>
@@ -294,14 +295,18 @@ margin-top: 6px;
         <li><a onclick="color(this);GPT3000();" style="background: teal;" href="#"><mark>🤖 GPT3000</mark></a></li>
         
         <li class="dropdown">
-          <a onclick="color(this)" style="color: orange; background: teal; border: solid orange 1px; margin-left: 8px;" data-toggle="dropdown" class="dropdown-toggle" href="#"><mark>📄Learn<b class="caret"></b></mark></a>
+          <a onclick="color(this)" style="color: orange; background: teal; border: solid orange 1px; margin-left: 8px;" data-toggle="dropdown" class="dropdown-toggle" href="#"><mark>📄Option<b class="caret"></b></mark></a>
           
           <ul role="menu" class="dropdown-menu">
         <!--<li ><a style="color: orange; background: teal;" onclick="primaryLevel();">📄Primary Level Section</a></li>-->
             
-           <li><a style="color: orange; background: teal;" onclick="color(this);passcode();">📄Junior Level Section</a></li>
+           <li><a style="color: orange; background: teal;" onclick="color(this);passcode();">📄Junior Level Learn</a></li>
   
-            <li><a style="color: orange; background: teal;" onclick="color(this);passcode();">📄Senior Level Section</a></li>
+            <li><a style="color: orange; background: teal;" onclick="color(this);passcode();">📄Senior Level Learn</a></li>
+            
+             <li><a style="color: orange; background: teal;" onclick="color(this);ARpasscode();">🔘3D AR Applications</a></li>
+            
+             <li><a onclick="color(this);" style="color: orange; background: teal;" href="file:///storage/emulated/0/projects/examMaterial/jceExams/englishExam/subjects.html">🎉Online Business Ad</a></li>
           </ul>
         </li>
       </ul>
@@ -320,12 +325,13 @@ margin-top: 6px;
 <!--end button to share website-->
 
 	 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-	 <button onclick="showAlert('Hello! This is a custom alert with sound! salmanda open everything as you wish');color(this)" style="border-color:orange" type="button"  class="btn btn-secondary btn-sm">Help 📰</button> 
+	 <button onclick="color(this); showAlert('This application is still under development, if you have any feedback +265 982177920 is the number to use, if it happens that you have a legitimate business there is an advertising space on africa online market. you are welcome.');color(this);" style="border-color:orange" type="button"  class="btn btn-secondary btn-sm">Help 📰</button> 
  
  &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;
 		<button onclick="color(this)" style="border-color:orange" type="button" class="btn btn-secondary btn-sm">Connect  💬</button>
 </br></br></div>
 </nav><br><br><br>
+<!--end navigation menu-->
 	 
 	 	<div style="border:1px solid gray; padding:2px; border-radius: 1px;" id="gradclass" class="all">
 	 		
@@ -382,11 +388,16 @@ document.write("<h5>"+Date()+"</h5>");
 <div class="modal-content"> 
 <div class="modal-header"> 
 
-<h6 class="modal-title">From SM Tech, Welcome knowledge Seeker.</h6> 
+<h6 class="modal-title"><img class="pictureee" src="africaOnlineIcon.png"> Application Information.</h6> 
 </div> 
-<div class="modal-body; salma"> 
-<p style="color: orange; font-size: 12px;">(Replace this text in here)</p> 
-
+<div class="modal-body; salma">
+<p style="color: orange; font-size: 12px; margin: 4px;">App Name:&nbsp; Africa Online <br>
+		App Version:&nbsp; 1.0.0.0<br>
+	Developer:&nbsp; SM Technology<br>
+	
+			Location:&nbsp; Lilongwe, Malawi<br>
+				Phone:&nbsp; +265 982177920<br>
+					E-mail:&nbsp; smtechnology133@gmail.com</p>
 </div> 
 <div class="modal-footer"> 
 <button style="border: solid orange 1px; border-radius: 4px;" type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close &times;
@@ -428,6 +439,8 @@ document.write("<h5>"+Date()+"</h5>");
 	 <ul style="background: teal; border: solid orange 1px;" class="dropdown-menu"> 
      
      <li><a onclick="color(this);wikipedia();" style="color: orange;">🌐 Wikipedia Search</a></li>
+     
+      <li><a onclick="color(this);wikipedia();" style="color: orange;">🌐 AO News Channel</a></li>
    </ul> 
   </div> 
  </div> 
@@ -438,7 +451,7 @@ document.write("<h5>"+Date()+"</h5>");
 </br></br>
 	   <!--end button-->
 	   
-	   <button onclick="ar();" style="background: teal; border: solid orange 1px; color: orange" type="button" class="btn btn-primary btn-sm btn-block"> 🔘 Explore AR 3D Figures</button> 
+	   <button onclick="ARpasscode();" style="background: teal; border: solid orange 1px; color: orange" type="button" class="btn btn-primary btn-sm btn-block"> 🔘 Explore AR 3D Figures</button> 
 	   
 <button onclick="onlineShoping();" style="background: teal; border: solid orange 1px; color: orange" type="button" class="btn btn-primary btn-sm btn-block"> 🎉 Online Business adverts</button> 
 	    
@@ -495,7 +508,7 @@ document.write("<h5>"+Date()+"</h5>");
 <div id="overlay"></div>
 <div id="customAlert">
   <p style="color: orange; font-family: georgia;" id="alertMessage"></p>
-  <button onclick="closeAlert()">OK</button>
+  <button style="border: 1px solid orange;" onclick="closeAlert()">OK</button>
 </div>
 
 <!-- Sound file (you can replace this with another link or base64) -->
@@ -503,7 +516,7 @@ document.write("<h5>"+Date()+"</h5>");
 <!--end custom alert box-->
 	 	
 	 	<!--floating button-->
-	 	<button class="floating-btn" onclick="scrollToTop(); GPT3000();">🤖</button>
+	 	<button class="floating-btn" onclick="color(this);scrollToTop(); GPT3000();">🤖</button>
 
 	 	  <script>
     function scrollToTop() {

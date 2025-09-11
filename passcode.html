@@ -64,7 +64,7 @@ content="noindex,nofollow"/>
     
     <input type="password" id="passcodeInput" placeholder="Enter passcode"><br><br><br>
   	
-<button onclick="checkPasscode()">Submit</button><br><br>
+<button onclick="color(this);checkPasscode()">Submit</button><br><br>
 </div>
 
   <div id="logoutSection" style="display: none;">
@@ -73,13 +73,13 @@ content="noindex,nofollow"/>
     <button onclick="logout()">Logout</button>
   </div>
   
-  <div id="returns">To access these services you will need to send K1000  to +265982177920, then a passcode will be sent you use it to log in, while doing that you will be supporting our project. Good luck.</div><br>
+  <div id="returns">To access these services you will need to send K1000  to +265982177920, then a passcode will be sent to you use it to log in, while doing that you will be supporting our project. Good luck.</div><br>
   	
   	 	<footer>&copy 2025 Copyright SM Technology</footer>
 
   <script>
     const correctPasscode = "3690030"; // Change this to your desired passcode
-    const redirectURL = "https://salmandascript.github.io/EnglishMSCE/subjects.html"; // URL to redirect to
+    const redirectURL = "https://salmandascript.github.io/LearningJunior/learningJunior.html"; // URL to redirect to
 
     // Check if user is already authenticated
     if (localStorage.getItem("authenticated") === "true") {
@@ -107,5 +107,7 @@ content="noindex,nofollow"/>
       location.reload(); // Refresh the page
     }
   </script>
+  
+  <script src="file:///storage/emulated/0/projects/vlibrary/profiler.js"></script>
 </body>
 </html>
