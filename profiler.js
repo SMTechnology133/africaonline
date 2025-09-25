@@ -252,6 +252,10 @@ onlineShoping=()=>{
 	open("https://smtechnology133.github.io/OnlineShopping/onlineShopping.html");
 }
 
+ARpasscode=()=>{
+	open("https://smtechnology133.github.io/ARmagic/ARpasscode.html");
+}
+
 passcode=()=>{
 	open("https://smtechnology133.github.io/africaonline/passcode.html");
 }
