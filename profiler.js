@@ -225,7 +225,7 @@ wikipedia=()=>{
 //________________________________
 
 seniorLearning=()=>{
-	open("https://smtechnology133.github.io/africaonline/passcode.html");
+	open("https://smtechnology133.github.io/LearningJunior/juniorLearning.html");
 }
 
 //________________________________
