@@ -57,7 +57,7 @@ $("#d1").toggle();
 //script to generate QR Code
   const modal = document.getElementById("qrModal");
   const qrContainer = document.getElementById("qrcode");
-  const websiteURL = "https://example.com";
+  const websiteURL = "https://smtechnology133.github.io/africaonline/";
 
   function showModal() {
     qrContainer.innerHTML = ""; // Clear old QR
