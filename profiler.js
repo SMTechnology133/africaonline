@@ -259,6 +259,10 @@ ARpasscode=()=>{
 passcode=()=>{
 	open("https://smtechnology133.github.io/africaonline/passcode.html");
 }
+
+onlineMarket=()=>{
+	open("https://smtechnology133.github.io/OnlineShopping/onlineShopping.html");
+}
 //end functions to open various pages
 
 //functione to change button background color on click
