@@ -24,7 +24,7 @@
      <meta name="robots"
 content="noindex,nofollow"/> 
     
-    <meta name="theme-color" content="teal"/>
+    <meta name="theme-color" content="teal"/> 
   
   <link rel="icon" type="image" href="africaOnlineIcon.png"/>
   
@@ -94,7 +94,7 @@ mark{
 	border-radius: 3px;
 	background-color: orange;
 	color: teal;
-}
+} 
 
 /*css image carousels */
   .carousel { 
@@ -422,9 +422,9 @@ document.write("<h5>"+Date()+"</h5>");
 	 
 	 <ul style="background: teal; border: solid orange 1px;" class="dropdown-menu"> 
      
-     <li><a onclick="color(this);passcode();" style="color: orange;">📄 Junior Level Section</a></li>
+     <li><a onclick="color(this); passcode();" style="color: orange;">📄 Junior Level Section</a></li>
      
-      <li><a onclick="color(this);passcode();" style="color: orange;">📄 Senior Level Section</a></li>
+      <li><a onclick="color(this); passcode();" style="color: orange;">📄 Senior Level Section</a></li>
    </ul> 
   </div> 
  </div> 
@@ -459,11 +459,13 @@ document.write("<h5>"+Date()+"</h5>");
 	     
 	     <!--toggle function for searching google-->
 <div class="quizz" id="d1" style="display:none"><br>
-  <input type="text" id="searchInput" placeholder="Enter search term...">
-  <button style="font-size: 10px; margin: 4px;" onclick="search()">Search</button>
-<br></div>
+ <form id="pdfSearchForm">
+        <input type="text" id="query" placeholder="Enter search term..." required>
+        <button style="font-size: 10px; margin: 4px;" type="submit">Search Google</button>
+ <br></form>
+</div>
 <!--end toggle function for searching google-->
-	   
+
 	   <!--button-->
 	 <button onclick="color(this)" style="border-color: orange" type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#myModal1"><mark>📰 See details</mark></button>
 
@@ -517,7 +519,7 @@ document.write("<h5>"+Date()+"</h5>");
 	 	
 	 	<!--floating button-->
 	 	<button class="floating-btn" onclick="color(this);scrollToTop(); GPT3000();">🤖</button>
-
+	 	
 	 	  <script>
     function scrollToTop() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -527,13 +529,18 @@ document.write("<h5>"+Date()+"</h5>");
   
   <!--script to search google-->
    <script>
-    function search() {
-      const query = document.getElementById("searchInput").value;
-      if (query.trim() !== "") {
-        window.open("https://www.google.com/search?q=" +- encodeURIComponent(query), "_blank");
-      }
-    }
-  </script>
+   	const form = document.getElementById('pdfSearchForm');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const query = document.getElementById('query').value.trim();
+            if (query) {
+                // Construct Google search URL that strictly searches for PDFs
+                const googleUrl = `https://www.google.com/search?q="${encodeURIComponent(query)}"+-filetype:pdf`;
+                window.open(googleUrl, '_blank'); // Open results in a new tab
+            }
+        });
+ </script>
   <!--end script to search google-->
   
   <script>
