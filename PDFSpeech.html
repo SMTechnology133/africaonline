@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PDF Audio Player</title>
+
+<meta charset="UTF-8"/>
+	 
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+ 	
+ 	<meta name="keywords" content="PDF Audio Player, Reading Audio, PDF Files to Audio"/>
+
+<meta name="Author" content="Salmanda"/> 
+
+<meta name="revised" content="Profiler, 2/10/2025"/>
+ 
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+    
+    <meta name="mobile-web-app-capable" content="yes"/>
+    
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    
+    <meta name="msapplication-starturl" content=""/>
+    
+     <meta name="robots"
+content="noindex,nofollow"/> 
+    
+    <meta name="theme-color" content="teal"/> 
+  
+  <link rel="icon" type="image" href="africaOnlineIcon.png"/>
+  
+	
+	 <link rel="stylesheet" href="profiler.css" type="text/css"/>
+		 
+		 <link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>
+
+
+<style>
+	body {
+ margin-top: 5px;
+ padding: 20px;
+ text-align: center;
+	font-weight: bolder;
+ font-stretch:extra-expanded;
+ font-family: georgia;
+ border: 1px solid orange;
+ border-radius: 6px;
+ background: linear-gradient(to right, maroon, teal);
+}
+  
+  button {
+    padding: 10px 16px;
+    cursor: pointer;
+    border-radius: 6px;
+    border: none;
+    background: #007bff;
+    color: white;
+    margin: 3px;
+  }
+  
+  /* Modal */
+  .modal1 {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modal-content1 {
+    background: linear-gradient(to right, maroon, teal);
+    margin: auto;
+    padding: 10px;
+    width: 100%;
+    border-radius: 10px;
+    height: 330px;
+    border: 1px solid orange;
+  }
+  
+  .close {
+    float: right;
+    font-size: 16px;
+    cursor: pointer;
+    background: maroon;
+    color:orange;
+  }
+  
+  input[type="range"] {
+    width: 335px;
+  }
+  
+  h3,h2{
+  	border: 1px solid orange;
+  	color: orange;
+  	border-radius: 8px;
+  	font-size: 25px;
+  }
+  
+  button{
+  	color: orange;
+  	background: teal;
+  	border: 1px solid orange;
+  }
+</style>
+</head>
+
+<body>
+	<img class="picturee" src="africaOnlineIcon.png">
+		
+<br><br><br><br>
+<h2>PDF Audio Player</h2>
+<br><br><br><br>
+<button id="openModalS">📄 Select PDF File</button>
+
+<br><br><br><br>
+<a style="border:none;" href="https://smtechnology133.github.io/africaonline/vlibrary.html"><button>🏡 Exit</button></a>
+
+<div id="pdfModalS" class="modal1">
+  <div class="modal-content1">
+    <span class="close"> &nbsp;Close &times; &nbsp; </span>
+ <br>
+ 	
+ <h3>Select a PDF to Listen</h3>
+ <br>
+    <input style="width: 100%;" type="file" id="pdfFile" accept="application/pdf">
+
+    <br><br>
+    <button id="playBtn">Play</button>
+    <button id="pauseBtn">Pause</button>
+    <button id="resumeBtn">Resume</button>
+    <button id="stopBtn">Stop</button>
+
+    <br><br>
+    <label style="color:orange;">Volume: </label>
+   <input type="range" id="volumeSlider" min="0" max="1" step="0.1">
+  </div>
+</div>
+
+<br><br><br><br><br>
+<footer style="font-size: 11px;">&copy 2025 Copyright SM Technology</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+
+<script>
+const modal = document.getElementById("pdfModalS");
+const openModal = document.getElementById("openModalS");
+const closeModal = document.querySelector(".close");
+let pdfDoc = null;
+let speech;
+let isPlaying = false;
+
+// Show modal
+openModal.onclick = function() {
+  modal.style.display = "block";
+};
+
+// Close modal
+closeModal.onclick = function() {
+  modal.style.display = "none";
+};
+
+// Close on background click
+window.onclick = function(event) {
+  if (event.target == modal) modal.style.display = "none";
+};
+
+// Load PDF & update page info
+document.getElementById("pdfFile").addEventListener("change", async function() {
+  const file = this.files[0];
+  if (!file) return;
+
+  const arrayBuffer = await file.arrayBuffer();
+  pdfDoc = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+
+  document.getElementById("pageInfo").innerText = `/ ${pdfDoc.numPages} pages`;
+  alert("PDF Loaded! Select a page and press Play.");
+});
+
+// Extract page text
+async function getPageText(pageNumber) {
+  const page = await pdfDoc.getPage(pageNumber);
+  const textContent = await page.getTextContent();
+  return textContent.items.map(item => item.str).join(" ");
+}
+
+// Play selected page
+document.getElementById("playBtn").onclick = async function() {
+  if (!pdfDoc) return alert("Load a PDF first.");
+
+  const selectedPage = parseInt(document.getElementById("pageNumber").value);
+
+  if (selectedPage < 1 || selectedPage > pdfDoc.numPages) {
+    return alert("Invalid page number!");
+  }
+
+  const text = await getPageText(selectedPage);
+  speech = new SpeechSynthesisUtterance(text);
+  speech.volume = document.getElementById("volumeSlider").value || 1;
+  speechSynthesis.speak(speech);
+  isPlaying = true;
+};
+
+// Pause
+document.getElementById("pauseBtn").onclick = function() {
+  if (isPlaying) speechSynthesis.pause();
+};
+
+// Resume
+document.getElementById("resumeBtn").onclick = function() {
+  speechSynthesis.resume();
+};
+
+// Stop
+document.getElementById("stopBtn").onclick = function() {
+  speechSynthesis.cancel();
+  isPlaying = false;
+};
+
+// Volume change
+document.getElementById("volumeSlider").oninput = function() {
+  if (speech) speech.volume = this.value;
+};
+</script>
+
+<!--external script-->
+<script src="profiler.js"></script>
+<!--end external script-->
+</body>
+</html>
