@@ -105,6 +105,49 @@ content="noindex,nofollow"/>
   	background: teal;
   	border: 1px solid orange;
   }
+  
+  /*css code to color the volume slider*/
+#volumeSlider {
+  width: 100%;
+  height: 28px;
+  appearance: none;
+  border-radius: 6px;
+}
+
+/* Track */
+#volumeSlider::-webkit-slider-runnable-track {
+  background: orange;
+  height: 6px;
+  border-radius: 4px;
+}
+
+#volumeSlider::-moz-range-track {
+  background: orange;
+  height: 6px;
+  border-radius: 4px;
+}
+
+/* Thumb */
+#volumeSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: teal;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: -6px;
+}
+
+#volumeSlider::-moz-range-thumb {
+  background: orange;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+/*end css code to color the volume slider*/
 </style>
 </head>
 
