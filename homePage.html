@@ -288,18 +288,34 @@ button{
     	border-radius: 3px;
     }
     
+     	/*full height dislay css*/
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%; /* Ensure parent elements cover full height */
+    }
+
+    .full-height {
+      height: 100vh; /* 100% of viewport height */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to right, maroon, teal);
+    }
+    /*end full height display css*/
 	</style>
 	
  </head>
  
-	 <body>
+	 <body class="full-height">
+	 	
 	<div style="border:1px solid orange; padding:4px; margin-top: 2px;" id="gradclass" class="all">
 	 		
 	<!--javascript code for time-->
  <p style="font-size: 10px; color: white; font-family: courier;" id="demo"></p> 
  <script> 
 var d = new Date(); document.getElementById("demo").innerHTML = d; 
-</script>
+</script><br>
   <!--end javascript code for time-->
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span onclick="color(this)" data-toggle="modal" data-target="#recommendation">💛Recommended </span>
