@@ -6,7 +6,7 @@
 
 <meta charset="UTF-8"/>
 	 
-	 <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"/> 
  	
  	<meta name="keywords" content="PDF Audio Player, Reading Audio, PDF Files to Audio"/>
 
@@ -148,18 +148,40 @@ content="noindex,nofollow"/>
   transition: background 0.3s;
 }
 /*end css code to color the volume slider*/
+
+/*full height dislay css*/
+     	html, body {
+  height: 100%;
+  margin-top: 1px;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* prevent any horizontal scrollbars */
+}
+
+.full-height {
+  height: 100vh;
+  width: 100vw; /* take full screen width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, maroon, teal);
+  flex-direction: column;
+  box-sizing: border-box; /* make padding/border stay inside width */
+}
+/*end full height display css*/
 </style>
 </head>
 
-<body>
+<body class="full-height">
+	
 	<img class="picturee" src="africaOnlineIcon.png">
 		
-<br><br><br><br>
+<br><br>
 <h2>PDF Audio Player</h2>
-<br><br><br><br>
+<br><br><br>
 <button id="openModalS">📄 Select PDF File</button>
 
-<br><br><br><br>
+<br><br>
 <a style="border:none;" href="https://smtechnology133.github.io/africaonline/vlibrary.html"><button>🏡 Exit</button></a>
 
 <div id="pdfModalS" class="modal1">
@@ -183,7 +205,7 @@ content="noindex,nofollow"/>
   </div>
 </div>
 
-<br><br><br><br><br>
+<br><br><br>
 <footer style="font-size: 11px;">&copy 2025 Copyright SM Technology</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
