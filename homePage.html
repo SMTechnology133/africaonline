@@ -5,7 +5,7 @@
 	 
 	 <meta charset="UTF-8"/>  
 	 
-	 <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"/>
  	
  	<meta name="keywords" content="Africa Online, Africa, Malawi"/>
 
@@ -89,11 +89,12 @@ button{
 	border-radius: 4px;
 }
 	 	
-	 	a{
+a{
 	color:maroon;
 	border:none;
 }
-     .dropup {
+
+.dropup {
       position: relative;
       display: inline-block;
     }
@@ -123,8 +124,8 @@ button{
       background-color: orange;
     }
 
-    .dropup:hover .dropup-content {
-      display: block;
+.dropup:hover .dropup-content {
+display: block;
     }
 
     .dropup button:hover {
@@ -150,7 +151,7 @@ button{
     
     #sidebar {
       width: 250px;
-      height: 96.8vh;
+      height: 99.3vh;
       position: fixed;
       top: 0;
       left: -250px;
@@ -289,30 +290,35 @@ button{
     }
     
      	/*full height dislay css*/
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%; /* Ensure parent elements cover full height */
-    }
+     	html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* prevent any horizontal scrollbars */
+}
 
-    .full-height {
-      height: 100vh; /* 100% of viewport height */
-    /*  display: flex;*/
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(to right, maroon, teal);
-    }
-    /*end full height display css*/
+.full-height {
+  height: 100vh;
+  width: 100vw; /* take full screen width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, maroon, teal);
+  flex-direction: column;
+  box-sizing: border-box; /* make padding/border stay inside width */
+}
+/*end full height display css*/
 	</style>
 	
  </head>
  
-	 <body class="full-height">
-	 	
-	<div style="border:1px solid orange; padding:4px; margin-top: 2px;" id="gradclass" class="all">
+	<body class="full-height">
+		
+		<div style="border:1px solid orange; padding:4px; margin: 0; width:100%;" id="gradclass" class="all">
 	 		
 	<!--javascript code for time-->
- <p style="font-size: 10px; color: white; font-family: courier;" id="demo"></p> 
+ <p style="font-size: 11px; color: white; font-family: courier;" id="demo"></p> 
  <script> 
 var d = new Date(); document.getElementById("demo").innerHTML = d; 
 </script>
