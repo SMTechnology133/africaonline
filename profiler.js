@@ -280,8 +280,8 @@ wikipedia=()=>{
 
 //________________________________
 
-GPT3000=()=>{
-	open("https:///www.salmandascript.github.io/wikipedia");
+Gemini=()=>{
+	open("https://gemini.google.com/app");
 }
 
 //________________________________
