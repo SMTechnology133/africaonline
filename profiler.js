@@ -265,13 +265,13 @@ seer=()=>{
 //________________________________
 
 newsChannel=()=>{
-	open("https:///www.salmandascript.github.io/seer");
+	open("https://salmandascript.github.io/NewsChannel1/");
 }
 
 //________________________________
 
 wikipedia=()=>{
-	open("https:///www.salmandascript.github.io/wikipedia");
+	open("https://salmandascript.github.io/LinkWikipedia-/");
 }
 
 //________________________________
