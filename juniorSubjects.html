@@ -181,6 +181,20 @@ mark{
 	background: orange;
 	color: teal;
 }
+
+/* Center navbar links horizontally */
+.navbar-nav {
+  float: none;
+  margin: 0 auto;
+  display: table;
+  table-layout: fixed;
+}
+
+.navbar-nav > li {
+  float: none;
+  display: inline-block;
+}
+ /* Center navbar links horizontally */
 	</style>
 	
  </head>
@@ -204,12 +218,12 @@ mark{
     <!-- Collection of nav links, forms, and other content for toggling -->
     <div id="navbarCollapse" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li><a onclick="color(this);africaOnlineHome();" style="color: orange;"><mark>🏡Home</mark></a></li>
+        <li><a onclick="color(this);africaOnlineHome();" style="color: orange; font-size: 10px;"><mark>🏡Home</mark></a></li>
         
-        <li><a onclick="color(this); GPT3000();" style="background: teal;"><mark>🤖GPT3000</mark></a></li>
+        <li><a onclick="color(this); Gemini();" style="background: teal; font-size: 10px;"><mark>🤖Gemini</mark></a></li>
         
         <li class="dropdown">
-        <a onclick="color(this)" style="color: orange; border: solid orange 1px; background: teal;" data-toggle="dropdown" class="dropdown-toggle" href="#"> <mark>📄Option<b class="caret"></b></mark></a>
+        <a onclick="color(this)" style="color: orange; border: solid orange 1px; background: teal; font-size: 10px;" data-toggle="dropdown" class="dropdown-toggle"> <mark>📄Option<b class="caret"></b></mark></a>
           
           <ul role="menu" class="dropdown-menu">
             
@@ -219,7 +233,7 @@ mark{
     
     <li><a style="color: orange; background: teal;" onclick="color(this);ARpasscode();">🔘3D AR Applications</a></li>
             
-             <li><a onclick="color(this);" style="color: orange; background: teal;" href="file:///storage/emulated/0/projects/examMaterial/jceExams/englishExam/subjects.html">🎉Online Business Ads</a></li>
+             <li><a onclick="color(this);" style="color: orange; background: teal;" href="https://smtechnology133.github.io/onlineShopping/onlineShopping.html">🎉Online Business Ads</a></li>
           </ul>
         </li>
       </ul>
@@ -359,9 +373,9 @@ mark{
 <hr></div></div><br>
 
 <!--links back & forward--> 		
-	 <span><a href="#" style="text-decoration: none" style="color:yellow">&laquo;Home Page </a> |
+	 <span style="border:none; background:none;"><a href="https://smtechnology133.github.io/africaonline/homePage.html" style="text-decoration: none" style="color:yellow">&laquo;Home Page</a> | 
 	 	
-	 <a href="#" style="text-decoration: none" style="color:yellow">&nbsp;More Content&raquo;</a>	</span><br><br>
+	 <a href="https://smtechnology133.github.io/EnglishJCE/englishPdf.html" style="text-decoration: none" style="color:yellow">&nbsp;Next Page&raquo;</a>	</span><br><br>
 	 
 	  	<footer>&copy 2025 Copyright SM Technology</footer>
 	 </div>
@@ -393,7 +407,7 @@ mark{
   </script>
   
   	<!--floating button-->
-	 	<button class="floating-btn" onclick="scrollToTop(); s300();">🤖</button>
+	 	<button class="floating-btn" onclick="scrollToTop(); Gemini();">🤖</button>
 
 	 	  <script>
     function scrollToTop() {
@@ -410,6 +424,8 @@ mark{
 <script src="bootstrap.min.js"></script>
 
 <script src="profiler13.js"></script>
+
+<script src="https://smtechnology133.github.io/africaonline/profiler.js"></script>
 
 <script src="file:///storage/emulated/0/projects/vlibrary/profiler.js"></script>
 <!--end external scripts links-->
