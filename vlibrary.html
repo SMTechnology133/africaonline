@@ -86,7 +86,7 @@ button{
 	color: maroon;
 	border: solid orange 1px;
 	border-radius:6px;
-	font-size: 12px;
+	font-size: 11px;
 	background: teal;
 } 
 
@@ -266,6 +266,20 @@ margin-top: 6px;
       pointer-events: none;
     }
     /* end page loading css animation */
+    
+    /* Center navbar links horizontally */
+.navbar-nav {
+  float: none;
+  margin: 0 auto;
+  display: table;
+  table-layout: fixed;
+}
+
+.navbar-nav > li {
+  float: none;
+  display: inline-block;
+}
+ /* Center navbar links horizontally */
 	</style>
 	
  </head>
@@ -290,12 +304,13 @@ margin-top: 6px;
     <!-- Collection of nav links, forms, and other content for toggling -->
     <div id="navbarCollapse" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
- <li><a onclick="africaOnlineHome(); color(this)" style="color: orange;"><mark>🏡 Home</mark></a></li>
+ <li><a onclick="africaOnlineHome(); color(this);" style="color: orange;"><mark>🏡Home</mark></a></li>
         
-        <li><a onclick="color(this);" style="background: teal;" href="https://gemini.google.com/app"><mark>🤖 Gemini</mark></a></li>
+        <li><a onclick="color(this);" style="background: teal;" href="https://gemini.google.com/app"><mark>🤖Gemini</mark></a></li>
         
         <li class="dropdown">
-          <a onclick="color(this)" style="color: orange; background: teal; border: solid orange 1px; margin-left: 8px;" data-toggle="dropdown" class="dropdown-toggle" href="#"><mark>📄 Option<b class="caret"></b></mark></a>
+          <a onclick="color(this)" style="color: orange; background: teal; border: solid orange 1px; " data-toggle="dropdown" class="dropdown-toggle"><mark>📄Option<b class="caret"></b></mark></a>
+          
           
           <ul role="menu" class="dropdown-menu">
         <!--<li ><a style="color: orange; background: teal;" onclick="primaryLevel();">📄Primary Level Section</a></li>-->
