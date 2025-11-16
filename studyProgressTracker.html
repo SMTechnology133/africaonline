@@ -85,6 +85,9 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
             border: 1px solid orange;
+            /* New: Use Flexbox for card content management */
+            display: flex;
+            flex-direction: column;
         }
 
         .card h2 {
@@ -92,6 +95,8 @@
             margin-bottom: 15px;
             padding-bottom: 10px;
             border-bottom: 2px solid var(--accent);
+            /* New: Center the heading text */
+            text-align: center;
         }
 
         .form-group {
@@ -102,14 +107,22 @@
             display: block;
             margin-bottom: 5px;
             font-weight: 600;
+            /* CENTER ADJUSTMENT: Limit label width and center block */
+            max-width: 90%;
+            margin: 0 auto 5px auto;
+            text-align: left; /* Keep text left-aligned within the centered label block */
         }
 
         input, select, textarea {
-            width: 100%;
+            /* CENTER ADJUSTMENT: Limit element width, make it a block, and center it */
+            width: 100%; /* Take up to 100% of parent width */
+            max-width: 90%; /* Maximum width of the element */
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 1rem;
+            display: block; /* Required for margin: auto to work */
+            margin: 0 auto; /* Center the element horizontally */
         }
 
         textarea {
@@ -127,6 +140,10 @@
             font-size: 1rem;
             transition: background-color 0.3s;
             border: 1px solid gray;
+            /* New: Center buttons within the card */
+            display: block;
+            margin: 10px auto;
+            width: 80%; /* Consistent width for centered buttons */
         }
 
         button:hover {
@@ -158,6 +175,7 @@
             border-radius: 8px;
             padding: 15px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* Already centered */
             text-align: center;
             transition: transform 0.3s;
         }
@@ -229,12 +247,15 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 15px;
             margin-top: 20px;
+            /* New: Center grid content horizontally */
+            text-align: center;
         }
 
         .stat-card {
             background: orange;
             border-radius: 8px;
             padding: 15px;
+            /* Already centered */
             text-align: center;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             border: solid gray 1px;
@@ -352,7 +373,7 @@
                         </div>
                     </div>
 
-                    <h3 style="margin-top: 20px;">Subject Progress</h3>
+                    <h3 style="margin-top: 20px; text-align: center;">Subject Progress</h3>
                     <div class="subject-grid" id="subject-grid">
                         </div>
                 </div>
@@ -448,7 +469,6 @@
 
             // Add to data
             studyData.sessions.unshift(newSession);
-            // FIX: Corrected the syntax error from `studyData.subjects[subject].totalHours +-= hours;` to `+=`
             studyData.subjects[subject].totalHours += hours;
             studyData.subjects[subject].sessions.unshift(newSession);
 
@@ -518,7 +538,6 @@
 
         // Update summary statistics
         function updateSummaryStats() {
-            // FIX: Corrected the syntax error from `sum +- session.hours` to `sum + session.hours`
             const totalHours = studyData.sessions.reduce((sum, session) => sum + session.hours, 0);
             const totalSessions = studyData.sessions.length;
             const subjectsStudied = Object.values(studyData.subjects).filter(subject => subject.sessions.length > 0).length;
