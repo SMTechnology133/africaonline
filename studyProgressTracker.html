@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    	
-    	<meta name="theme-color" content="teal"/> 
-    	
+
+    <meta name="theme-color" content="teal"/>
+
     <title>Malawi Student Study Progress Tracker</title>
     <style>
         :root {
@@ -18,7 +18,7 @@
             --warning: #ffc107;
             --danger: #dc3545;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
@@ -26,7 +26,7 @@
             font-family:georgia;
             /*font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;*/
         }
-        
+
         body {
             background: linear-gradient(to right, teal, maroon);
             color: var(--dark);
@@ -36,15 +36,15 @@
             border-radius: 6px;
             margin-top: 1px;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
         }
-        
+
         header {
-        	background: linear-gradient(to right, teal, maroon);
+            background: linear-gradient(to right, teal, maroon);
             /*background: linear-gradient(135deg, var(--primary), var(--secondary));*/
             color: orange;
             padding: 20px 0;
@@ -53,57 +53,57 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border: solid orange 1px;
         }
-        
+
         header h1 {
             text-align: center;
             margin-bottom: 10px;
             font-size: 2.2rem;
         }
-        
+
         header p {
             text-align: center;
             font-size: 1.1rem;
             opacity: 0.9;
         }
-        
+
         .main-content {
             display: grid;
             grid-template-columns: 1fr 2fr;
             gap: 20px;
         }
-        
+
         @media (max-width: 768px) {
             .main-content {
                 grid-template-columns: 1fr;
             }
         }
-        
+
         .card {
-        	background: linear-gradient(to right, maroon, teal);
+            background: linear-gradient(to right, maroon, teal);
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             margin-bottom: 20px;
             border: 1px solid orange;
         }
-        
+
         .card h2 {
             color: orange;
             margin-bottom: 15px;
             padding-bottom: 10px;
             border-bottom: 2px solid var(--accent);
         }
-        
+
         .form-group {
             margin-bottom: 15px;
         }
-        
+
         label {
             display: block;
             margin-bottom: 5px;
             font-weight: 600;
         }
-        
+
         input, select, textarea {
             width: 100%;
             padding: 10px;
@@ -111,12 +111,12 @@
             border-radius: 5px;
             font-size: 1rem;
         }
-        
+
         textarea {
             min-height: 80px;
             resize: vertical;
         }
-        
+
         button {
             background-color: var(--primary);
             color: white;
@@ -128,31 +128,31 @@
             transition: background-color 0.3s;
             border: 1px solid gray;
         }
-        
+
         button:hover {
             background-color: var(--secondary);
         }
-        
+
         .btn-success {
             background-color: var(--success);
         }
-        
+
         .btn-danger {
             background-color: var(--danger);
         }
-        
+
         .btn-warning {
             background-color: var(--warning);
             color: var(--dark);
         }
-        
+
         .subject-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 15px;
             margin-top: 20px;
         }
-        
+
         .subject-card {
             background: white;
             border-radius: 8px;
@@ -161,16 +161,16 @@
             text-align: center;
             transition: transform 0.3s;
         }
-        
+
         .subject-card:hover {
             transform: translateY(-5px);
         }
-        
+
         .subject-card h3 {
             color: var(--primary);
             margin-bottom: 10px;
         }
-        
+
         .progress-bar {
             height: 10px;
             background-color: teal;
@@ -178,22 +178,22 @@
             margin: 10px 0;
             overflow: hidden;
         }
-        
+
         .progress {
             height: 100%;
             background-color: var(--success);
             border-radius: 5px;
         }
-        
+
         .progress-text {
             font-size: 0.9rem;
             color: var(--dark);
         }
-        
+
         .subject-details {
             margin-top: 20px;
         }
-        
+
         .study-session {
             background-color: #f8f9fa;
             border-left: 4px solid var(--accent);
@@ -201,36 +201,36 @@
             margin-bottom: 10px;
             border-radius: 0 5px 5px 0;
         }
-        
+
         .study-session h4 {
             color: var(--primary);
             margin-bottom: 5px;
         }
-        
+
         .study-session p {
             font-size: 0.9rem;
             margin-bottom: 5px;
         }
-        
+
         .session-date {
             font-size: 0.8rem;
             color: #6c757d;
         }
-        
+
         .no-data {
             text-align: center;
             color: #6c757d;
             padding: 20px;
             font-style: italic;
         }
-        
+
         .summary-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 15px;
             margin-top: 20px;
         }
-        
+
         .stat-card {
             background: orange;
             border-radius: 8px;
@@ -239,18 +239,18 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             border: solid gray 1px;
         }
-        
+
         .stat-card h3 {
             font-size: 1.8rem;
             color: var(--primary);
             margin-bottom: 5px;
         }
-        
+
         .stat-card p {
             color: #6c757d;
             font-size: 0.9rem;
         }
-        
+
         footer {
             text-align: center;
             margin-top: 30px;
@@ -261,14 +261,14 @@
             border-radius: 6px;
             background: teal;
         }
-        
+
         .picturee{
-width: 30px;
-height: 30px;
-border: 1px solid orange;
-border-radius: 20px;
-padding: 1px;
-}
+            width: 30px;
+            height: 30px;
+            border: 1px solid orange;
+            border-radius: 20px;
+            padding: 1px;
+        }
     </style>
 </head>
 <body>
@@ -277,7 +277,7 @@ padding: 1px;
             <h1><img class="picturee" src="africaOnlineIcon.png"/> Africa Online Study Progress Tracker</h1>
             <p>Track your study progress across all subjects and improve your academic performance</p>
         </header>
-        
+
         <div class="main-content">
             <div class="left-column">
                 <div class="card">
@@ -302,38 +302,38 @@ padding: 1px;
                                 <option value="Bible Knowledge">Bible Knowledge</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="hours">Hours Studied</label>
                             <input type="number" id="hours" min="0.1" step="0.1" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="date">Date</label>
                             <input type="date" id="date" required>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="topics">Topics Covered</label>
                             <textarea id="topics" placeholder="Enter the topics you studied..."></textarea>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="notes">Notes</label>
                             <textarea id="notes" placeholder="Any additional notes..."></textarea>
                         </div>
-                        
+
                         <button style="background-color: teal; color: orange;" type="submit">Add Study Session</button>
                     </form>
                 </div>
-                
+
                 <div class="card">
                     <h2>Quick Actions</h2>
                     <button style="background-color: maroon; color: orange;" id="clear-all" >Clear All Data</button>
                     <button id="export-data" class="btn-warning">Export Data</button>
                 </div>
             </div>
-            
+
             <div class="right-column">
                 <div class="card">
                     <h2>Study Progress Overview</h2>
@@ -351,22 +351,20 @@ padding: 1px;
                             <p>Subjects Studied</p>
                         </div>
                     </div>
-                    
+
                     <h3 style="margin-top: 20px;">Subject Progress</h3>
                     <div class="subject-grid" id="subject-grid">
-                        <!-- Subject cards will be generated here -->
-                    </div>
+                        </div>
                 </div>
-                
+
                 <div class="card">
                     <h2>Recent Study Sessions</h2>
                     <div id="recent-sessions">
-                        <!-- Recent sessions will be displayed here -->
-                    </div>
+                        </div>
                 </div>
             </div>
         </div>
-        
+
         <footer style="color: orange;">
             <p>&copy;2025 SMTechnology Study Progress Tracker</p>
         </footer>
@@ -409,7 +407,7 @@ padding: 1px;
             renderSubjectCards();
             renderRecentSessions();
             updateSummaryStats();
-            
+
             // Set today's date as default
             document.getElementById('date').valueAsDate = new Date();
         });
@@ -430,13 +428,13 @@ padding: 1px;
         // Handle form submission
         studyForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             const subject = document.getElementById('subject').value;
             const hours = parseFloat(document.getElementById('hours').value);
             const date = document.getElementById('date').value;
             const topics = document.getElementById('topics').value;
             const notes = document.getElementById('notes').value;
-            
+
             // Create new session
             const newSession = {
                 id: Date.now(),
@@ -447,36 +445,37 @@ padding: 1px;
                 notes,
                 timestamp: new Date().toISOString()
             };
-            
+
             // Add to data
             studyData.sessions.unshift(newSession);
-            studyData.subjects[subject].totalHours +-= hours;
+            // FIX: Corrected the syntax error from `studyData.subjects[subject].totalHours +-= hours;` to `+=`
+            studyData.subjects[subject].totalHours += hours;
             studyData.subjects[subject].sessions.unshift(newSession);
-            
+
             // Save and update UI
             saveData();
             renderSubjectCards();
             renderRecentSessions();
             updateSummaryStats();
-            
+
             // Reset form
             studyForm.reset();
             document.getElementById('date').valueAsDate = new Date();
-            
+
             alert('Study session added successfully!');
         });
 
         // Render subject cards
         function renderSubjectCards() {
             subjectGrid.innerHTML = '';
-            
+
             const subjects = Object.keys(studyData.subjects);
             const maxHours = Math.max(...subjects.map(subject => studyData.subjects[subject].totalHours), 1);
-            
+
             subjects.forEach(subject => {
                 const subjectData = studyData.subjects[subject];
                 const percentage = Math.min((subjectData.totalHours / maxHours) * 100, 100);
-                
+
                 const card = document.createElement('div');
                 card.className = 'subject-card';
                 card.innerHTML = `
@@ -487,7 +486,7 @@ padding: 1px;
                     <div class="progress-text">${subjectData.totalHours.toFixed(1)} hours</div>
                     <div class="progress-text">${subjectData.sessions.length} sessions</div>
                 `;
-                
+
                 subjectGrid.appendChild(card);
             });
         }
@@ -495,15 +494,15 @@ padding: 1px;
         // Render recent study sessions
         function renderRecentSessions() {
             recentSessions.innerHTML = '';
-            
+
             if (studyData.sessions.length === 0) {
                 recentSessions.innerHTML = '<div class="no-data">No study sessions recorded yet</div>';
                 return;
             }
-            
+
             // Show only the 5 most recent sessions
             const recent = studyData.sessions.slice(0, 5);
-            
+
             recent.forEach(session => {
                 const sessionEl = document.createElement('div');
                 sessionEl.className = 'study-session';
@@ -512,17 +511,18 @@ padding: 1px;
                     <p><strong>${session.hours} hours</strong> - ${session.topics || 'No topics specified'}</p>
                     <p class="session-date">${formatDate(session.date)}</p>
                 `;
-                
+
                 recentSessions.appendChild(sessionEl);
             });
         }
 
         // Update summary statistics
         function updateSummaryStats() {
-            const totalHours = studyData.sessions.reduce((sum, session) => sum +- session.hours, 0);
+            // FIX: Corrected the syntax error from `sum +- session.hours` to `sum + session.hours`
+            const totalHours = studyData.sessions.reduce((sum, session) => sum + session.hours, 0);
             const totalSessions = studyData.sessions.length;
             const subjectsStudied = Object.values(studyData.subjects).filter(subject => subject.sessions.length > 0).length;
-            
+
             totalHoursEl.textContent = totalHours.toFixed(1);
             totalSessionsEl.textContent = totalSessions;
             subjectsStudiedEl.textContent = subjectsStudied;
@@ -555,12 +555,12 @@ padding: 1px;
                         "Bible Knowledge": { totalHours: 0, sessions: [] }
                     }
                 };
-                
+
                 saveData();
                 renderSubjectCards();
                 renderRecentSessions();
                 updateSummaryStats();
-                
+
                 alert('All data has been cleared.');
             }
         });
@@ -569,7 +569,7 @@ padding: 1px;
         exportDataBtn.addEventListener('click', function() {
             const dataStr = JSON.stringify(studyData, null, 2);
             const dataBlob = new Blob([dataStr], { type: 'application/json' });
-            
+
             const url = URL.createObjectURL(dataBlob);
             const link = document.createElement('a');
             link.href = url;
@@ -578,7 +578,7 @@ padding: 1px;
             link.click();
             document.body.removeChild(link);
             URL.revokeObjectURL(url);
-            
+
             alert('Study data exported successfully!');
         });
     </script>
