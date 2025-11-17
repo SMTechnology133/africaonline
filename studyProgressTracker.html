@@ -292,12 +292,95 @@
             border-radius: 20px;
             padding: 1px;
         }
+        
+        /*floating button css*/
+    .floating-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 2px;
+      background-color:teal;
+      color: white;
+      border: solid orange 1px;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-size: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      z-index: 1000;
+      transition: background-color 0.3s; 
+    } 
+
+    .floating-btn:hover {
+      background-color: orange;
+    }
+    /*end floating button css*/
+    
+    .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: orange;
+  color: teal;
+  padding: 10px 16px;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  margin: 8px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  background: linear-gradient(to right, teal, maroon);
+  border: solid orange 1px;
+  border-radius: 6px;
+}
+
+.dropdown-content a {
+  padding: 10px 14px;
+  display: block;
+  text-decoration: none;
+  color: orange;
+  margin: 20px;
+}
+
+.dropdown-content a:hover {
+  background-color: teal;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: maroon;
+}
     </style>
 </head>
 <body>
+	<div class="dropdown">
+  <button class="dropbtn">Option</button>
+  <div class="dropdown-content">
+    <a href="https://salmandascript.github.io/AfricaOnline">🏡 Home</a>
+    
+    <a onclick="color(this); alert('This application is for helping high school students to track their progress as they study for examination, this can improve their academic performance. Try to fill the hours of different subjects with different values to understand how the application works, all data is stored locally on your device');">❓ Help</a>
+    
+   <!-- <a onclick="shareWebsite(); color(this);">🌍 Climate</a>-->
+    
+     <a onclick="shareWebsite(); color(this);">↪ Share</a>
+  </div>
+</div>
+	
     <div class="container">
         <header>
-            <h1><img class="picturee" src="africaOnlineIcon.png"/> Africa Online Study Progress Tracker</h1>
+            <h1><img class="picturee" src="africaOnlineIcon.png"/> Africa Online Study Progress Tracker ⏲</h1>
             <p>Track your study progress across all subjects and improve your academic performance</p>
         </header>
 
@@ -387,6 +470,40 @@
                 </div>
             </div>
         </div>
+        
+        <!--details modal -->
+<div id="myModal1" class="modal fade" >
+<div class="modal-dialog; modal-lg"> 
+<div class="modal-content"> 
+<div class="modal-header"> 
+
+<h6 class="modal-title"> Application Information.</h6> 
+</div> 
+<div class="modal-body; salma">
+<p style="color: orange; font-size: 12px; margin: 4px;">App Name:&nbsp; Africa Online <br>
+		App Version:&nbsp; 1.0.0.0<br>
+	Developer:&nbsp; SM Technology<br>
+	
+			Location:&nbsp; Lilongwe, Malawi<br>
+		Phone:&nbsp; +265 982177920</p>
+</div> 
+<div class="modal-footer"> 
+</button> 
+</div> 
+</div> 
+</div> 
+</div>
+<!--end details modal -->
+        
+        <!--floating button-->
+	 	<button class="floating-btn" onclick="color(this);scrollToTop(); Gemini();">🤖</button>
+	 	
+	 	  <script>
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+  <!--end floating button-->
 
         <footer style="color: orange;">
             <p>&copy;2025 SMTechnology Study Progress Tracker</p>
@@ -603,5 +720,7 @@
             alert('Study data exported successfully!');
         });
     </script>
+    
+    <script src="profiler.js"></script>
 </body>
 </html>
