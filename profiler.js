@@ -311,7 +311,7 @@ onlineMarket=()=>{
 }
 
 studyTracking=()=>{
-	open("https://smtechnology133.github.io/OnlineShopping/studyProgressTracker.html");
+	open("https://smtechnology133.github.io/studyProgressTracker.html");
 }
 
 timeTable=()=>{
