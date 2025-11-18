@@ -331,6 +331,7 @@
   cursor: pointer;
   font-size: 12px;
   margin: 8px;
+  border: 1px solid gray;
 }
 
 .dropdown-content {
@@ -364,6 +365,11 @@
 .dropdown:hover .dropbtn {
   background-color: maroon;
 }
+
+ textarea,select,input{
+        	color: teal;
+        	background-color: orange;
+        }
     </style>
 </head>
 <body>
@@ -379,6 +385,8 @@
      <a onclick="shareWebsite(); color(this);">↪ Share</a>
   </div>
 </div>
+
+<button onclick="color(this); timeTable();" style="background: orange; color: teal; border: 1px solid gray;">Generate Study Time Table</button>
 	
     <div class="container">
         <header>

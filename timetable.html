@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="teal"/> 
+    <link rel="icon" type="image" href="africaOnlineIcon.png"/>
+    <title>Student Timetable Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: georgia;
+        }
+
+        body {
+            background: linear-gradient(to right, teal, maroon);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            border: 1px solid orange;
+            border-radius: 6px;
+            margin-top: 1px;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 30px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: orange;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            color: orange;
+        }
+
+        .btn {
+            background: #FFC107;
+            color: #333;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .btn:hover {
+            background: #FFD54F;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: linear-gradient(to right, maroon, teal);
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 1000px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            border: 1px solid orange;
+            color: orange;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #aaa;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        h2 {
+            color: #2575fc;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .form-section {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: teal;
+        }
+
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .subject-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.2s;
+            background: linear-gradient(to right, maroon, teal);
+            color: orange;
+            border: 1px solid orange;
+            accent-color: orange;
+        }
+
+        .subject-checkbox:hover {
+            background: gray;
+        }
+
+        .subject-checkbox input {
+            transform: scale(1.2);
+        }
+
+        select, input[type="number"], input[type="time"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+
+        .timetable-container {
+            margin-top: 30px;
+            overflow-x: auto;
+        }
+
+        .timetable {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            color: teal;
+        }
+
+        .timetable th {
+            background-color: teal;
+            color: orange;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .timetable td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+            background-color: white;
+        }
+
+        .timetable tr:nth-child(even) td {
+            background-color: #f9f9f9;
+        }
+
+        .period {
+            font-weight: bold;
+        }
+
+        .break {
+            background-color: #FFE082 !important;
+            font-weight: bold;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn-generate { background: #4CAF50; color: white; }
+        .btn-download { background: #2196F3; color: white; }
+        .btn-reset { background: #f44336; color: white; }
+
+        footer {
+            margin-top: 40px;
+            color: orange;
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        
+        select,input{
+        	color: teal;
+        	background-color: orange;
+        }
+        
+        .picturee{
+width: 30px;
+height: 30px;
+border: 1px solid orange;
+border-radius: 20px;
+padding: 1px;
+}
+
+p,h1{
+	border: 1px solid orange;
+	border-radius: 10px;
+	backgroun-color: teal;
+	background: linear-gradient(to right, maroon, teal);
+}
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+    	<img class="picturee" src="africaOnlineIcon.png"/> <br><br>
+    	
+        <h1>Student Timetable Generator</h1><br>
+        	
+        <p class="subtitle">Create and download your personalized school timetable in minutes</p>
+    </header><br>
+
+    <button style="border: 1px solid gray;" id="openModal" class="btn">Generate Timetable</button><br>
+
+    <div id="timetableModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+
+            <h2 style="color: orange;">Create Your Timetable</h2>
+
+            <div class="form-section">
+
+                <div class="form-group">
+                    <label>Select Your Subjects:</label>
+                    <div class="subjects-grid">
+                        <label class="subject-checkbox"><input type="checkbox" name="subject" value="Chichewa" checked> Chichewa</label>
+                        <label class="subject-checkbox"><input type="checkbox" name="subject" value="English" checked> English</label>
+                        <label class="subject-checkbox"><input type="checkbox" name="subject" value="Mathematics" checked> Mathematics</label>
+                        <label class="subject-checkbox"><input type="checkbox" name="subject" value="Additional Mathematics"> Additional Mathematics</label>
+                        <label class="subject-checkbox"><input type="checkbox" name="subject" value="Biology" checked> Biology</label>
+                        <label class="subject-checkbox"><input type="checkbox" name="subject" value="Chemistry" checked> Chemistry</label>
+                        <label class="subject-checkbox"><input type="checkbox" name="subject" value="Physics" checked> Physics</label>
+                        <label class="subject-checkbox"><input type="checkbox" name="subject" value="History"> History</label>
+                        <label class="subject-checkbox"><input type="checkbox" name="subject" value="Geography"> Geography</label>
+                        <label class="subject-checkbox"><input type="checkbox" name="subject" value="Agriculture"> Agriculture</label>
+                        <label class="subject-checkbox"><input type="checkbox" name="subject" value="Social Studies"> Social Studies</label>
+                        <label class="subject-checkbox"><input type="checkbox" name="subject" value="Computer Studies"> Computer Studies</label>
+                        <label class="subject-checkbox"><input type="checkbox" name="subject" value="Commerce"> Commerce</label>
+                        <label class="subject-checkbox"><input type="checkbox" name="subject" value="Bible Knowledge"> Bible Knowledge</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="days">Number of School Days per Week:</label>
+                    <select id="days">
+                        <option value="5">5 Days (Mon–Fri)</option>
+                        <option value="6">6 Days (Mon–Sat)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="periods">Number of Periods per Day:</label>
+                    <select id="periods">
+                        <option value="6">6 Periods</option>
+                        <option value="7">7 Periods</option>
+                        <option value="8" selected>8 Periods</option>
+                        <option value="9">9 Periods</option>
+                        <option value="10">10 Periods</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="startTime">School Start Time:</label>
+                    <input type="time" id="startTime" value="07:30">
+                </div>
+
+                <div class="form-group">
+                    <label for="duration">Duration per Period (minutes):</label>
+                    <input type="number" id="duration" value="40" min="20" max="120">
+                </div>
+
+                <div class="action-buttons">
+                    <button style="border: 1px solid gray; background: teal; color: orange; font-size: 12px;" id="generateBtn" class="btn btn-generate">Generate Timetable</button>
+                    <button style="border: 1px solid gray; background: orange; color: teal; font-size: 12px;" id="downloadBtn" class="btn btn-download" disabled>Download CSV</button>
+                    
+                    <button style="border: 1px solid gray; background: orange; color: teal; font-size: 12px;" id="downloadPDFBtn" class="btn btn-download" disabled>Download PDF</button>
+                    <button style="border: 1px solid gray; background: maroon; color: orange; font-size: 12px;" id="resetBtn" class="btn btn-reset">Reset</button>
+                </div>
+            </div>
+
+            <div class="timetable-container">
+                <h3>Your Timetable</h3>
+                <div id="timetableOutput"></div>
+            </div>
+
+        </div>
+    </div><br><br>
+
+    <footer>
+        <p>&copy;2025 SMTechnology Student Timetable Generator</p>
+    </footer>
+</div>
+
+<!-- jsPDF + html2canvas CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+<script>
+const modal = document.getElementById('timetableModal');
+document.getElementById('openModal').onclick = () => modal.style.display = 'block';
+document.querySelector('.close').onclick = () => modal.style.display = 'none';
+window.onclick = e => { if(e.target === modal) modal.style.display = 'none'; };
+
+const generateBtn = document.getElementById('generateBtn');
+const downloadBtn = document.getElementById('downloadBtn');
+const downloadPDFBtn = document.getElementById('downloadPDFBtn');
+const resetBtn = document.getElementById('resetBtn');
+const timetableOutput = document.getElementById('timetableOutput');
+
+generateBtn.addEventListener('click', generateTimetable);
+downloadBtn.addEventListener('click', downloadTimetable);
+downloadPDFBtn.addEventListener('click', downloadPDF);
+resetBtn.addEventListener('click', resetForm);
+
+function formatTime(totalMinutes) {
+    let hrs = Math.floor(totalMinutes / 60);
+    let mins = totalMinutes % 60;
+    let suffix = hrs >= 12 ? "PM" : "AM";
+    hrs = hrs % 12 || 12;
+    return `${hrs}:${mins.toString().padStart(2,"0")} ${suffix}`;
+}
+
+function generateTimetable() {
+    const subjectCheckboxes = document.querySelectorAll('input[name="subject"]:checked');
+    if(subjectCheckboxes.length === 0) return alert("Please select at least one subject.");
+
+    const subjects = Array.from(subjectCheckboxes).map(cb => cb.value);
+    const daysCount = parseInt(document.getElementById('days').value);
+    const periodsCount = parseInt(document.getElementById('periods').value);
+    const startTime = document.getElementById('startTime').value;
+    const duration = parseInt(document.getElementById('duration').value);
+
+    if(!startTime) return alert("Select a valid start time.");
+
+    let [startHour,startMin] = startTime.split(":").map(Number);
+    let currentMinutes = startHour*60 + startMin;
+    let timeSlots = [];
+
+    for(let i=0;i<periodsCount;i++){
+        let start = currentMinutes;
+        let end = currentMinutes + duration;
+        timeSlots.push(`${formatTime(start)} - ${formatTime(end)}`);
+        currentMinutes = end;
+    }
+
+    const dayLabels = ['Monday','Tuesday','Wednesday','Thursday','Friday'];
+    if(daysCount===6) dayLabels.push('Saturday');
+
+    let totalSlots = periodsCount * daysCount;
+    let slots = Array.from({length:totalSlots},()=>subjects[Math.floor(Math.random()*subjects.length)]);
+
+    let html = `<table class="timetable"><tr><th>Period</th><th>Time</th>`;
+    dayLabels.forEach(day=> html += `<th>${day}</th>`);
+    html += `</tr>`;
+
+    let subIndex = 0;
+    let breakIndex = Math.floor(periodsCount/2);
+
+    for(let i=0;i<periodsCount;i++){
+        if(i===breakIndex && periodsCount>=4){
+            html += `<tr><td class="break" colspan="${daysCount+2}">BREAK / RECESS</td></tr>`;
+        }
+        html += `<tr><td class="period">Period ${i+1}</td><td>${timeSlots[i]}</td>`;
+        for(let j=0;j<daysCount;j++){
+            html += `<td>${slots[subIndex++]}</td>`;
+        }
+        html += `</tr>`;
+    }
+
+    html += `</table>`;
+    timetableOutput.innerHTML = html;
+
+    downloadBtn.disabled = false;
+    downloadPDFBtn.disabled = false;
+}
+
+function resetForm(){
+    const checkboxes = document.querySelectorAll('input[name="subject"]');
+    checkboxes.forEach(cb => cb.checked =
+        ["Chichewa","English","Mathematics","Biology","Chemistry","Physics"].includes(cb.value)
+    );
+    document.getElementById("days").value = "5";
+    document.getElementById("periods").value = "8";
+    document.getElementById("startTime").value = "07:30";
+    document.getElementById("duration").value = "40";
+    timetableOutput.innerHTML = "";
+    downloadBtn.disabled = true;
+    downloadPDFBtn.disabled = true;
+}
+
+function downloadTimetable(){
+    const table = document.querySelector('.timetable');
+    if(!table) return alert("Generate the timetable first!");
+
+    let csv = "Malawi JCE/MSCE Timetable\n";
+    for(let row of table.rows){
+        let rowData = [];
+        for(let cell of row.cells){
+            let t = cell.innerText.trim();
+            if(t.includes(",")) t = `"${t}"`;
+            rowData.push(t);
+        }
+        csv += rowData.join(",") + "\n";
+    }
+
+    const blob = new Blob([csv], {type:"text/csv"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "malawi_timetable.csv";
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
+async function downloadPDF(){
+    const element = document.querySelector('.timetable');
+    if(!element) return alert("Generate the timetable first!");
+
+    const canvas = await html2canvas(element, {scale:2});
+    const img = canvas.toDataURL('image/png');
+
+    const pdf = new jspdf.jsPDF('p', 'mm', 'a4');
+    const width = pdf.internal.pageSize.getWidth();
+    const height = (canvas.height*width)/canvas.width;
+
+    pdf.addImage(img,"PNG",0,10,width,height);
+    pdf.save("malawi_timetable.pdf");
+}
+</script>
+
+  <script src="profiler.js"></script>
+
+</body>
+</html>

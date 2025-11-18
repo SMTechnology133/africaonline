@@ -314,6 +314,10 @@ studyTracking=()=>{
 	open("https://smtechnology133.github.io/OnlineShopping/studyProgressTracker.html");
 }
 
+timeTable=()=>{
+	open("https://smtechnology133.github.io/timetable.html");
+}
+
 //end functions to open various pages
 
 //functione to change button background color on click
