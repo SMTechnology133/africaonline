@@ -464,7 +464,7 @@ function downloadTimetable(){
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "malawi_timetable.csv";
+    a.download = "timetable.csv";
     a.click();
     URL.revokeObjectURL(url);
 }
@@ -481,7 +481,7 @@ async function downloadPDF(){
     const height = (canvas.height*width)/canvas.width;
 
     pdf.addImage(img,"PNG",0,10,width,height);
-    pdf.save("malawi_timetable.pdf");
+    pdf.save("timetable.pdf");
 }
 </script>
 
