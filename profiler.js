@@ -298,10 +298,6 @@ vlibrary1=()=>{
 
 //________________________________
 
-onlineShoping=()=>{
-	open("https://smtechnology133.github.io/OnlineShopping/onlineShopping.html");
-}
-
 ARpasscode=()=>{
 	open("https://smtechnology133.github.io/ARmagic/ARpasscode.html");
 }
@@ -313,6 +309,11 @@ passcode=()=>{
 onlineMarket=()=>{
 	open("https://smtechnology133.github.io/OnlineShopping/onlineShopping.html");
 }
+
+studyTracking=()=>{
+	open("https://smtechnology133.github.io/OnlineShopping/studyProgressTracker.html");
+}
+
 //end functions to open various pages
 
 //functione to change button background color on click
