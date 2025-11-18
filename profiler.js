@@ -311,11 +311,11 @@ onlineMarket=()=>{
 }
 
 studyTracking=()=>{
-	open("https://smtechnology133.github.io/studyProgressTracker.html");
+	open("https://smtechnology133.github.io/africaonline/studyProgressTracker.html");
 }
 
 timeTable=()=>{
-	open("https://smtechnology133.github.io/timetable.html");
+	open("https://smtechnology133.github.io/africaonline/timetable.html");
 }
 
 //end functions to open various pages
