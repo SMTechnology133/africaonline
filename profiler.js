@@ -313,6 +313,10 @@ onlineMarket=()=>{
 studyTracking=()=>{
 	open("https://smtechnology133.github.io/africaonline/studyProgressTracker.html");
 }
+
+PDFconverter=()=>{
+	open("https://smtechnology133.github.io/africaonline/PDFtoAudio.html");
+}
 //end functions to open various pages
 
 //functione to change button background color on click
