@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -199,7 +196,49 @@ function generateTimetable() {
     const dayNames = ["Monday","Tuesday","Wednesday","Thursday","Friday"];
     if (daysCount === 6) dayNames.push("Saturday");
 
-    const subjectSlots = Array.from({length: periodsCount * daysCount}, () => subjects[Math.floor(Math.random() * subjects.length)]);
+    // --- FIXED SUBJECT ASSIGNMENT ---
+    // Ensures no subject repeats in a single day unless needed.
+    const subjectSlots = [];
+
+    // For each day, generate subjects without repetition
+    for (let d = 0; d < daysCount; d++) {
+
+        let daySubjects = [];
+
+        if (subjects.length >= periodsCount) {
+            // Simply shuffle subjects and take the first N
+            let shuffled = [...subjects].sort(() => Math.random() - 0.5);
+            daySubjects = shuffled.slice(0, periodsCount);
+        } else {
+            // Not enough subjects → fill once, then fill remaining without repeating consecutively
+            let pool = [...subjects];
+            
+            // Shuffle pool to randomize
+            pool = pool.sort(() => Math.random() - 0.5);
+            
+            // Add them once
+            daySubjects = [...pool];
+
+            // Fill remaining slots
+            while (daySubjects.length < periodsCount) {
+                let last = daySubjects[daySubjects.length - 1];
+                // Choose a subject that is NOT the same as last period
+                let choices = subjects.filter(s => s !== last);
+
+                // If only one subject exists (edge case), choices will be empty — handle that
+                let chosen;
+                if (choices.length === 0) {
+                    chosen = subjects[0];
+                } else {
+                    chosen = choices[Math.floor(Math.random() * choices.length)];
+                }
+
+                daySubjects.push(chosen);
+            }
+        }
+
+        subjectSlots.push(...daySubjects);
+    }
 
     let html = `<table class="timetable"><tr><th>Period</th><th>Time</th>`;
     dayNames.forEach(d => html += `<th>${d}</th>`);
