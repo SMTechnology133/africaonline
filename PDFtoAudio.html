@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<meta name="theme-color" content="teal"/> 
+  
+  <link rel="icon" type="image" href="africaOnlineIcon.png"/>
+		 
+<title>PDF to Speech Converter</title> 
+
+<style>
+    body {
+        font-family: georgia;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        background: linear-gradient(to right, teal, maroon);
+        border: 1px solid orange;
+        border-radius: 6px;
+        margin-top: 1px;
+    }
+
+    .container {
+    	background: linear-gradient(to right, maroon, teal);
+        padding: 30px;
+        width: 95%;
+        max-width: 600px;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border: 1px solid orange;
+    }
+
+    h2 {
+        text-align: center;
+        color: orange;
+        border: 1px solid orange;
+        border-radius: 6px;
+        background: teal;
+    }
+
+    #textOutput {
+        width: 100%;
+        height: 200px;
+        border-radius: 8px;
+        border: 1px solid orange;
+        overflow-y: auto;
+        background: lightgray;
+        white-space: pre-wrap;
+    } 
+
+    input[type="file"], select {
+        width: 99%;
+        margin: 10px 0;
+        border-radius: 4px;
+        border: 1px solid orange;
+        background: teal;
+        color: orange;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    label {
+        display: block;
+        margin: 10px 0 4px 0;
+        font-weight: bold;
+        color:orange;
+        text-align: center;
+        font-size: 12px;
+    }
+
+    input[type="range"] {
+        width: 99%;
+    }
+
+    .controls {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .controls button {
+        flex: 1;
+        padding: 10px;
+        font-size: 14px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        color: white;
+    }
+
+    button#playBtn { 
+    background: teal;
+    border: 1px solid orange;
+    border-radius: 4px;
+     }
+     
+    button#pauseBtn { 
+    background: #ff9800;
+    border: 1px solid teal;
+    border-radius: 4px;
+     }
+     
+    button#resumeBtn { 
+    background: #ff9800; 
+    border: 1px solid teal;
+    border-radius: 4px;
+    }
+    
+    button#stopBtn { 
+    background: maroon; 
+    border: 1px solid orange;
+    border-radius: 4px;
+    }
+
+    button:disabled { 
+    opacity: 0.5; cursor: not-allowed; 
+    }
+
+    .highlight { 
+    background: orange;
+     }
+
+    #status {
+        margin-top: 10px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    #waveform {
+        height: 20px;
+        margin-top: 10px;
+        width: 100%;
+        background: repeating-linear-gradient(
+            90deg,
+            #0ea5a4,
+            #0ea5a4 2px,
+            transparent 2px,
+            transparent 4px
+        );
+        background-size: 4px 20px;
+        display: none;
+        animation: wave 0.5s linear infinite;
+    }
+
+    @keyframes wave {
+        from { background-position-x: 0;
+         }
+         
+        to { 
+     background-position-x: 4px;
+         }
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+	
+	<img style="
+width: 20px;
+height: 20px;
+border: 1px solid orange;
+border-radius: 20px;
+padding: 1px;" class="picturee" src="africaOnlineIcon.png"/>
+	
+    <h2>PDF to Speech Converter</h2>
+
+    <input type="file" id="pdfFile" accept="application/pdf">
+    <select id="voiceSelect"></select>
+
+    <label for="speedRange">Playback Speed: <span id="speedValue">1.0</span>x</label>
+    <input type="range" id="speedRange" min="0.5" max="2" step="0.1" value="1">
+
+    <div id="textOutput"></div>
+    <div id="waveform"></div>
+
+    <div class="controls">
+        <button id="playBtn">Play</button>
+        <button id="pauseBtn">Pause</button>
+        <button id="resumeBtn">Resume</button>
+        <button id="stopBtn">Next</button>
+    </div>
+
+    <div style="color: orange;" id="status">Ready</div><br>
+    
+    <footer style="font-size: 8px; text-align: center; color: orange;">&copy 2025 Copyright SMTechnology PDF Converter</footer>
+</div>
+
+<script>
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+let chunks = [];
+let currentIndex = 0;
+let utterance;
+let isPaused = false;
+let voices = [];
+let rate = 1;
+
+const pdfFile = document.getElementById('pdfFile');
+const voiceSelect = document.getElementById('voiceSelect');
+const textOutput = document.getElementById('textOutput');
+const statusDiv = document.getElementById('status');
+const waveform = document.getElementById('waveform');
+const speedRange = document.getElementById('speedRange');
+const speedValue = document.getElementById('speedValue');
+
+const playBtn = document.getElementById('playBtn');
+const pauseBtn = document.getElementById('pauseBtn');
+const resumeBtn = document.getElementById('resumeBtn');
+const stopBtn = document.getElementById('stopBtn');
+
+// Load voices
+function loadVoices() {
+    voices = speechSynthesis.getVoices();
+    voiceSelect.innerHTML = voices.map(v=>`<option value="${v.name}">${v.name} (${v.lang})</option>`).join('');
+}
+speechSynthesis.onvoiceschanged = loadVoices;
+loadVoices();
+
+// Update rate dynamically
+speedRange.addEventListener('input', ()=>{
+    rate = parseFloat(speedRange.value);
+    speedValue.textContent = rate.toFixed(1);
+    if(utterance) utterance.rate = rate;
+});
+
+// Split text into chunks
+function splitText(text, size=1500){
+    let out = [];
+    for(let i=0;i<text.length;i+=size) out.push(text.slice(i,i+size));
+    return out;
+}
+
+// Highlight current chunk
+function highlightChunk(index){
+    textOutput.innerHTML='';
+    chunks.forEach((chunk,i)=>{
+        const span=document.createElement('span');
+        span.textContent=chunk+"\n";
+        if(i===index) span.classList.add('highlight');
+        textOutput.appendChild(span);
+    });
+    textOutput.scrollTo({top:textOutput.children[index].offsetTop-20, behavior:'smooth'});
+}
+
+// Speak chunk
+function speakChunk(i){
+    if(i>=chunks.length){
+        statusDiv.textContent="Finished reading";
+        waveform.style.display='none';
+        updateButtons('stopped');
+        return;
+    }
+
+    highlightChunk(i);
+    waveform.style.display='block';
+
+    utterance = new SpeechSynthesisUtterance(chunks[i]);
+    utterance.voice = voices.find(v=>v.name===voiceSelect.value) || null;
+    utterance.rate = rate;
+    utterance.pitch = 1;
+
+    utterance.onend = ()=>{ if(!isPaused) speakChunk(i+1); };
+    utterance.onerror = ()=>{ statusDiv.textContent='Speech Error'; waveform.style.display='none'; };
+
+    statusDiv.textContent=`Speaking part ${i+1} of ${chunks.length}`;
+    speechSynthesis.speak(utterance);
+    updateButtons('playing');
+}
+
+function updateButtons(state){
+    playBtn.disabled = !(state==='ready'||state==='stopped');
+    pauseBtn.disabled = state!=='playing';
+    resumeBtn.disabled = state!=='paused';
+    stopBtn.disabled = !(state==='playing'||state==='paused');
+}
+
+// Extract PDF
+pdfFile.addEventListener('change', async ()=>{
+    const file = pdfFile.files[0];
+    if(!file) return;
+
+    const reader = new FileReader();
+    reader.onload=async function(){
+        const typed=new Uint8Array(this.result);
+        const pdf = await pdfjsLib.getDocument(typed).promise;
+
+        let fullText='';
+        for(let i=1;i<=pdf.numPages;i++){
+            const page = await pdf.getPage(i);
+            const content = await page.getTextContent();
+            fullText += content.items.map(t=>t.str).join(' ') + "\n\n";
+        }
+
+        textOutput.textContent = fullText;
+        chunks = splitText(fullText);
+        currentIndex=0;
+        statusDiv.textContent='PDF loaded, ready to play';
+        updateButtons('ready');
+    }
+    reader.readAsArrayBuffer(file);
+});
+
+// Controls
+playBtn.addEventListener('click', ()=>{
+    speechSynthesis.cancel();
+    isPaused=false;
+    currentIndex=0;
+    speakChunk(0);
+});
+
+pauseBtn.addEventListener('click', ()=>{
+    speechSynthesis.pause();
+    isPaused=true;
+    updateButtons('paused');
+    waveform.style.display='none';
+});
+
+resumeBtn.addEventListener('click', ()=>{
+    speechSynthesis.resume();
+    isPaused=false;
+    updateButtons('playing');
+    waveform.style.display='block';
+});
+
+stopBtn.addEventListener('click', ()=>{
+    speechSynthesis.cancel();
+    isPaused=false;
+    waveform.style.display='none';
+    updateButtons('stopped');
+    statusDiv.textContent='Stopped';
+});
+</script>
+</body>
+</html>
