@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text Editor and Image to PDF Converter</title>
+
+<meta name="theme-color" content="teal"/> 
+  
+  <link rel="icon" type="image" href="africaOnlineIcon.png"/>
+
+<!-- html2pdf.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.11.0/html2pdf.bundle.min.js"></script>
+
+<style>
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --light-bg: #f8f9fa;
+    --card-bg: #ffffff;
+    --border-color: #dee2e6;
+    --text-color: #212529;
+    --success-color: #4caf50;
+    --danger-color: #f44336;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: georgia;
+    backgroud: var(--light-bg);
+    padding: 20px;
+    color: var(--text-color);
+    line-height: 1.6;
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 1px solid orange;
+    margin-top: 1px;
+    border-radius: 4px;
+    background: linear-gradient(to right, teal, maroon);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: orange;
+    margin-bottom: 5px;
+    font-size: 24px;
+  text-shadow: 1px 1px 1px teal, -1px -1px 1px teal;
+}
+
+.subtitle {
+    color: orange;
+    font-size: 1rem;
+    margin-top: 0;
+    border: 1px solid orange;
+	   border-radius: 6px;
+	   background: teal;
+}
+
+#toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    background: var(--card-bg);
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.toolbar-group {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    padding-right: 10px;
+    border-right: 1px solid var(--border-color);
+}
+
+.toolbar-group:last-child {
+    border-right: none;
+}
+
+#toolbar button, #toolbar select, #toolbar input[type=color] {
+    padding: 2px 6px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 14px;
+    background: teal;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: orange;
+    border: 1px solid orange;
+    font-family: georgia;
+}
+
+#toolbar button:hover {
+    background: #e9ecef;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#toolbar button:active {
+    transform: translateY(0);
+}
+
+#toolbar .active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+#toolbar .danger-btn {
+    background-color: maroon;
+    color: orange;
+    border-color: orange;
+}
+
+#toolbar .success-btn {
+    background-color: teal;
+    color: orange;
+    border-color: orange;
+}
+
+#editor {
+    background: var(--card-bg);
+    min-height: 500px;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    line-height: 1.6;
+    font-size: 16px;
+    color: teal;
+}
+
+#editor:focus {
+    border-color: orange;
+    box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin: 5px 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px 0;
+}
+
+table, th, td {
+    border: 1px solid teal;
+    color: teal;
+}
+
+th, td {
+    padding: 8px 12px;
+    text-align: left;
+}
+
+th {
+    background-color: teal;
+    border: 1px solid orange;
+    color: orange;
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: orange;
+    font-size: 0.7rem;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    #toolbar {
+        padding: 10px;
+        border: 1px solid orange;
+        background: linear-gradient(to right, maroon, teal);
+    }
+    
+    .toolbar-group {
+        padding-right: 5px;
+        margin-bottom: 5px;
+    }
+    
+    #editor {
+        padding: 15px;
+        min-height: 400px;
+        background: lightgray;
+        border: 1px solid orange;
+    }
+
+p{
+	border-radius: 6px;
+	background: lightgray;
+	color: teal;
+}
+
+/*floating button css*/
+    .floating-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 10px;
+      background-color:teal;
+      color: white;
+      border: solid orange 1px;
+      border-radius: 50%;
+      width: 45px;
+      height: 45px;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      z-index: 1000;
+      transition: background-color 0.3s; 
+    } 
+
+    .floating-btn:hover {
+      background-color: orange;
+    }
+    /*end floating button css*/
+    
+/* Style the dropdown button */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  border: 1px solid orange;
+  border-radius: 6px;
+}
+
+.dropdown button {
+  background-color: orange;
+  color: teal;
+  padding: 6px 8px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.dropdown button:hover {
+  background-color: gray;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: teal;
+  min-width: 130px;
+  border-radius: 5px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+  border: 1px solid orange;
+  font-size: 14px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: orange;
+  padding: 4px 20px;
+  text-decoration: none;
+  display: block;
+  border: 1px solid orange;
+  border-radius: 4px;
+  margin: 2px;
+}
+
+/* Hover effect for links */
+.dropdown-content a:hover {
+  background-color: gray;
+}
+
+/* Show the dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+/*End Style the dropdown button */
+
+.picturee{
+width: 30px;
+height: 30px;
+border: 1px solid orange;
+border-radius: 20px;
+padding: 1px;
+}
+</style>
+</head>
+<body>
+ <img onclick="color(this); vlibrary();" class="picturee" src="africaOnlineIcon.png"/>
+ 
+<header>
+    <h1>Africa Online Text Editor</h1>
+    <p class="subtitle">Create and export documents to PDF</p>
+</header>
+
+<div class="dropdown">
+  <button onclick="color(this);">More Resources</button>
+ <div class="dropdown-content">
+<a onclick="color(this); Gemini();">🤖 Gemini</a>
+
+ <a onclick="color(this); wikipedia();">🌐 Wikipedia</a>
+  </div>
+</div><br><br>
+
+<!-- ========== TOOLBAR ========== -->
+<div id="toolbar">
+    <div class="toolbar-group">
+        <button type="button" data-cmd="bold" title="Bold"><b>B</b></button>
+        <button type="button" data-cmd="italic" title="Italic"><i>I</i></button>
+        <button type="button" data-cmd="underline" title="Underline"><u>U</u></button>
+    </div> <div class="toolbar-group">
+        <select id="fontSelect" title="Font Family">
+            <option value="Arial">Arial</option>
+            <option value="Times New Roman">Times</option>
+            <option value="Courier New">Courier</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Georgia">Georgia</option>
+        </select>
+    </div>
+
+    <div class="toolbar-group">
+        <select id="headingSelect" title="Text Format">
+            <option value="p">Normal</option>
+            <option value="h1">Heading 1</option>
+            <option value="h2">Heading 2</option>
+            <option value="h3">Heading 3</option>
+        </select>
+    </div>
+
+    <div class="toolbar-group">
+        <input type="color" id="textColor" title="Text Color">
+        <input type="color" id="highlightColor" title="Highlight Color" value="#ffff00">
+    </div>
+
+    <div class="toolbar-group">
+        <button type="button" data-cmd="insertUnorderedList" title="Bullet List">• List</button>
+        <button type="button" data-cmd="insertOrderedList" title="Numbered List">1. List</button>
+    </div>
+
+    <div class="toolbar-group">
+        <button type="button" data-cmd="justifyLeft" title="Align Left">Left</button>
+        <button type="button" data-cmd="justifyCenter" title="Align Center">Center</button>
+        <button type="button" data-cmd="justifyRight" title="Align Right">Right</button>
+    </div>
+
+    <div class="toolbar-group">
+        <button type="button" id="undoBtn" title="Undo">↩ Undo</button>
+        <button type="button" id="redoBtn" title="Redo">↪ Redo</button>
+    </div>
+
+    <div class="toolbar-group">
+        <button type="button" id="insertTable" title="Insert Table">Create Table</button>
+        <button type="button" id="uploadImageBtn" title="Insert Image">Upload Image</button>
+        <input type="file" id="imageUploader" accept="image/*" style="display:none">
+    </div>
+
+    <div class="toolbar-group">
+        <button type="button" id="exportPDF" class="success-btn" title="Export to PDF">📁 Save as PDF</button>
+        <button type="button" id="resetBtn" class="danger-btn" title="Clear All">🔁 Reset</button>
+    </div>
+</div>
+
+<!-- ========== EDITOR ========== -->
+<div id="editor" contenteditable="true">
+    <h1>Welcome to the Rich Text Editor</h1>
+    <p>Start typing your content here. You can format text, add images, tables, and more.</p>
+    <p>When you're done, click "Save as PDF" to export your document.</p>
+</div><br>
+	
+<p class="subtitle">All Your data is saved automatically and the application works completely offline.</p>
+
+
+	<!--floating button-->
+	 	<button class="floating-btn" onclick="color(this);scrollToTop(); Gemini();">🤖</button>
+	 	
+	 	  <script>
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+  <!--end floating button-->
+
+<footer>
+    <span class="subtitle" style="font-size: 10px; border-radius: 4px;">&copy;2025 SMTechnology Text and Image to PDF</span>
+</footer>
+
+<script>
+// ---------------- LOCAL STORAGE ----------------
+const editor = document.getElementById("editor");
+
+function saveToLocal() {
+    localStorage.setItem("richEditorData", editor.innerHTML);
+}
+
+function loadFromLocal() {
+    const saved = localStorage.getItem("richEditorData");
+    if (saved) editor.innerHTML = saved;
+}
+
+window.onload = () => {
+    loadFromLocal();
+    
+    // Set up auto-save
+    editor.addEventListener("input", saveToLocal);
+    
+    // Set up auto-save for other changes
+    editor.addEventListener("blur", saveToLocal);
+    
+    // Initialize editor focus
+    editor.focus();
+};
+
+// ---------------- TOOLBAR BASIC COMMANDS ----------------
+document.querySelectorAll('#toolbar button[data-cmd]').forEach(btn => {
+    btn.onclick = () => {
+        const cmd = btn.getAttribute("data-cmd");
+        document.execCommand(cmd, false, null);
+        editor.focus();
+        saveToLocal();
+    };
+});
+
+// ---------------- HEADINGS ----------------
+document.getElementById("headingSelect").onchange = (e) => {
+    document.execCommand("formatBlock", false, e.target.value);
+    editor.focus();
+    saveToLocal();
+};
+
+// ---------------- FONT FAMILY ----------------
+document.getElementById("fontSelect").onchange = (e) => {
+    document.execCommand("fontName", false, e.target.value);
+    editor.focus();
+    saveToLocal();
+};
+
+// ---------------- COLORS ----------------
+document.getElementById("textColor").onchange = (e) => {
+    document.execCommand("foreColor", false, e.target.value);
+    editor.focus();
+    saveToLocal();
+};
+
+document.getElementById("highlightColor").onchange = (e) => {
+    document.execCommand("hiliteColor", false, e.target.value);
+    editor.focus();
+    saveToLocal();
+};
+
+// ---------------- UNDO / REDO ----------------
+undoBtn.onclick = () => {
+    document.execCommand("undo", false, null);
+    editor.focus();
+    saveToLocal();
+};
+
+redoBtn.onclick = () => {
+    document.execCommand("redo", false, null);
+    editor.focus();
+    saveToLocal();
+};
+
+// ---------------- INSERT TABLE ----------------
+document.getElementById("insertTable").onclick = () => {
+    const tableHTML = `
+        <table>
+            <tr>
+                <th>Header 1</th>
+                <th>Header 2</th>
+                <th>Header 3</th>
+            </tr>
+            <tr>
+                <td>Row 1, Cell 1</td>
+                <td>Row 1, Cell 2</td>
+                <td>Row 1, Cell 3</td>
+            </tr>
+            <tr>
+                <td>Row 2, Cell 1</td>
+                <td>Row 2, Cell 2</td>
+                <td>Row 2, Cell 3</td>
+            </tr>
+        </table>
+        <br>
+    `;
+    document.execCommand("insertHTML", false, tableHTML);
+    editor.focus();
+    saveToLocal();
+};
+
+// ---------------- IMAGE UPLOAD ----------------
+document.getElementById("uploadImageBtn").onclick = () => {
+    document.getElementById("imageUploader").click();
+};
+
+document.getElementById("imageUploader").onchange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+        const img = `<img src="${reader.result}" alt="Uploaded Image">`;
+        document.execCommand("insertHTML", false, img);
+        editor.focus();
+        saveToLocal();
+    };
+    reader.readAsDataURL(file);
+    
+    // Reset the file input
+    e.target.value = '';
+};
+
+// ---------------- PASTE IMAGES ----------------
+editor.addEventListener("paste", async (e) => {
+    const items = e.clipboardData.items;
+    for (const item of items) {
+        if (item.type.indexOf("image") !== -1) {
+            e.preventDefault();
+            const file = item.getAsFile();
+            const reader = new FileReader();
+            reader.onload = () => {
+                document.execCommand("insertHTML", false, `<img src="${reader.result}" alt="Pasted Image">`);
+                saveToLocal();
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+});
+
+// ---------------- EXPORT TO PDF ----------------
+document.getElementById("exportPDF").onclick = () => {
+    // Ask user for filename
+    let filename = prompt("Enter file name:", "document");
+    if (!filename || filename.trim() === "") filename = "document";
+    filename = filename +- ".pdf";
+
+    const options = {
+        margin: 15,
+        filename: filename,
+        html2canvas: { 
+            scale: 2,
+            useCORS: true,
+            logging: false
+        },
+        jsPDF: { 
+            unit: "mm", 
+            format: "a4", 
+            orientation: "portrait" 
+        }
+    };
+    
+    // Show a temporary message
+    const originalText = exportPDF.textContent;
+    exportPDF.textContent = "Generating PDF...";
+    exportPDF.disabled = true;
+    
+    html2pdf().set(options).from(editor).save().then(() => {
+        // Restore button text
+        exportPDF.textContent = originalText;
+        exportPDF.disabled = false;
+    });
+};
+
+// ---------------- RESET EDITOR ----------------
+document.getElementById("resetBtn").onclick = () => {
+    if (confirm("Are you sure you want to reset the editor? All content will be lost.")) {
+        editor.innerHTML = `
+            <h1>Welcome to the Rich Text Editor</h1>
+            <p>Start typing your content here. You can format text, add images, tables, and more.</p>
+            <p>When you're done, click "Save as PDF" to export your document.</p>
+        `;
+        localStorage.removeItem("richEditorData");
+        editor.focus();
+    }
+};
+</script>
+
+<script>
+	wikipedia=()=>{
+	open("https://salmandascript.github.io/LinkWikipedia-/");
+}
+
+//________________________________
+
+Gemini=()=>{
+	open("https://gemini.google.com/app");
+}
+
+//________________________________
+
+vlibrary=()=>{
+	open("https://smtechnology133.github.io/africaonline/homePage.html");
+}
+</script>
+
+<script src="profiler.js"></script>
+</body>
+</html>
