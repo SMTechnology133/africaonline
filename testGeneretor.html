@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Test Question Generator (Interactive)</title>
+  
+   <meta name="theme-color" content="teal"/> 
+  
+  <link rel="icon" type="image" href="africaOnlineIcon.png"/>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  
+  <style>
+    :root{--bg:#0f1724;--card:#1e293b;--accent:#38bdf8;--text:#f1f5f9;--muted:#94a3b8;--danger:#ef4444;}
+    
+    body{
+    	font-family: georgia;
+    	margin:0;
+    	color: white;
+    	padding: 8px;
+    	background: linear-gradient(to right, maroon, teal);
+    	border: 1px solid orange;
+    	border-radius: 10px;
+    	margin-top: 1px;
+    	}
+    	
+    .container{max-width:1000px;margin:0 auto;}
+    
+    .card{
+    	background: linear-gradient(to right, teal, maroon);
+    	padding:20px;
+    	border: 1px solid orange;
+    	border-radius:12px;
+    	margin-bottom:20px;
+    	box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);
+    	}
+    	
+    h1{
+    	margin-top:0;
+    	font-size:1.5rem;
+    	color: orange;
+    	text-align: center;
+    	}
+    	
+    label{
+    	display:block;
+    	margin-bottom:5px;
+    	color: orange;
+    	font-size:0.9rem;
+    	text-decoration: underline;
+    }
+    
+    input, select, button, textarea {
+      width: 100%; 
+      padding: 7px; 
+      border-radius: 8px; 
+      border: 1px solid orange;
+      background: teal; 
+      color: orange; 
+      font-size: 1rem; 
+      margin-bottom: 10px;
+    }
+    /* Specific fix for Radio buttons to make them align well */
+    input[type="radio"] {
+        width: auto; 
+        margin-right: 10px; 
+        transform: scale(1.2); /* Make them slightly bigger */
+        cursor: pointer;
+        accent-color: orange;
+    }
+
+    button{
+    	cursor:pointer;
+    	font-weight:bold;
+    	transition:0.2s;
+    	}
+    button.primary{
+    	background: maroon;
+    	color: orange;
+    	border: 1px solid orange;
+    	}
+    	
+    button.primary:hover{
+    	opacity:0.9;
+    	}
+    	
+    button:disabled{
+    opacity:0.5;
+    cursor:not-allowed;
+    }
+    
+    .row{display:flex;gap:20px;}
+    .col{flex:1;}
+    @media(max-width:700px){.row{flex-direction:column;}}
+
+    #logArea {
+      background: #000; 
+      color: teal; 
+      font-family: georgia; 
+      font-size: 14px; 
+      height: 100px; 
+      overflow-y: auto; 
+      padding: 10px; 
+      border-radius: 8px;
+      border: 1px solid orange;
+    }
+    
+    /* --- Question Styles --- */
+    .question-item {
+    	background: white;
+      backgrond: linear-gradient(to right, teal, maroon);
+      padding: 15px; 
+      border: 1px solid orange;
+      border-radius: 8px; 
+      margin-bottom: 15px;
+      border-left: 4px solid var(--accent);
+      position: relative;
+      color: teal;
+    }
+    
+    .question-item:hover { 
+    background: orange; 
+    }
+    
+    /* Editable Areas */
+    [contenteditable="true"] {
+      border-bottom: 1px dashed rgba(255,255,255,0.2);
+      transition: 0.2s;
+    }
+    [contenteditable="true"]:hover {
+      border-bottom: 1px dashed var(--accent);
+      background: rgba(56, 189, 248, 0.1);
+      cursor: text;
+    }
+    [contenteditable="true"]:focus {
+      outline: none;
+      border-bottom: 2px solid var(--accent);
+      background: rgba(56, 189, 248, 0.15);
+    }
+
+    .q-meta { 
+    font-size: 0.8rem; 
+    color: var(--muted); 
+    margin-bottom: 5px; 
+    text-transform: uppercase;
+    letter-spacing: 1px; 
+    display:flex; 
+    justify-content:space-between;
+    }
+    
+    .delete-btn {
+      background: maroon; 
+      border: 1px solid orange;
+      border-radius: 6px;
+      color: orange;
+      width: auto; 
+      padding: 2px 8px; 
+      font-size: 10px; 
+      margin: 0;
+    }
+    
+    .delete-btn:hover { background: var(--danger); color: white; }
+
+    .answer-key { 
+    margin-top:10px; 
+    padding-top:10px; 
+    border-top:1px dashed #334155;
+    color: var(--accent); 
+    font-size: 0.9rem;
+    }
+    
+    /* Print/PDF Styles */
+    .pdf-hidden { display: none; } /* things to hide when printing */
+    
+    footer{
+    	text-align: center;
+    	color: orange;
+    	font-size: 12px;
+    	border: 1px solid orange;
+    border-radius: 6px;
+    background: teal;
+    }
+    
+    .picturee{
+width: 20px;
+height: 20px;
+border: 1px solid orange;
+border-radius: 20px;
+padding: 1px;
+margin-top: 6px;
+}
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+  	 <img class="picturee" src="africaOnlineIcon.png"/>
+  	
+    <h1>Africa Online Test Generator (Interactive)</h1>
+  </header>
+
+  <div class="card" data-html2canvas-ignore="true">
+    <div class="row">
+      <div class="col">
+        <label>Upload PDF File</label>
+        <input style="width: 95%;" type="file" id="pdfInput" accept="application/pdf">
+      </div>
+      <div class="col">
+        <label>Settings</label>
+        <div style="display:flex; gap:10px;">
+          <input type="number" id="qCount" value="5" min="1" max="50" style="width:80px">
+          <select id="qType">
+            <option value="mixed">Mixed Types</option>
+            <option value="mcq">Multiple Choice</option>
+            <option value="tf">True/False</option>
+            <option value="short">Short Answer</option>
+          </select>
+        </div>
+      </div>
+      <div class="col">
+        <label>Action</label>
+        <button id="genBtn" class="primary" disabled>Generate Questions</button>
+        <button id="dlBtn" disabled>Download PDF</button>
+      </div>
+    </div>
+    <div style="margin-top:10px; font-size:13px; color: orange;">
+      <strong>Tip:</strong> You can edit text, click radio buttons, and delete questions before downloading.
+    </div>
+    <div id="logArea" style="margin-top:10px;">Waiting for file...</div>
+  </div>
+
+  <div id="outputArea"></div>
+</div>
+
+<footer>&copy;2025 SMTechnology Test Question Generator</footer>
+
+<script>
+// --- 1. Configuration ---
+pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+const logArea = document.getElementById('logArea');
+const genBtn = document.getElementById('genBtn');
+const dlBtn = document.getElementById('dlBtn');
+const outputArea = document.getElementById('outputArea');
+let fullTextContent = "";
+let generatedQuestions = [];
+
+// --- 2. Logger ---
+function log(msg) {
+  const div = document.createElement('div');
+  div.textContent = `> ${msg}`;
+  logArea.appendChild(div);
+  logArea.scrollTop = logArea.scrollHeight;
+}
+
+// --- 3. PDF Reading ---
+document.getElementById('pdfInput').addEventListener('change', async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+
+  log("Reading PDF...");
+  genBtn.disabled = true;
+  fullTextContent = "";
+
+  try {
+    const arrayBuffer = await file.arrayBuffer();
+    const loadingTask = pdfjsLib.getDocument({data: arrayBuffer});
+    const pdf = await loadingTask.promise;
+
+    for (let i = 1; i <= pdf.numPages; i++) {
+      const page = await pdf.getPage(i);
+      const textContent = await page.getTextContent();
+      const pageText = textContent.items.map(item => item.str).join(' ');
+      fullTextContent += pageText + "\n";
+    }
+
+    log(`Extracted ${fullTextContent.length} characters.`);
+    if(fullTextContent.length < 50) {
+      log("Error: Text too short. Is this a scanned image?");
+    } else {
+      genBtn.disabled = false;
+      log("Ready to generate.");
+    }
+  } catch (err) {
+    log(`Error: ${err.message}`);
+  }
+});
+
+// --- 4. Generation Logic ---
+function getSentences(text) {
+  const clean = text.replace(/\s+/g, ' ').trim();
+  const parts = clean.split(/([.?!])\s+/);
+  let sentences = [];
+  for (let i = 0; i < parts.length; i += 2) {
+    if (i + 1 < parts.length) {
+      let s = parts[i] + parts[i+1];
+      if (s.length > 20 && s.length < 300) sentences.push(s);
+    }
+  }
+  return sentences;
+}
+
+function getKeywords(sentence) {
+  const ignored = ['The','A','An','This','That','It','In','On','When','If'];
+  const matches = sentence.match(/\b[A-Z][a-z]+\b/g) || [];
+  return matches.filter(w => !ignored.includes(w) && w.length > 3);
+}
+
+genBtn.addEventListener('click', () => {
+  const count = parseInt(document.getElementById('qCount').value);
+  const typeStr = document.getElementById('qType').value;
+  
+  log("Generating...");
+  const sentences = getSentences(fullTextContent);
+  
+  if(sentences.length === 0) {
+    log("No sentences found.");
+    return;
+  }
+
+  generatedQuestions = [];
+  sentences.sort(() => Math.random() - 0.5);
+
+  let i = 0;
+  while(generatedQuestions.length < count && i < sentences.length) {
+    const s = sentences[i];
+    const keywords = getKeywords(s);
+    let qType = typeStr === 'mixed' ? (Math.random() > 0.5 ? 'mcq' : 'tf') : typeStr;
+    
+    // Fallback
+    if(qType === 'mcq' && keywords.length === 0) qType = 'short';
+
+    let qObj = { id: generatedQuestions.length + 1, type: qType, text: '', answer: '', options: [] };
+
+    if (qType === 'mcq') {
+      const answer = keywords[Math.floor(Math.random() * keywords.length)];
+      qObj.text = s.replace(answer, '_______');
+      qObj.answer = answer;
+      qObj.options = [answer, 'Option B', 'Option C', 'Option D'].sort(() => Math.random() - 0.5);
+    } else if (qType === 'tf') {
+      qObj.text = s;
+      qObj.answer = 'True'; 
+    } else {
+      qObj.text = `Explain the concept mentioned in this context: "${s.substring(0, 50)}..."`;
+      qObj.answer = s;
+    }
+
+    generatedQuestions.push(qObj);
+    i++;
+  }
+
+  renderQuestions();
+  dlBtn.disabled = false;
+  log("Done. Questions are interactive and editable.");
+});
+
+// --- 5. Editable Rendering ---
+function renderQuestions() {
+  outputArea.innerHTML = '';
+  generatedQuestions.forEach((q, index) => {
+    const div = document.createElement('div');
+    div.className = 'question-item';
+    div.id = `q-${index}`;
+    
+    // Header with Delete Button
+    let html = `
+      <div class="q-meta">
+        <span>Q${index + 1} - ${q.type.toUpperCase()}</span>
+        <button class="delete-btn" onclick="removeQuestion('q-${index}')" data-html2canvas-ignore="true">✖ Remove</button>
+      </div>`;
+    
+    // Editable Question Text
+    html += `<p><strong><span contenteditable="true">${q.text}</span></strong></p>`;
+    
+    if(q.type === 'mcq') {
+      html += `<ul style="list-style-type:none; padding-left:10px;">`;
+      // Note: name="radio_group_${index}" ensures only one can be selected per question
+      q.options.forEach(opt => {
+        html += `<li><input type="radio" name="radio_group_${index}"> <span contenteditable="true">${opt}</span></li>`;
+      });
+      html += `</ul>`;
+    } else if (q.type === 'tf') {
+      html += `<p>True / False</p>`;
+    } else {
+      html += `<p>__________________________________________</p>`;
+    }
+    
+    // Editable Answer Key
+    html += `<div class="answer-key">Answer: <span contenteditable="true">${q.answer}</span></div>`;
+    
+    div.innerHTML = html;
+    outputArea.appendChild(div);
+  });
+}
+
+// --- 6. Remove Question Function ---
+window.removeQuestion = function(id) {
+  const el = document.getElementById(id);
+  if(el) el.remove();
+}
+
+// --- 7. Download PDF ---
+dlBtn.addEventListener('click', () => {
+  const element = document.getElementById('outputArea');
+  const opt = {
+    margin: 0.5,
+    filename: 'my_test.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2 }, 
+    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+  };
+  html2pdf().set(opt).from(element).save();
+});
+
+</script>
+</body>
+</html>
+
+
