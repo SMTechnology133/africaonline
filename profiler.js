@@ -321,6 +321,10 @@ PDFconverter=()=>{
 textEditor=()=>{
 	open("https://smtechnology133.github.io/africaonline/textEditor.html");
 }
+
+testGenerator=()=>{
+	open("https://smtechnology133.github.io/africaonline/testGenerator.html");
+}
 //end functions to open various pages
 
 //functione to change button background color on click
