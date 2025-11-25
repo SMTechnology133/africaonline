@@ -325,6 +325,10 @@ textEditor=()=>{
 testGenerator=()=>{
 	open("https://smtechnology133.github.io/africaonline/testGenerator.html");
 }
+
+connect=()=>{
+	open("https://connect-nbdv.onrender.com/");
+}
 //end functions to open various pages
 
 //functione to change button background color on click
