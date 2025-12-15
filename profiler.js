@@ -259,7 +259,7 @@ myPresident=()=>{
 //________________________________
 
 seer=()=>{
-	open("https:///www.salmandascript.github.io/seer");
+	open("https://salmandascript.github.io/Seer/");
 }
 
 //________________________________
