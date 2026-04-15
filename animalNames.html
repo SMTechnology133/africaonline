@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animal Names Learning System</title>
+
+<style>
+body {
+	 font-family: georgia; 
+	 text-align:center;
+	 background:linear-gradient(to right, teal, maroon); 
+	 border-radius:12px; 
+	 border:1px solid orange;
+	 padding:8px;
+	 color: teal;
+	 text-shadow: 1px 1px 2px orange;
+}
+
+.container { 
+	max-width:420px; 
+	margin:auto; 
+	background:lightgray; 
+	padding:20px; 
+	border-radius:12px; 
+	border:1px solid orange;
+}
+
+img { 
+	width:100%; 
+	height:200px; 
+	object-fit:cover; 
+	border-radius:10px; 
+	border:1px solid teal;
+}
+
+button { 
+	padding:10px; 
+	margin:5px; 
+	border:none; 
+	border-radius:10px;
+	background:maroon; 
+	color:white;
+	border:1px solid orange;
+	cursor:pointer;
+}
+
+input, select { 
+	padding:10px; 
+	margin:5px;
+	border:1px solid teal;
+	border-radius:10px; 
+	color:teal;
+}
+
+#xpContainer {
+	width:100%;
+	background:white;
+	border-radius:10px;
+	height:20px;
+	border:1px solid teal;
+	margin-top:10px;
+	overflow:hidden;
+}
+
+#xpBar {
+	height:100%;
+	width:0%;
+	background:maroon;
+	transition:0.4s;
+}
+
+#barChart {
+	display:flex;
+	gap:5px;
+	align-items:flex-end;
+	height:120px;
+	margin-top:15px;
+	justify-content:center;
+}
+
+footer{
+	color: orange;
+	font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Animal Names Learning System</h2>
+
+<input type="text" id="username" placeholder="Enter student name">
+<button onclick="loadUser()">Load Profile</button>
+
+<p id="currentUser">Please load a profile to start</p>
+
+<hr>
+
+<select id="categorySelect" onchange="changeCategory(this.value)">
+  <option value="farm">Farm</option>
+  <option value="wild">Wild</option>
+  <option value="birds">Birds</option>
+</select>
+
+<button onclick="toggleLanguage()">Switch Language</button>
+
+<img id="img" src="https://via.placeholder.com/400x200?text=Select+Profile">
+<h3 id="sentence"></h3>
+
+<button onclick="speak()">Speak</button>
+
+<br>
+<button onclick="prev()">Previous</button>
+<button onclick="next()">Next</button>
+
+<hr>
+
+<h3>Quiz</h3>
+<div id="options"></div>
+
+<p id="score"></p>
+<p id="level"></p>
+
+<!-- XP BAR -->
+<div id="xpContainer">
+  <div id="xpBar"></div>
+</div>
+<p id="xpText"></p>
+
+<!-- HISTORY BAR CHART -->
+<div id="barChart"></div>
+
+</div>
+
+<footer>&copy; 2026 Copyright SM Technology</footer>
+
+<script>
+let currentUser = "";
+let users = JSON.parse(localStorage.getItem("users")) || {};
+
+let score = 0;
+let level = 1;
+let language = "en";
+let category = "farm";
+let index = 0;
+
+const data = {
+    farm: [
+        {name:"dog", ch:"galu", img:"https://picsum.photos/id/237/400/200"},
+        {name:"cow", ch:"ng'ombe", img:"https://picsum.photos/id/200/400/200"},
+        {name:"goat", ch:"mbuzi", img:"https://picsum.photos/id/100/400/200"}
+    ],
+    wild: [
+        {name:"lion", ch:"mkango", img:"https://picsum.photos/id/1024/400/200"},
+        {name:"elephant", ch:"njovu", img:"https://picsum.photos/id/1025/400/200"}
+    ],
+    birds: [
+        {name:"chicken", ch:"nkhuku", img:"https://picsum.photos/id/102/400/200"},
+        {name:"duck", ch:"bakha", img:"https://picsum.photos/id/103/400/200"}
+    ]
+};
+
+function loadUser(){
+    let name = document.getElementById("username").value.trim();
+    if(!name) return alert("Enter name");
+
+    currentUser = name;
+
+    if(!users[name]){
+        users[name] = {score:0, level:1, history:[]};
+    }
+
+    if(!users[name].history) users[name].history = [];
+
+    score = users[name].score || 0;
+    level = users[name].level || 1;
+
+    document.getElementById("currentUser").innerText = "User: " + name;
+
+    update();
+}
+
+function saveUser(){
+    if(!currentUser) return;
+
+    users[currentUser].score = score;
+    users[currentUser].level = level;
+
+    if(!users[currentUser].history) users[currentUser].history = [];
+
+    users[currentUser].history.push(score);
+
+    if(users[currentUser].history.length > 10){
+        users[currentUser].history.shift();
+    }
+
+    localStorage.setItem("users", JSON.stringify(users));
+}
+
+function update(){
+    let animal = data[category][index];
+
+    document.getElementById("img").src = animal.img;
+
+    document.getElementById("sentence").innerText =
+        language === "en"
+        ? "This is a " + animal.name
+        : "Ichi ndi " + animal.ch;
+
+    document.getElementById("score").innerText = "Score: " + score;
+    document.getElementById("level").innerText = "Level: " + level;
+
+    updateXPBar();
+    generateQuiz();
+    drawChart();
+}
+
+function next(){
+    index = (index + 1) % data[category].length;
+    update();
+}
+
+function prev(){
+    index = (index - 1 + data[category].length) % data[category].length;
+    update();
+}
+
+function changeCategory(c){
+    category = c;
+    index = 0;
+    update();
+}
+
+function toggleLanguage(){
+    language = (language === "en") ? "ch" : "en";
+    update();
+}
+
+function speak(){
+    let text = document.getElementById("sentence").innerText;
+    if(!text || !window.speechSynthesis) return;
+
+    window.speechSynthesis.cancel();
+
+    let utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "en-US";
+    utterance.rate = 0.9;
+
+    window.speechSynthesis.speak(utterance);
+}
+
+/* QUIZ */
+function generateQuiz(){
+    let animal = data[category][index];
+    let optionsDiv = document.getElementById("options");
+    optionsDiv.innerHTML = "";
+
+    let options = [animal.name];
+    let all = Object.values(data).flat();
+
+    while(options.length < 3){
+        let rand = all[Math.floor(Math.random() * all.length)].name;
+        if(!options.includes(rand)) options.push(rand);
+    }
+
+    options.sort(() => Math.random() - 0.5);
+
+    options.forEach(opt => {
+        let btn = document.createElement("button");
+        btn.innerText = opt;
+        btn.onclick = () => checkAnswer(opt);
+        optionsDiv.appendChild(btn);
+    });
+}
+
+function checkAnswer(ans){
+    if(!currentUser) return alert("Load profile first!");
+
+    let correct = data[category][index].name;
+
+    if(ans === correct){
+        score += 10;
+        level = Math.floor(score / 50) + 1;
+
+        alert("Correct!");
+        saveUser();
+        update();
+    } else {
+        alert("Wrong! Correct answer: " + correct);
+    }
+}
+
+/* XP BAR */
+function updateXPBar(){
+    let xp = score % 50;
+    let percent = (xp / 50) * 100;
+
+    document.getElementById("xpBar").style.width = percent + "%";
+    document.getElementById("xpText").innerText =
+        `XP: ${xp}/50 (Level ${level})`;
+}
+
+/* ANIMATED BAR CHART */
+function drawChart(){
+    let container = document.getElementById("barChart");
+    container.innerHTML = "";
+
+    if(!currentUser) return;
+
+    let history = users[currentUser]?.history || [];
+    if(history.length === 0) return;
+
+    let max = Math.max(...history, 10);
+
+    history.forEach((val, i) => {
+        let bar = document.createElement("div");
+
+        let height = (val / max) * 120;
+
+        bar.style.width = "20px";
+        bar.style.background = "maroon";
+        bar.style.borderRadius = "5px";
+        bar.style.height = "0px";
+        bar.style.transition = "0.5s";
+
+        container.appendChild(bar);
+
+        setTimeout(() => {
+            bar.style.height = height + "px";
+        }, i * 100);
+    });
+}
+
+/* INITIAL UI */
+document.getElementById("score").innerText = "Score: 0";
+document.getElementById("level").innerText = "Level: 1";
+</script>
+
+</body>
+</html>
