@@ -216,7 +216,7 @@ footer{
 <div id="sidebar">
     <h3>📚 Menu</h3>
     <div class="menu-item" onclick="showHome()">🏠 Home</div>
-    <div class="menu-item" onclick="showApps()">📱 My Apps</div>
+    <div class="menu-item" onclick="showApps()">📱 App List</div>
     <div class="menu-item" onclick="showProgress()">📊 Progress</div>
     
     <div class="menu-item" onclick="africaOnline()">🌍 Main Application</div>
@@ -236,11 +236,12 @@ footer{
 <input id="url" type="url" placeholder="Enter website..." onkeydown="if(event.key==='Enter') loadSite()" />
 <br>
 <button onclick="loadSite()">Search 🔎</button>
-<button onclick="showApps()">Apps List 📱</button>
+<button onclick="showApps()">App List 📱</button>
+
+<div id="appGrid"></div><br>
 
 <iframe id="view" src="about:blank"></iframe>
 
-<div id="appGrid"></div>
 <div id="panel"></div>
 
 </div>
@@ -250,7 +251,7 @@ footer{
 <script>
 
 /* CONSTANTS */
-const HOME_URL = "https://smtechnology133.github.io/africaonline/";
+const HOME_URL = "https://connect-nbdv.onrender.com/";
 
 /* SAFE STORAGE */
 function safeParse(key, fallback) {
@@ -263,12 +264,25 @@ function safeParse(key, fallback) {
 }
 
 let myApps = [
-    { name: "🐾 Animals", url: "file:///storage/emulated/0/projects/vlibrary/animalNames.html" },
-    { name: "⚗️ Physics", url: "file:///storage/emulated/0/projects/vlibrary/vlibrary.html" },
-    { name: "📖 Dictionary", url: "https://www.dictionary.com" },
+{ name: "️📓 MSCE Pdf", url: "https://smtechnology133.github.io/africaonline/seniorSubjects.html" },
+
+{ name: "📓 JCE Pdf", url: "https://example.com/lab" },
+
+    { name: "🐾 Kids App", url: "file:///storage/emulated/0/projects/vlibrary/animalNames.html" },
+    
+    { name: "🔊 PDF to Speech", url: "https://smtechnology133.github.io/africaonline/PDFtoAudio.html" },
+    
+    { name: "📖 Text Editor", url: "https://smtechnology133.github.io/africaonline/textEditor.html" },
+    
+    { name: "📖 Wikipedia", url: "https://salmandascript.github.io/LinkWikipedia-/" },
+    
+    { name: "🛍 E-Store", url: "https://smtechnology133.github.io/OnlineShopping/onlineShopping.html" },
+    
+    { name: "👑 Head of State", url: "https://salmandascript.github.io/MyPresident2/index.html" },
+    
     { name: "🔢 Matrix AI", url: "https://example.com/matrix" },
-    { name: "🛠️ Tools", url: "https://example.com/tools" },
-    { name: "🧪 Lab", url: "https://example.com/lab" }
+    
+    { name: "🌍 Main App", url: "https://smtechnology133.github.io/africaonline/" }
 ];
 
 let points = parseInt(localStorage.getItem("points") || 0);
@@ -384,7 +398,7 @@ function showHome(){
     document.getElementById("view").src = HOME_URL;
     const panel = document.getElementById("panel");
     panel.style.display = "block";
-    panel.innerHTML = "<h3>🏠 Welcome</h3><p>Africa Online loaded successfully.</p>";
+    panel.innerHTML = "<h3>🏠 Welcome</h3><p>Once 💬Connect has loaded successfully, let's chat, share PDF Books, Past Papers aswell as teach each other, good luck.</p>";
 
     if(document.getElementById("sidebar").classList.contains("open")) toggleSidebar();
 }
@@ -432,9 +446,9 @@ function drawGraph(){
     // Graph path
     ctx.beginPath();
     ctx.strokeStyle = "orange";
-    ctx.lineWidth = 3;
-    ctx.shadowBlur = 8;
-    ctx.shadowColor = "teal";
+    ctx.lineWidth = 8;
+    ctx.shadowBlur = 10;
+    ctx.shadowColor = "maroon";
 
     data.forEach((d, i) => {
         const x = i * (w / (data.length - 1));
@@ -447,7 +461,7 @@ function drawGraph(){
     
     // Dots
     ctx.shadowBlur = 0;
-    ctx.fillStyle = "yellow";
+    ctx.fillStyle = "teal";
     data.forEach((d, i) => {
         const x = i * (w / (data.length - 1));
         const maxPts = Math.max(...data.map(o => o.points)) || 1;
