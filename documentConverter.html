@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-File PDF Compiler</title>
+    
+    <meta name="keywords" content="Document Conveter, Document Compiler, Document Maker, Document, PDF Maker, PDF Compiler,"/>
+
+<meta name="Author" content="Salmanda"/> 
+
+<meta name="revised" content="Profiler, 3/6/2026"/>
+ 
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+    
+    <meta name="mobile-web-app-capable" content="yes"/>
+    
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    
+    <meta name="msapplication-starturl" content=""/>
+    
+     <meta name="robots"
+content="noindex,nofollow"/> 
+    
+    <meta name="theme-color" content="teal"/> 
+    
+  <link rel="icon" type="image" href="https://smtechnology133.github.io/images/unicorn.png"/>
+  
+  <link rel="stylesheet" href="profiler.css" type="text/css"/>
+		 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --background: #f3f4f6;
+            --card-bg: #ffffff;
+            --text: #1f2937;
+            --border: #e5e7eb;
+            --danger: #ef4444;
+        }
+
+        body {
+            font-family: georgia;
+            background: linear-gradient(135deg, teal, maroon, orange, teal);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            border: 1px solid orange;
+            margin-top: 1px;
+            border-radius: 6px;
+        }
+
+        .converter-container {
+            background: linear-gradient(135deg, teal, maroon, orange, teal);
+            padding: 30px;
+            border: 1px solid orange;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px;
+            box-sizing: border-box;
+       }
+
+        h1 {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 5px;
+            color: orange;
+            text-shadow: 1px 1px 2px teal;
+        }
+
+        p.subtitle {
+            text-align: center;
+            color: orange;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            text-shadow: 1px 1px 2px teal;
+        }
+
+        .drop-zone {
+            border: 1px solid orange;
+            border-radius: 8px;
+            padding: 30px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: gray;
+        }
+
+        .drop-zone:hover, .drop-zone.drag-over {
+            border-color: orange;
+            background: maroon;
+        }
+
+        .drop-zone p {
+            margin: 0 0 10px 0;
+            font-size: 0.95rem;
+            color: orange;
+            text-shadow: 1px 1px 2px teal;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .browse-btn {
+            background: teal;
+            color: orange;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            border: 1px solid orange;
+        }
+        
+        .browse-btn:hover {
+            color: gray;
+        }
+
+        /* File Queue Styles */
+        .file-queue-container {
+            margin-top: 20px;
+            max-height: 240px;
+            overflow-y: auto;
+            display: none;
+            border: 1px solid orange;
+            border-radius: 6px;
+            padding: 2px;
+            
+        }
+
+        .queue-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: teal;
+            margin-bottom: 8px;
+             text-shadow: 1px 1px 2px black;
+        }
+
+        .file-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: orange;
+            border: 1px solid var(--border);
+            padding: 10px 14px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+
+        .file-info {
+            display: flex;
+            flex-direction: column;
+            max-width: 80%;
+        }
+
+        .file-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+            word-break: break-all;
+            border: 1px solid white;
+            color: orange;
+        }
+
+        .file-meta {
+            font-size: 0.75rem;
+            color: orange;
+            margin-top: 2px;
+            border: 1px solid white;
+        }
+
+        .remove-btn {
+            background: teal;
+            border: none;
+            color: maroon;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            padding: 0 5px;
+            border: 1px solid white;
+            border-radius: 4px;
+        }
+
+        .remove-btn:hover {
+            opacity: 0.7;
+        }
+
+        .convert-btn {
+            width: 100%;
+            background: teal;
+            color: orange;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background 0.2s;
+            display: none;
+            border: 1px solid orange;
+        }
+
+        .convert-btn:hover {
+            background: var(--primary-hover);
+        }
+
+        .convert-btn:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        #sandbox-hidden {
+            position: absolute;
+            left: -9999px;
+            top: -9999px;
+            width: 790px; /* Rough alignment width for A4 page sizing translation */
+        }
+    </style>
+</head>
+<body>
+
+<div class="converter-container">
+    <h1>Multi-File PDF Compiler</h1>
+    <p class="subtitle">Select several files (Images, Text, HTML) to compile into a single PDF document.</p>
+
+    <div class="drop-zone" id="dropZone">
+        <p>Drag & drop multiple files here</p>
+        <p style="font-size: 0.8rem; color: #94a3b8;">or</p>
+        <span class="browse-btn">Browse Files</span>
+        <input type="file" id="fileInput" class="file-input" accept=".txt, .html, .htm, .png, .jpg, .jpeg" multiple>
+    </div>
+
+    <div class="file-queue-container" id="queueContainer">
+        <div class="queue-title">Files to Combine</div>
+        <div id="fileQueue"></div>
+    </div>
+
+    <button class="convert-btn" id="convertBtn">Convert to PDF</button><br>
+    
+    <footer>&copy; 2026 Copyright SM Technology</footer>
+    </div>
+</div>
+
+<div id="sandbox-hidden"></div>
+
+
+
+<script>
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+    const queueContainer = document.getElementById('queueContainer');
+    const fileQueue = document.getElementById('fileQueue');
+    const convertBtn = document.getElementById('convertBtn');
+    const sandboxHidden = document.getElementById('sandbox-hidden');
+
+    // Array to manage file list pipeline memory natively
+    let fileStoragePipeline = [];
+
+    // Trigger file dialog
+    dropZone.addEventListener('click', () => fileInput.click());
+
+    // Drag-over adjustments
+    dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.classList.add('drag-over');
+    });
+
+    ['dragleave', 'dragend'].forEach(type => {
+        dropZone.addEventListener(type, () => dropZone.classList.remove('drag-over'));
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('drag-over');
+        if (e.dataTransfer.files.length) {
+            handleFiles(e.dataTransfer.files);
+        }
+    });
+
+    fileInput.addEventListener('change', (e) => {
+        if (e.target.files.length) {
+            handleFiles(e.target.files);
+        }
+    });
+
+    // Validate and push files to processing stack
+    function handleFiles(files) {
+        const allowedExtensions = ['txt', 'html', 'htm', 'png', 'jpg', 'jpeg'];
+
+        for (let file of files) {
+            const fileExt = file.name.split('.').pop().toLowerCase();
+            if (allowedExtensions.includes(fileExt)) {
+                // Prevent simple exact duplicates if desired
+                if (!fileStoragePipeline.some(f => f.name === file.name && f.size === file.size)) {
+                    fileStoragePipeline.push(file);
+                }
+            } else {
+                alert(`Skipped standard incompatible file format: ${file.name}`);
+            }
+        }
+        updateQueueUI();
+    }
+
+    // Dynamic UI builder for tracking selected items
+    function updateQueueUI() {
+        fileQueue.innerHTML = '';
+        
+        if (fileStoragePipeline.length === 0) {
+            queueContainer.style.display = 'none';
+            convertBtn.style.display = 'none';
+            return;
+        }
+
+        fileStoragePipeline.forEach((file, index) => {
+            const fileExt = file.name.split('.').pop().toUpperCase();
+            const sizeKB = (file.size / 1024).toFixed(1);
+
+            const item = document.createElement('div');
+            item.className = 'file-item';
+            item.innerHTML = `
+                <div class="file-info">
+                    <span class="file-name">${file.name}</span>
+                    <span class="file-meta">Type: ${fileExt} • Size: ${sizeKB} KB</span>
+                </div>
+                <button class="remove-btn" onclick="removeFileFromQueue(${index})">&times;</button>
+            `;
+            fileQueue.appendChild(item);
+        });
+
+        queueContainer.style.display = 'block';
+        convertBtn.style.display = 'block';
+    }
+
+    // Global scope helper allowing targeted item removal
+    window.removeFileFromQueue = function(index) {
+        fileStoragePipeline.splice(index, 1);
+        updateQueueUI();
+    };
+
+    // Helper wrapper using promises to convert typical File Objects to structured read data
+    function readFileData(file, readType) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = (e) => resolve(e.target.result);
+            reader.onerror = (e) => reject(e);
+            
+            if (readType === 'text') reader.readAsText(file);
+            else if (readType === 'dataURL') reader.readAsDataURL(file);
+        });
+    }
+
+    // Main Thread Compiler Loop
+    convertBtn.addEventListener('click', async () => {
+        if (!fileStoragePipeline.length) return;
+
+        convertBtn.disabled = true;
+        convertBtn.textContent = 'Processing & Compiling...';
+
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF('p', 'mm', 'a4');
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
+
+        for (let i = 0; i < fileStoragePipeline.length; i++) {
+            const file = fileStoragePipeline[i];
+            const fileExt = file.name.split('.').pop().toLowerCase();
+
+            // Append standard blank staging page for entries past index 0
+            if (i > 0) {
+                pdf.addPage();
+            }
+
+            try {
+                // A. PROCESSING IMAGES
+                if (['jpg', 'jpeg', 'png'].includes(fileExt)) {
+                    const dataUrl = await readFileData(file, 'dataURL');
+                    
+                    await new Promise((resolve) => {
+                        const img = new Image();
+                        img.src = dataUrl;
+                        img.onload = function () {
+                            const ratio = Math.min(pageWidth / this.width, pageHeight / this.height);
+                            const w = this.width * ratio;
+                            const h = this.height * ratio;
+                            const x = (pageWidth - w) / 2;
+                            const y = (pageHeight - h) / 2;
+
+                            pdf.addImage(dataUrl, fileExt === 'png' ? 'PNG' : 'JPEG', x, y, w, h);
+                            resolve();
+                        };
+                    });
+                } 
+                
+                // B. PROCESSING TXT
+                else if (fileExt === 'txt') {
+                    const text = await readFileData(file, 'text');
+                    const margins = 15;
+                    const splitText = pdf.splitTextToSize(text, pageWidth - (margins * 2));
+                    
+                    // Simple logic to add pages if text content overflows a single sheet height
+                    let cursorY = 20;
+                    splitText.forEach((line) => {
+                        if (cursorY > pageHeight - 20) {
+                            pdf.addPage();
+                            cursorY = 20;
+                        }
+                        pdf.text(line, margins, cursorY);
+                        cursorY += 7; // line-height spacing
+                    });
+                } 
+                
+                // C. PROCESSING HTML
+                else if (['html', 'htm'].includes(fileExt)) {
+                    const htmlContent = await readFileData(file, 'text');
+                    sandboxHidden.innerHTML = htmlContent;
+
+                    // Rasterize simulated HTML DOM container via html2canvas engine
+                    const canvas = await html2canvas(sandboxHidden, { scale: 2 });
+                    const imgData = canvas.toDataURL('image/jpeg', 0.95);
+                    
+                    const ratio = Math.min(pageWidth / canvas.width, pageHeight / canvas.height);
+                    // Match scaling elements gracefully inside bounds
+                    pdf.addImage(imgData, 'JPEG', 10, 10, canvas.width * ratio - 20, canvas.height * ratio - 20);
+                    
+                    sandboxHidden.innerHTML = ''; // Clean sandbox environment
+                }
+            } catch (err) {
+                console.error(`Error processing file ${file.name}:`, err);
+            }
+        }
+
+        // Output complete aggregated PDF package structure
+        pdf.save('compiled_document.pdf');
+        
+        // Final Cleanup
+        fileStoragePipeline = [];
+        fileInput.value = '';
+        updateQueueUI();
+        convertBtn.disabled = false;
+        convertBtn.textContent = 'Compile to Single PDF';
+    });
+</script>
+
+</body>
+</html>
