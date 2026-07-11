@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AOAccess Web Browser</title>
 
-	<meta name="keywords" content="Library, Books, Reading, Application, PDF Files"/>
+	<meta name="keywords" content="AOAccess, Book browser, Reading browser, Application browser, PDF Files browser, AOAccess browser, Student browser, School browser"/>
 
 <meta name="Author" content="Salmanda"/> 
 
-<meta name="revised" content="Profiler, 2/7/2025"/>
+<meta name="revised" content="Profiler, 13/5/2026"/>
  
   <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
     
@@ -25,6 +25,10 @@ content="noindex,nofollow"/>
     <meta name="theme-color" content="teal"/>  
   
   <link rel="icon" type="image" href="africaOnlineIcon.png"/>
+  
+  <link rel="stylesheet" href="profiler.css" type="text/css"/>
+		 
+		 <link rel="stylesheet"  type="text/css" href="bootstrap.min.css">
 
 <style>
 /* (CSS UNCHANGED PER REQUEST) */
@@ -105,7 +109,7 @@ padding: 10px;
 input{
     padding: 10px; 
     margin: 5px;
-    width: 90%; 
+    width: 95%; 
     font-size: 16px;
     border:1px solid orange;
     border-radius: 10px;
@@ -158,7 +162,7 @@ background: teal;
  }
 
 #panel {
-    background: darkgray;
+    background: gray;
     color: black;
     padding: 10px;
     margin-top: 10px;
@@ -175,10 +179,10 @@ background: teal;
 
 /* XP BAR */
 #xpContainer {
-    width: 90%;
+    width: 95%;
     height: 12px;
     background: maroon;
-    border-radius: 8px;
+    border-radius: 6px; 
     margin: 10px auto;
     overflow: hidden;
     border: 1px solid orange;
@@ -187,7 +191,7 @@ background: teal;
     height: 100%;
     width: 0%;
     background: linear-gradient(to right, teal, orange);
-    border-radius: 20px;
+    border-radius: 1px;
     transition: width 0.6s ease-in-out;
 }
 
@@ -202,6 +206,8 @@ margin-top: 6px;
 
 h3,p{
 	text-shadow: 1px 1px 2px orange;
+	border: 1px solid orange;
+	border-radius: 10px;
 }
 
 footer{
@@ -248,7 +254,7 @@ footer{
 
 </div>
 
-<footer>&copy; 2026 Copyright SM Technology</footer>
+<footer style="margin: 4px;">&copy; 2026 Copyright SM Technology</footer><br>
 
 <script>
 
@@ -270,6 +276,8 @@ let myApps = [
 
 { name: "📓 JCE Pdf", url: "https://smtechnology133.github.io/africaonline/juniorSubjects.html" },
 
+{ name: "📂 File Feed", url: "https://example.com/matrix" },
+
     { name: "🐾 Kids App", url: "https://smtechnology133.github.io/africaonline/animalNames.html" },
     
     { name: "🔊 PDF to Speech", url: "https://smtechnology133.github.io/africaonline/PDFtoAudio.html" },
@@ -280,11 +288,29 @@ let myApps = [
     
     { name: "🛍 E-Store", url: "https://smtechnology133.github.io/OnlineShopping/onlineShopping.html" },
     
-    { name: "👑 Head of State", url: "https://salmandascript.github.io/MyPresident2/index.html" },
-    
     { name: "🔢 Matrix AI", url: "https://example.com/matrix" },
     
-    { name: "🌍 Main App", url: "https://smtechnology133.github.io/africaonline/" }
+    { name: "🔢 Matrix DB", url: "https://example.com/matrix" },
+    
+    { name: "👑 Head of State", url: "https://salmandascript.github.io/MyPresident2/index.html" },
+    
+    { name: "🌍 Main App", url: "https://smtechnology133.github.io/africaonline/" },
+    
+    { name: "🌍 Schoolers Academy", url: "https://smtechnology133.github.io/africaonline/" },
+    
+    { name: "🌍 Explore MW Game", url: "https://smtechnology133.github.io/africaonline/" },
+    
+    { name: "🌍 Test Generator", url: "https://smtechnology133.github.io/africaonline/" },
+    
+    { name: "🌍 Time-table", url: "https://smtechnology133.github.io/africaonline/" },
+    
+    { name: "🌍 School Manager", url: "https://smtechnology133.github.io/africaonline/" },
+    
+    { name: "🌍 Scientific Calculator", url: "https://smtechnology133.github.io/africaonline/" },
+    
+    { name: "🌍 Document Conveter", url: "https://smtechnology133.github.io/africaonline/" },
+    
+    { name: "🌍 AO_AI Gateway", url: "https://smtechnology133.github.io/AO_AI-Gateway/AI_Gateway.html" }
 ];
 
 let points = parseInt(localStorage.getItem("points") || 0);
@@ -400,7 +426,7 @@ function showHome(){
     document.getElementById("view").src = HOME_URL;
     const panel = document.getElementById("panel");
     panel.style.display = "block";
-    panel.innerHTML = "<h3>🏠 Welcome</h3><p>Once 💬Connect has loaded successfully, let's chat, share PDF Books, Past Papers aswell as teach each other, good luck.</p>";
+    panel.innerHTML = "<h3>🏠 Welcome</h3><p>Once 💬Connect has loaded successfully, let's chat, share PDF Books, Past Papers, tutorial videos, images, as well as teach each other, good luck.</p>";
 
     if(document.getElementById("sidebar").classList.contains("open")) toggleSidebar();
 }
