@@ -25,6 +25,10 @@ content="noindex,nofollow"/>
   
   <link rel="icon" type="image" href="https://smtechnology133.github.io/images/unicorn.png"/>
   
+  <link rel="stylesheet" href="profiler.css" type="text/css"/>
+		 
+		 <link rel="stylesheet" type="text/css" href="bootstrap.min.css"/>
+  
 <title>Animal Names Learning System for Kids</title>
 
 <style>
@@ -37,6 +41,7 @@ body {
 	 padding:8px;
 	 color: teal;
 	 text-shadow: 1px 1px 2px orange;
+	 margin-top: 1px;
 }
 
 .container { 
@@ -90,32 +95,122 @@ input, select {
 	width:0%;
 	background:maroon;
 	transition:0.4s;
-}
+	border:1px solid orange;
+	border-radius:10px;
+} 
 
 #barChart {
 	display:flex;
 	gap:5px;
 	align-items:flex-end;
-	height:120px;
+	height:122px;
 	margin-top:15px;
 	justify-content:center;
+	border:1px solid teal;
+	border-radius:10px;
+	background:gray;
 }
 
 footer{
 	color: orange;
 	font-size: 12px;
 }
+
+h2,h3{
+	border:1px solid teal;
+	border-radius:8px;
+}
+
+p{
+	color:teal;
+	font-size:15px;
+}
+
+/*Help Modal css */
+    #confirmBox {
+      display: none;
+      /*position: fixed;*/
+      left: 0; top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: 9999;
+    }
+
+    /*Help Modal content */
+    .confirm-content {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      background: lightgray;
+      padding: 3px;
+      border:1px solid orange;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      width: 360px;
+    }
+
+    .confirm-content button {
+      margin: 10px;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      border: 1px solid orange;  
+    }
+
+    .btn-cancel { 
+background-color: maroon;
+color: white;
+     }
+     /*Help Modal css */
 </style>
 </head>
 
 <body>
-
+	<!-- Help Modal -->
+  <div id="confirmBox">
+    <div class="confirm-content">
+    	<h3>How to use the application</h3>
+    		
+      <p>MONSTERS IN MY HEAD
+There are monsters in my Head
+On and under my Bed
+Perpetually enticing me to do this or that
+Smoke a little weed or you could get a little intoxicated you know
+Surely it doesn't hurt, rather it gets you high, high over the moon and the stars
+Says another monster in my head
+But experience tells me otherwise
+Surely it does hurt, not only myself
+But everyone else
+Therein, l pray dear Lord be my Shepard
+And the voice in my Head
+Says another monster in my head
+But experience tells me otherwise
+Surely it does hurt, not only myself
+But everyone else
+Therein, l pray dear Lord be my Shepard
+And the voice in my Head
+But everyone else
+Therein, l pray dear Lord be my Shepard
+And the voice in my Head
+And the voice in my Head
+        (SALMANDA)</p>
+     
+      <button class="btn-cancel" onclick="closeConfirmBox()">Close</button>
+    </div>
+  </div>
+  <!-- Help Modal -->
+  
 <div class="container">
 
 <h2>Animal Names Learning System for Kids 🐾</h2>
 
 <input type="text" id="username" placeholder="Enter student name">
 <button onclick="loadUser()">Load Profile 👤</button>
+
+<button onclick="showHelpBox()">Help 💡</button>
 
 <p id="currentUser">Please load a profile to start 👤</p>
 
@@ -130,21 +225,22 @@ footer{
 <button onclick="toggleLanguage()">Switch Language 🔡</button>
 
 <img id="img" src="https://smtechnology133.github.io/images/unicorn.png"> 
-<h3 id="sentence"></h3>
+<h3 style="border: 1px solid teal; border-radius:10px;" id="sentence"></h3>
 
 <button onclick="speak()">Speak 🔊</button>
 
 <br>
-<button onclick="prev()">⏪ Previous</button>
+<button onclick="prev()">⏪ Previous</button>&nbsp;
 <button onclick="next()">Next ⏩</button>
 
 <hr>
 
-<h3>Quiz 📓❓</h3>
+<h3 style="border:1px solid teal; border-radius:8px;">Quiz question </h3>
+<p style="font-size:20px;">The animal above is_______</p>
 <div id="options"></div>
 
-<p id="score"></p>
-<p id="level"></p>
+🎆<p id="score"></p>
+🌠<p id="level"></p>
 
 <!-- XP BAR -->
 <div id="xpContainer">
@@ -154,10 +250,50 @@ footer{
 
 <!-- HISTORY BAR CHART -->
 <div id="barChart"></div>
+<br>
 
-</div>
+<!--drop up menu-->
+	 <div class="btn-group dropup"> 
+  <div class="btn-group"> 
+	 <button onclick="color(this)" style="border: 1px solid orange; color: orange; font-size:14px; width: 190px; background:teal; border-radius:8px;" type="button" data-toggle="dropdown" class="btn btn-secondary btn-sm dropdown-toggle">🔖 Menu ⏏</button> 
+	 
+	 <ul style="background: teal; border: solid orange 1px; margin:9px;" class="dropdown-menu"> 
+	 
+	 <li style="font-size: 12px;"><a onclick="color(this);wikipedia();" style="color: orange;">🌐 Animal Name App</a></li>
+     
+     <li style="font-size: 12px;"><a onclick="color(this);wikipedia();" style="color: orange;">🌐 Wikipedia Search</a></li>
+     
+      <li style="font-size: 12px;"><a onclick="color(this);PDFconverter();" style="color: orange;">🔊 Convert to Speech</a></li>
+      
+      <li style="font-size: 12px;"><a onclick="color(this);textEditor();" style="color: orange;">📝 Image Text Editor</a></li>
+      
+      <li style="font-size: 12px;"><a onclick="color(this);textEditor();" style="color: orange;">📝 Time Table Maker</a></li>
+      
+      <li style="font-size: 12px;"><a onclick="color(this);testGenerator();" style="color: orange;">📄 Exams&nbsp; Generator </a></li>
+      
+      <li style="font-size: 12px;"><a onclick="color(this);testGenerator();" style="color: orange;">📄 matriX Student AI</a></li>
+      
+      <li style="font-size: 12px;"><a onclick="color(this);testGenerator();" style="color: orange;">📄 matriXDB Storage</a></li>
+      
+      <li style="font-size: 12px;"><a onclick="color(this);testGenerator();" style="color: orange;">📄 Documents&nbsp; Feeds</a></li>
+      
+      <li style="font-size: 12px;"><a onclick="color(this);testGenerator();" style="color: orange;">📄 Eplore MW Game</a></li>
+      
+      <li style="font-size: 12px;"><a onclick="color(this);testGenerator();" style="color: orange;">📄 Online Book Store</a></li>
+      
+      <li style="font-size: 12px;"><a onclick="color(this);testGenerator();" style="color: orange;">📄 Gemini Google&nbsp; AI</a></li>
+      
+      <li style="font-size: 12px;"><a onclick="color(this);testGenerator();" style="color: orange;">📄Document Convert</a></li>
+      
+      <li style="font-size: 12px;"><a onclick="color(this);testGenerator();" style="color: orange;">📄Connect Chat App</a></li>
+   </ul> 
+  </div> 
+ </div><br>
+ <!--end drop up menu-->
 
-<footer>&copy; 2026 Copyright SM Technology</footer>
+</div><br>
+
+<footer>&copy; 2026 Copyright SMTechnology</footer>
 
 <script>
 let currentUser = "";
@@ -171,81 +307,81 @@ let index = 0;
 
 const data = {
     farm: [
-        {name:"dog", ch:"galu", img:"https://smtechnology133.github.io/images/dog.png"},
+        {name:"a Dog.", ch:"Galu.", img:"https://smtechnology133.github.io/images/dog.png"},
         
-        {name:"cow", ch:"ng'ombe", img:"https://smtechnology133.github.io/images/cow.png"},
+        {name:"a Cow.", ch:"Ng'ombe.", img:"https://smtechnology133.github.io/images/cow.png"},
         
-        {name:"goat", ch:"mbuzi", img:"https://smtechnology133.github.io/images/goat.png"},
+        {name:"a Goat.", ch:"Mbuzi.", img:"https://smtechnology133.github.io/images/goat.png"},
         
-           {name:"horse", ch:"kavalo", img:"https://smtechnology133.github.io/images/horse.png"},
+           {name:"a Horse.", ch:"Kavalo.", img:"https://smtechnology133.github.io/images/horse.png"},
            
-             {name:"pig", ch:"nkhumba", img:"https://smtechnology133.github.io/images/pig.png"},
+             {name:"a Pig.", ch:"Nkhumba.", img:"https://smtechnology133.github.io/images/pig.png"},
              
-               {name:"sheep", ch:"nkhosa", img:"https://smtechnology133.github.io/images/sheep.png"},
+               {name:"a Sheep.", ch:"Nkhosa.", img:"https://smtechnology133.github.io/images/sheep.png"},
                
-                 {name:"zebra", ch:"mbidzi", img:"https://smtechnology133.github.io/images/zebra.png"}
+                 {name:"a Zebra.", ch:"Mbidzi.", img:"https://smtechnology133.github.io/images/zebra.png"}
     ],
     
     wild: [
-        {name:"lion", ch:"mkango", img:"https://smtechnology133.github.io/images/lion.png"},
+        {name:"a Lion.", ch:"Mkango.", img:"https://smtechnology133.github.io/images/lion.png"},
         
-        {name:"elephant", ch:"njovu", img:"https://smtechnology133.github.io/images/elephant.png"},
+        {name:"an Elephant.", ch:"Njovu.", img:"https://smtechnology133.github.io/images/elephant.png"},
         
-         {name:"unicorn", ch:"yunikoni", img:"https://smtechnology133.github.io/images/unicorn.png"},
+         {name:"a Unicorn.", ch:"Yunikoni.", img:"https://smtechnology133.github.io/images/unicorn.png"},
          
-          {name:"hyena", ch:"fisi", img:"https://smtechnology133.github.io/images/hyena.png"},
+          {name:"a Hyena.", ch:"Fisi.", img:"https://smtechnology133.github.io/images/hyena.png"},
           
-           {name:"whale", ch:"chinsomba", img:"https://smtechnology133.github.io/images/whale.png"},
+           {name:"a Whale.", ch:"Chinsomba.", img:"https://smtechnology133.github.io/images/whale.png"},
            
-            {name:"shark", ch:"shaki", img:"https://smtechnology133.github.io/images/shark.png"},
+            {name:"a Shark.", ch:"Shaki.", img:"https://smtechnology133.github.io/images/shark.png"},
             
-             {name:"otter", ch:"ota", img:"https://smtechnology133.github.io/images/otter.png"},
+             {name:"an Otter.", ch:"Ota.", img:"https://smtechnology133.github.io/images/otter.png"},
              
-              {name:"panther", ch:"panther", img:"https://smtechnology133.github.io/images/panther.png"},
+              {name:"a Panther.", ch:"Panther.", img:"https://smtechnology133.github.io/images/panther.png"},
               
-               {name:"dragon", ch:"chinjoka", img:"https://smtechnology133.github.io/images/dragon.png"},
+               {name:"a Dragon.", ch:"Chinjoka.", img:"https://smtechnology133.github.io/images/dragon.png"},
                
-                 {name:"anaconda", ch:"anakonda", img:"https://smtechnology133.github.io/images/anaconda.png"},
+                 {name:"Anaconda.", ch:"Anakonda.", img:"https://smtechnology133.github.io/images/anaconda.png"},
                  
-                   {name:"python", ch:"nsato", img:"https://smtechnology133.github.io/images/python.png"},
+                 {name:"a Python.", ch:"Nsato.", img:"https://smtechnology133.github.io/images/python.png"},
                    
-                                {name:"snake", ch:"njoka", img:"https://smtechnology133.github.io/images/snake.png"},
+                                {name:"a Snake.", ch:"Njoka.", img:"https://smtechnology133.github.io/images/snake.png"},
                                 
-                             {name:"crab", ch:"nkhanu", img:"https://smtechnology133.github.io/images/crab.png"},
+                             {name:"a Crab.", ch:"Nkhanu.", img:"https://smtechnology133.github.io/images/crab.png"},
                              
-                                 {name:"crocodile", ch:"ng'ona", img:"https://smtechnology133.github.io/images/crocodile.png"},
+                                 {name:"a Crocodile.", ch:"Ng'ona.", img:"https://smtechnology133.github.io/images/crocodile.png"},
                                  
-                               {name:"grasshopper", ch:"chiwala", img:"https://smtechnology133.github.io/images/grasshopper.png"},
+                               {name:"a Grasshopper.", ch:"Chiwala.", img:"https://smtechnology133.github.io/images/grasshopper.png"},
                                
-                          {name:"leopard", ch:"kambuku", img:"https://smtechnology133.github.io/images/leopard.png"},
+                          {name:"a Leopard.", ch:"Kambuku.", img:"https://smtechnology133.github.io/images/leopard.png"},
                           
-                                {name:"lobster", ch:"lobusitara", img:"https://smtechnology133.github.io/images/lobster.png"},
-                                                        {name:"monkey", ch:"nyani", img:"https://smtechnology133.github.io/images/monkey.png"},
-                                                                                                             {name:"seal", ch:"silu", img:"https://smtechnology133.github.io/images/seal.png"},
+                                {name:"a Lobster.", ch:"Lobusitara.", img:"https://smtechnology133.github.io/images/lobster.png"},
+                                                        {name:"a Monkey.", ch:"Nyani.", img:"https://smtechnology133.github.io/images/monkey.png"},
+                                                                                                             {name:"a Seal.", ch:"Silu.", img:"https://smtechnology133.github.io/images/seal.png"},
                                                                                                              
-            {name:"shrimp", ch:"shirimpi", img:"https://smtechnology133.github.io/images/shrimp.png"},
+            {name:"a Shrimp.", ch:"Shirimpi.", img:"https://smtechnology133.github.io/images/shrimp.png"},
             
-     {name:"slug", ch:"silagi", img:"https://smtechnology133.github.io/images/slug.png"},
+     {name:"a Slug.", ch:"Silagi.", img:"https://smtechnology133.github.io/images/slug.png"},
      
-                             {name:"snail", ch:"nkhono", img:"https://smtechnology133.github.io/images/snail.png"},
+                             {name:"a Snail.", ch:"Nkhono.", img:"https://smtechnology133.github.io/images/snail.png"},
                              
-               {name:"spider", ch:"kangaude", img:"https://smtechnology133.github.io/images/spider.png"}                                                                                                                      
+               {name:"a Spider.", ch:"Kangaude.", img:"https://smtechnology133.github.io/images/spider.png"}                                                                                                                      
     ],
     
     birds: [
-        {name:"chicken", ch:"nkhuku", img:"https://smtechnology133.github.io/images/chicken.png"},
+        {name:"a Chicken.", ch:"Nkhuku.", img:"https://smtechnology133.github.io/images/chicken.png"},
         
-        {name:"duck", ch:"bakha", img:"https://smtechnology133.github.io/images/duck.png"},
+        {name:"a Duck.", ch:"Bakha.", img:"https://smtechnology133.github.io/images/duck.png"},
         
-         {name:"hawk", ch:"chiomba nkhanga", img:"https://smtechnology133.github.io/images/hawk.png"},
+         {name:"a Hawk.", ch:"Chiomba nkhanga.", img:"https://smtechnology133.github.io/images/hawk.png"},
          
-          {name:"owl", ch:"kadzidzi", img:"https://smtechnology133.github.io/images/owl.png"},
+          {name:"an Owl.", ch:"Kadzidzi.", img:"https://smtechnology133.github.io/images/owl.png"},
           
-            {name:"swan", ch:"swani", img:"https://smtechnology133.github.io/images/swan.png"},
+            {name:"a Swan.", ch:"Swani.", img:"https://smtechnology133.github.io/images/swan.png"},
             
-              {name:"penguin", ch:"penguini", img:"https://smtechnology133.github.io/images/penguin.png"},
+              {name:"a Penguin.", ch:"Penguini.", img:"https://smtechnology133.github.io/images/penguin.png"},
               
-                {name:"peacock", ch:"pikoku", img:"https://smtechnology133.github.io/images/peacock.png"}
+                {name:"a Peacock.", ch:"Pikoku.", img:"https://smtechnology133.github.io/images/peacock.png"}
     ]
 };
 
@@ -264,7 +400,7 @@ function loadUser(){
     score = users[name].score || 0;
     level = users[name].level || 1;
 
-    document.getElementById("currentUser").innerText = "User: " + name;
+    document.getElementById("currentUser").innerText = "👤 User: " + name;
 
     update();
 }
@@ -293,7 +429,7 @@ function update(){
 
     document.getElementById("sentence").innerText =
         language === "en"
-        ? "This is a " + animal.name
+        ? "This is " + animal.name
         : "Ichi ndi " + animal.ch;
 
     document.getElementById("score").innerText = "Score: " + score;
@@ -371,11 +507,11 @@ function checkAnswer(ans){
         score += 10;
         level = Math.floor(score / 50) + 1;
 
-        alert("Correct!");
+        alert("️☑️ Correct answer👍!");
         saveUser();
         update();
     } else {
-        alert("Wrong! Correct answer: " + correct);
+        alert("❌Wrong answer👎! ️☑️ Correct answer: " + correct);
     }
 }
 
@@ -386,7 +522,7 @@ function updateXPBar(){
 
     document.getElementById("xpBar").style.width = percent + "%";
     document.getElementById("xpText").innerText =
-        `XP: ${xp}/50 (Level ${level})`;
+        `Bar Loading: ${xp}/50 (Level ${level})`;
 }
 
 /* ANIMATED BAR CHART */
@@ -408,9 +544,10 @@ function drawChart(){
 
         bar.style.width = "20px";
         bar.style.background = "maroon";
+        bar.style.border = "1px solid orange";
         bar.style.borderRadius = "5px";
         bar.style.height = "0px";
-        bar.style.transition = "0.5s";
+        bar.style.transition = "0.7s";
 
         container.appendChild(bar);
 
@@ -423,7 +560,26 @@ function drawChart(){
 /* INITIAL UI */
 document.getElementById("score").innerText = "Score: 0";
 document.getElementById("level").innerText = "Level: 1";
+
+ /*Help modal script*/
+    function showHelpBox() {
+      document.getElementById('confirmBox').style.display = 'block';
+    }
+
+    function closeConfirmBox() {
+      document.getElementById('confirmBox').style.display = 'none';
+    }
+    /*End Help modal script*/
 </script>
 
+<!--external scripts links-->
+<script src="jquery.min.js"></script>
+
+<script src="jquery-ui.min.js"></script>
+ 
+<script src="bootstrap.min.js"></script>
+
+<script src="profiler.js"></script>
+<!--end external scripts links-->
 </body>
 </html>
