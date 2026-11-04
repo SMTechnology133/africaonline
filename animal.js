@@ -1,6 +1,6 @@
 // JavaScript Document
+//farm animals starts from here
 const data = {
-	//farm animals starts from here
     farm: [
         {name:"a Dog.", ch:"Galu.", img:"https://smtechnology133.github.io/images/dog.png"},
         
@@ -45,24 +45,20 @@ const data = {
               {name:"a Python.", ch:"Nsato.", img:"https://smtechnology133.github.io/images/python.png"},
                    
                                 {name:"a Snake.", ch:"Njoka.", img:"https://smtechnology133.github.io/images/snake.png"},
-                                
-                             {name:"a Crab.", ch:"Nkhanu.", img:"https://smtechnology133.github.io/images/crab.png"},
+                                                           {name:"a Crab.", ch:"Nkhanu.", img:"https://smtechnology133.github.io/images/crab.png"},
                              
                                  {name:"a Crocodile.", ch:"Ng'ona.", img:"https://smtechnology133.github.io/images/crocodile.png"},
-                                 
-                               {name:"a Grasshopper.", ch:"Chiwala.", img:"https://smtechnology133.github.io/images/grasshopper.png"},
+                                                            {name:"a Grasshopper.", ch:"Chiwala.", img:"https://smtechnology133.github.io/images/grasshopper.png"},
                                
        {name:"a Leopard.", ch:"Kambuku.", img:"https://smtechnology133.github.io/images/leopard.png"},
-                          
-                                {name:"a Lobster.", ch:"Lobusitara.", img:"https://smtechnology133.github.io/images/lobster.png"},
+                                                          {name:"a Lobster.", ch:"Lobusitara.", img:"https://smtechnology133.github.io/images/lobster.png"},
                                                         {name:"a Monkey.", ch:"Nyani.", img:"https://smtechnology133.github.io/images/monkey.png"},
                                                                                                              {name:"a Seal.", ch:"Silu.", img:"https://smtechnology133.github.io/images/seal.png"},
                                                                                                              
             {name:"a Shrimp.", ch:"Shirimpi.", img:"https://smtechnology133.github.io/images/shrimp.png"},
             
      {name:"a Slug.", ch:"Silagi.", img:"https://smtechnology133.github.io/images/slug.png"},
-     
-                             {name:"a Snail.", ch:"Nkhono.", img:"https://smtechnology133.github.io/images/snail.png"},
+                                  {name:"a Snail.", ch:"Nkhono.", img:"https://smtechnology133.github.io/images/snail.png"},
                              
                {name:"a Spider.", ch:"Kangaude.", img:"https://smtechnology133.github.io/images/spider.png"}, 
            
@@ -119,7 +115,6 @@ const data = {
               {name:"a Penguin.", ch:"Penguini.", img:"https://smtechnology133.github.io/images/penguin.png"},
               
                 {name:"a Peacock.", ch:"Pikoku.", img:"https://smtechnology133.github.io/images/peacock.png"},
-    ],
     
     {name:"an Albatross.", ch:"Albatrosi.", img:"https://smtechnology133.github.io/images/albatross.jpeg"},
     ],
