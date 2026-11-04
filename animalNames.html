@@ -165,6 +165,13 @@ background-color: maroon;
 color: white;
      }
      /*Help Modal css */
+     
+     h1,h6{
+     	font-family:georgia;
+     	border:1px solid orange;
+     	border-radius:8px;
+     	background:linear-gradient(135deg, teal, maroon, orange, teal);
+     }
 </style>
 </head>
 
@@ -172,19 +179,22 @@ color: white;
 	<!-- Help Modal -->
   <div id="confirmBox">
     <div class="confirm-content">
-    	<h3>How to use the application</h3>
+    	<h3 style="background:linear-gradient(135deg, teal, maroon, orange, teal); border:1px solid orange;">How to use the application</h3>
     		
       <p style="background:teal; border:1px solid orange; border-radius:8px; color:orange; font-size:13px; text-shadow:none;">After opening the application, you will be required to enter a student name and then load the profile. From the drop down menu of the animals you can select any category, that done you can press the button that says speak 🔊, this will pronounce a sentence with the name of the animal on display at the end, the other button ⏩ is for selecting the next animal while the other button ⏪ is for selecting the previous one. From here there is a quiz questions, a sentence a student must complete with the name of the animal on display, the quiz is optional and it focuses on accumulating a highest score and passing many levels, and it also shows the student's level of progress. Once a profile is created it will always be in the application unless the browser is cleared, for more information reach out using the support button below.</p>
+      
+       <button style="background:teal; color:orange;" onclick="color(this);" style="border-color: orange" type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#myModal1">Details</button>
         
-        <a style="border:none;" href="tel:+265982177920"><button style="background:teal; color:orange;" onclick="color(this);">Support</button></a>
+        <a style="border:none;" href="tel:+265982177920"><button style="background:teal; color:orange;" onclick="color(this);" class="btn btn-secondary btn-sm">Support</button></a>
      
-      <button style="background:teal; color:orange;" class="btn-cancel" onclick="closeConfirmBox();color(this)">Close</button>
+      <button style="background:teal; color:orange;" onclick="closeConfirmBox();color(this);" class="btn btn-secondary btn-sm">Close</button>
     </div>
   </div>
   <!-- Help Modal -->
   
+  <h1>🐼 PANDAPAWS</h1>
+  
 <div class="container">
-
 <h2> <img class="picturee" src="africaOnlineIcon.png"/> Animal Names Learning System for Kids 🐾</h2>
 
 <input type="text" id="username" placeholder="Enter student name">
@@ -275,6 +285,32 @@ color: white;
   </div> 
  </div><br>
  <!--end drop up menu-->
+ 
+ <!--details modal -->
+<div id="myModal1" class="modal fade" >
+<div class="modal-dialog; modal-lg"> 
+<div class="modal-content"> 
+<div class="modal-header"> 
+
+<h6 class="modal-title"><img class="pictureee" src="africaOnlineIcon.png"> Application Information.</h6> 
+</div> 
+<div class="modal-body; salma">
+<p style="color: orange; font-size: 12px; margin: 4px;">App Name:&nbsp; Africa Online/PandaPaws <br>
+		App Version:&nbsp; 1.0.0.0<br>
+	Developer:&nbsp; SM Technology<br>
+	
+			Location:&nbsp; Lilongwe, Malawi<br>
+				Phone:&nbsp; +265 982177920<br>
+					E-mail:&nbsp; smtechnology133@gmail.com</p>
+</div> 
+<div class="modal-footer"> 
+<button style="border: solid orange 1px; border-radius: 4px;" type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close &times;
+</button> 
+</div> 
+</div> 
+</div> 
+</div>
+<!--end details modal -->
 
 </div><br>
 
