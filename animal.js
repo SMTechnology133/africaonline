@@ -1,5 +1,6 @@
 // JavaScript Document
 const data = {
+	//farm animals starts from here
     farm: [
         {name:"a Dog.", ch:"Galu.", img:"https://smtechnology133.github.io/images/dog.png"},
         
@@ -13,9 +14,13 @@ const data = {
              
                {name:"a Sheep.", ch:"Nkhosa.", img:"https://smtechnology133.github.io/images/sheep.png"},
                
-                 {name:"a Zebra.", ch:"Mbidzi.", img:"https://smtechnology133.github.io/images/zebra.png"}
+                 {name:"a Zebra.", ch:"Mbidzi.", img:"https://smtechnology133.github.io/images/zebra.png"},
+                 
+               {name:"a Cat.", ch:"Mphaka.", img:"https://smtechnology133.github.io/images/cat.jpeg"},  
     ],
+    //farm animals ends here
     
+    //wild animals starts from here
     wild: [
         {name:"a Lion.", ch:"Mkango.", img:"https://smtechnology133.github.io/images/lion.png"},
         
@@ -37,7 +42,7 @@ const data = {
                
                  {name:"Anaconda.", ch:"Anakonda.", img:"https://smtechnology133.github.io/images/anaconda.png"},
                  
-                 {name:"a Python.", ch:"Nsato.", img:"https://smtechnology133.github.io/images/python.png"},
+              {name:"a Python.", ch:"Nsato.", img:"https://smtechnology133.github.io/images/python.png"},
                    
                                 {name:"a Snake.", ch:"Njoka.", img:"https://smtechnology133.github.io/images/snake.png"},
                                 
@@ -47,7 +52,7 @@ const data = {
                                  
                                {name:"a Grasshopper.", ch:"Chiwala.", img:"https://smtechnology133.github.io/images/grasshopper.png"},
                                
-                          {name:"a Leopard.", ch:"Kambuku.", img:"https://smtechnology133.github.io/images/leopard.png"},
+       {name:"a Leopard.", ch:"Kambuku.", img:"https://smtechnology133.github.io/images/leopard.png"},
                           
                                 {name:"a Lobster.", ch:"Lobusitara.", img:"https://smtechnology133.github.io/images/lobster.png"},
                                                         {name:"a Monkey.", ch:"Nyani.", img:"https://smtechnology133.github.io/images/monkey.png"},
@@ -59,9 +64,47 @@ const data = {
      
                              {name:"a Snail.", ch:"Nkhono.", img:"https://smtechnology133.github.io/images/snail.png"},
                              
-               {name:"a Spider.", ch:"Kangaude.", img:"https://smtechnology133.github.io/images/spider.png"}                                                                                                                      
+               {name:"a Spider.", ch:"Kangaude.", img:"https://smtechnology133.github.io/images/spider.png"}, 
+           
+            {name:"an Antelope.", ch:"Gwape.", img:"https://smtechnology133.github.io/images/antelope.jpg"},
+            
+            {name:"a Pangolin.", ch:"Pangolini.", img:"https://smtechnology133.github.io/images/panfolin.jpg"},
+               
+           {name:"an Armadillo.", ch:"Amadilo.", img:"https://smtechnology133.github.io/images/armadillo.jpeg"},
+               
+          {name:"a Bat.", ch:"M'leme.", img:"https://smtechnology133.github.io/images/bat.webp"},
+              
+             {name:"a Buffalo.", ch:"Njati.", img:"https://smtechnology133.github.io/images/buffalo.jpeg"},
+             
+              {name:"a Camel.", ch:"Ngamira.", img:"https://smtechnology133.github.io/images/camel.jpeg"},
+              
+           {name:"a Chameleon.", ch:"Nanzikambe.", img:"https://smtechnology133.github.io/images/chameleon.jpeg"},
+           
+           {name:"a Chimpazee.", ch:"Nyani.", img:"https://smtechnology133.github.io/images/chimpazee.jpg"},
+           
+           {name:"a Gecko.", ch:"Nalimata.", img:"https://smtechnology133.github.io/images/gecko.jpeg"},
+           
+          {name:"a Gorilla.", ch:"Gorila.", img:"https://smtechnology133.github.io/images/gorilla.jpg"},
+          
+          {name:"a Jackal.", ch:"Nkhandwe.", img:"https://smtechnology133.github.io/images/jackal.jpg"},
+          
+          {name:"a Kangaroo.", ch:"Kangalu.", img:"https://smtechnology133.github.io/images/kangaroo.jpg"},
+          
+         {name:"a Kangaroo Rat.", ch:"Mbewa ya Kangalu.", img:"https://smtechnology133.github.io/images/kangarooRat.jpg"},
+         
+         {name:"a Lizard.", ch:"Buluzi.", img:"https://smtechnology133.github.io/images/lizard.jpg"},
+         
+         {name:"a Llama.", ch:"Lama.", img:"https://smtechnology133.github.io/images/llama.jpg"},
+         
+         {name:"a Tortoise.", ch:"Kamba.", img:"https://smtechnology133.github.io/images/tortoise.jpg"},
+         
+         {name:"a Rhinoceros.", ch:"Chipembere.", img:"https://smtechnology133.github.io/images/rhinoceros.jpeg"},
+         
+         {name:"a Tiger.", ch:"Nyalugwe.", img:"https://smtechnology133.github.io/images/tiger.jpg"},                                                                                                                                                                                            
     ],
+    //wild animals ends here
     
+    //Birds starts from here
     birds: [
         {name:"a Chicken.", ch:"Nkhuku.", img:"https://smtechnology133.github.io/images/chicken.png"},
         
@@ -75,22 +118,48 @@ const data = {
             
               {name:"a Penguin.", ch:"Penguini.", img:"https://smtechnology133.github.io/images/penguin.png"},
               
-                {name:"a Peacock.", ch:"Pikoku.", img:"https://smtechnology133.github.io/images/peacock.png"}
+                {name:"a Peacock.", ch:"Pikoku.", img:"https://smtechnology133.github.io/images/peacock.png"},
     ],
     
+    {name:"an Albatross.", ch:"Albatrosi.", img:"https://smtechnology133.github.io/images/albatross.jpeg"},
+    ],
+    //Birds ends here
+    
+    //insects starts from here
     insects: [
-        {name:"a Cocroach.", ch:"Nphenvu.", img:"https://smtechnology133.github.io/images/cocroach.png"},
+        {name:"a Cocroach.", ch:"Nphenvu.", img:"https://smtechnology133.github.io/images/cocroach.jpeg"},
         
-        {name:"an ant.", ch:"Nyerere.", img:"https://smtechnology133.github.io/images/ant.png"},
-        
-         {name:"a Cricket.", ch:"Nkhululu.", img:"https://smtechnology133.github.io/images/cricket.png"},
+         {name:"a Cricket.", ch:"Nkhululu.", img:"https://smtechnology133.github.io/images/cricket.jpeg"},
          
-          {name:"a House fly.", ch:"Ntchentche.", img:"https://smtechnology133.github.io/images/houseFly.png"},
+          {name:"a House fly.", ch:"Ntchentche.", img:"https://smtechnology133.github.io/images/housefly.jpeg"},
           
-            {name:"a Tsetse fly.", ch:"Pwayi.", img:"https://smtechnology133.github.io/images/tsetseFly.png"},
+            {name:"a Tsetse fly.", ch:"Pwayi.", img:"https://smtechnology133.github.io/images/tsetsefly.jpg"},
             
-              {name:"a Centipede.", ch:"Nankalizi.", img:"https://smtechnology133.github.io/images/centipede.png"},
+             {name:"a Centipede.", ch:"Nankalizi.", img:"https://smtechnology133.github.io/images/centipede.jpeg"},
               
-                {name:"a Milipede.", ch:"Bongololo.", img:"https://smtechnology133.github.io/images/milipede.png"}
+              {name:"a Milipede.", ch:"Bongololo.", img:"https://smtechnology133.github.io/images/milipede.jpeg"},
+                
+             {name:"an Alphid.", ch:"Kachilombo.", img:"https://smtechnology133.github.io/images/alphid.jpeg"},
+                
+                {name:"an Ant.", ch:"Nyerere.", img:"https://smtechnology133.github.io/images/ant.jpeg"},
+                
+                 {name:"a Bee.", ch:"Njuchi.", img:"https://smtechnology133.github.io/images/bee.jpg"},
+                 
+                {name:"a Bettle.", ch:"Bito.", img:"https://smtechnology133.github.io/images/bettle.jpeg"},
+                
+             {name:"a Butterfly.", ch:"Gulugufe.", img:"https://smtechnology133.github.io/images/butterfly.jpeg"},
+             
+            {name:"a Dragon fly.", ch:"Chouluka cha diragoni.", img:"https://smtechnology133.github.io/images/dragonfly.jpeg"},
+            
+           {name:"a Fire fly.", ch:"Chouluka cha moto.", img:"https://smtechnology133.github.io/images/firefly.jpeg"},
+           
+           {name:"a Lice.", ch:"Nsabwe.", img:"https://smtechnology133.github.io/images/lice.jpeg"},
+           
+           {name:"a Maize Weevil.", ch:"Nankafubwe.", img:"https://smtechnology133.github.io/images/maizeweevil.jpg"},
+           
+        {name:"a Mosquito.", ch:"Udzudzu.", img:"https://smtechnology133.github.io/images/mosquito.gif"},
+        
+         {name:"a Tick.", ch:"Nthata.", img:"https://smtechnology133.github.io/images/tick.jpg"}, 
     ]
+    //Insects ends here
 };
