@@ -64,7 +64,7 @@ const data = {
            
             {name:"an Antelope.", ch:"Gwape.", img:"https://smtechnology133.github.io/images/antelope.jpg"},
             
-            {name:"a Pangolin.", ch:"Pangolini.", img:"https://smtechnology133.github.io/images/panfolin.jpg"},
+            {name:"a Pangolin.", ch:"Pangolini.", img:"https://smtechnology133.github.io/images/pangolin.jpg"},
                
            {name:"an Armadillo.", ch:"Amadilo.", img:"https://smtechnology133.github.io/images/armadillo.jpeg"},
                
@@ -122,7 +122,7 @@ const data = {
     
     //insects starts from here
     insects: [
-        {name:"a Cocroach.", ch:"Nphenvu.", img:"https://smtechnology133.github.io/images/cocroach.jpeg"},
+        {name:"a Cocroach.", ch:"Nphenvu.", img:"https://smtechnology133.github.io/images/cockroach.jpeg"},
         
          {name:"a Cricket.", ch:"Nkhululu.", img:"https://smtechnology133.github.io/images/cricket.jpeg"},
          
