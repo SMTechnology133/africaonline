@@ -74,7 +74,7 @@ const data = {
              
               {name:"a Camel.", ch:"Ngamira.", img:"https://smtechnology133.github.io/images/camel.jpeg"},
               
-           {name:"a Chameleon.", ch:"Nanzikambe.", img:"https://smtechnology133.github.io/images/chameleon.jpeg"},
+           {name:"a Chameleon.", ch:"Nanzikambe.", img:"https://smtechnology133.github.io/images/chameleon.jpg"},
            
            {name:"a Chimpazee.", ch:"Nyani.", img:"https://smtechnology133.github.io/images/chimpazee.jpg"},
            
@@ -132,7 +132,7 @@ const data = {
             
              {name:"a Centipede.", ch:"Nankalizi.", img:"https://smtechnology133.github.io/images/centipede.jpeg"},
               
-              {name:"a Milipede.", ch:"Bongololo.", img:"https://smtechnology133.github.io/images/milipede.jpeg"},
+              {name:"a Milipede.", ch:"Bongololo.", img:"https://smtechnology133.github.io/images/millipede.jpeg"},
                 
              {name:"an Alphid.", ch:"Kachilombo.", img:"https://smtechnology133.github.io/images/alphid.jpeg"},
                 
