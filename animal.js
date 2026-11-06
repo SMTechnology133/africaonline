@@ -32,6 +32,8 @@ const data = {
     ],
     //farm animals ends here
     
+//_______________________________    
+    
     //wild animals starts from here
     wild: [
         {name:"a Lion.", ch:"Mkango.", img:"https://smtechnology133.github.io/images/lion.png"},
@@ -130,6 +132,8 @@ const data = {
     ],
     //wild animals ends here
     
+//_______________________________    
+    
     //Birds starts from here
     birds: [
         {name:"a Chicken.", ch:"Nkhuku.", img:"https://smtechnology133.github.io/images/chickenn.png"},
@@ -169,6 +173,8 @@ const data = {
     {name:"a Sea gull.", ch:"Sigala.", img:"https://smtechnology133.github.io/images/seagull.jpg"},
     ],
     //Birds ends here
+    
+//_______________________________    
     
     //insects starts from here
     insects: [
@@ -210,3 +216,39 @@ const data = {
     ]
     //Insects ends here
 };
+
+//_______________________________
+
+//Code to save app offline
+const CACHE_NAME = "my-website-v1";
+
+const FILES_TO_CACHE = [
+  "/",
+  "/animalNames.html",
+  "/profiler.css",
+  "/bootstrap.min.css",
+  "/jquery.min.js",
+  "/jquery-ui.min.js",
+  "/bootstrap.min.js",
+  "/profiler.js",
+  "/animal.js",
+];
+
+// Install and cache website files
+self.addEventListener("install", event => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.addAll(FILES_TO_CACHE);
+    })
+  );
+});
+
+// Serve cached files when offline
+self.addEventListener("fetch", event => {
+  event.respondWith(
+    caches.match(event.request).then(response => {
+      return response || fetch(event.request);
+    })
+  );
+});
+//End code to save app offline

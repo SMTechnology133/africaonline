@@ -514,6 +514,14 @@ document.getElementById("level").innerText = "Level: 1";
       document.getElementById('confirmBox').style.display = 'none';
     }
     /*End Help modal script*/
+    
+ //Saving app offline script
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/animal.js")
+    .then(() => console.log("Offline mode enabled!"))
+    .catch(error => console.log("Error:", error));
+}
+//End saving app offline script
 </script>
 
 <!--external scripts links-->
