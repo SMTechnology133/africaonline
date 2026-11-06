@@ -12,7 +12,7 @@ const data = {
            
              {name:"a Pig.", ch:"Nkhumba.", img:"https://smtechnology133.github.io/images/pig.png"},
              
-               {name:"a Sheep.", ch:"Nkhosa.", img:"https://smtechnology133.github.io/images/sheep.png"},
+               {name:"a Sheep.", ch:"Nkhosa.", img:"https://smtechnology133.github.io/images/sheepp.png"},
                
                  {name:"a Zebra.", ch:"Mbidzi.", img:"https://smtechnology133.github.io/images/zebra.png"},
                  
@@ -36,7 +36,7 @@ const data = {
             
              {name:"an Otter.", ch:"Ota.", img:"https://smtechnology133.github.io/images/otter.png"},
              
-              {name:"a Panther.", ch:"Panther.", img:"https://smtechnology133.github.io/images/panther.png"},
+              {name:"a Panther.", ch:"Panther.", img:"https://smtechnology133.github.io/images/pantherr.png"},
               
                {name:"a Dragon.", ch:"Chinjoka.", img:"https://smtechnology133.github.io/images/dragon.png"},
                
@@ -52,7 +52,7 @@ const data = {
                                
        {name:"a Leopard.", ch:"Kambuku.", img:"https://smtechnology133.github.io/images/leopard.png"},
                                                           {name:"a Lobster.", ch:"Lobusitara.", img:"https://smtechnology133.github.io/images/lobster.png"},
-                                                        {name:"a Monkey.", ch:"Nyani.", img:"https://smtechnology133.github.io/images/monkey.png"},
+                                                        {name:"a Monkey.", ch:"Nyani.", img:"https://smtechnology133.github.io/images/monkeyy.png"},
                                                                                                              {name:"a Seal.", ch:"Silu.", img:"https://smtechnology133.github.io/images/seal.png"},
                                                                                                              
             {name:"a Shrimp.", ch:"Shirimpi.", img:"https://smtechnology133.github.io/images/shrimp.png"},
@@ -112,7 +112,7 @@ const data = {
           
             {name:"a Swan.", ch:"Swani.", img:"https://smtechnology133.github.io/images/swan.png"},
             
-              {name:"a Penguin.", ch:"Penguini.", img:"https://smtechnology133.github.io/images/penguin.png"},
+              {name:"a Penguin.", ch:"Penguini.", img:"https://smtechnology133.github.io/images/penguinn.png"},
               
                 {name:"a Peacock.", ch:"Pikoku.", img:"https://smtechnology133.github.io/images/peacock.png"},
     
