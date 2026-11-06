@@ -36,7 +36,7 @@ const data = {
             
              {name:"an Otter.", ch:"Ota.", img:"https://smtechnology133.github.io/images/otter.png"},
              
-              {name:"a Panther.", ch:"Panther.", img:"https://smtechnology133.github.io/images/pantherr.png"},
+              {name:"a Panther.", ch:"Panther.", img:"https://smtechnology133.github.io/images/patherr.png"},
               
                {name:"a Dragon.", ch:"Chinjoka.", img:"https://smtechnology133.github.io/images/dragon.png"},
                
