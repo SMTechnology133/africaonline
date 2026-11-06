@@ -102,7 +102,7 @@ const data = {
     
     //Birds starts from here
     birds: [
-        {name:"a Chicken.", ch:"Nkhuku.", img:"https://smtechnology133.github.io/images/chicken.png"},
+        {name:"a Chicken.", ch:"Nkhuku.", img:"https://smtechnology133.github.io/images/chickenn.png"},
         
         {name:"a Duck.", ch:"Bakha.", img:"https://smtechnology133.github.io/images/duck.png"},
         
