@@ -28,7 +28,9 @@ const data = {
          
          {name:"a Chicken.", ch:"Nkhuku.", img:"https://smtechnology133.github.io/images/chickenn.png"}, 
          
-            {name:"a Parrot.", ch:"Paroti.", img:"https://smtechnology133.github.io/images/parrot.jpg"},  
+            {name:"a Parrot.", ch:"Paroti.", img:"https://smtechnology133.github.io/images/parrot.jpg"}, 
+            
+      {name:"a Qail.", ch:"Chinziri.", img:"https://smtechnology133.github.io/images/qail.jpg"},       
     ],
     //farm animals ends here
     
@@ -171,6 +173,8 @@ const data = {
     {name:"a Raven.", ch:"Khwangwala.", img:"https://smtechnology133.github.io/images/raven.jpg"},
     
     {name:"a Sea gull.", ch:"Sigala.", img:"https://smtechnology133.github.io/images/seagull.jpg"},
+    
+    {name:"a Qail.", ch:"Chinziri.", img:"https://smtechnology133.github.io/images/qail.jpg"},
     ],
     //Birds ends here
     
@@ -210,9 +214,7 @@ const data = {
            
         {name:"a Mosquito.", ch:"Udzudzu.", img:"https://smtechnology133.github.io/images/mosquito.gif"},
         
-         {name:"a Tick.", ch:"Nthata.", img:"https://smtechnology133.github.io/images/tick.jpg"}, 
-         
-         {name:"a Qail.", ch:"Chinziri.", img:"https://smtechnology133.github.io/images/qail.jpg"},
+         {name:"a Tick.", ch:"Nthata.", img:"https://smtechnology133.github.io/images/tick.jpg"},      
     ]
     //Insects ends here
 };
