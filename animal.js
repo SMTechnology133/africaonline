@@ -144,7 +144,7 @@ const data = {
                 
              {name:"a Butterfly.", ch:"Gulugufe.", img:"https://smtechnology133.github.io/images/butterfly.jpeg"},
              
-            {name:"a Dragon fly.", ch:"Chouluka cha diragoni.", img:"https://smtechnology133.github.io/images/dragonfly.jpeg"},
+            {name:"a Dragon fly.", ch:"Chouluka cha diragoni.", img:"https://smtechnology133.github.io/images/dragofly.jpeg"},
             
            {name:"a Fire fly.", ch:"Chouluka cha moto.", img:"https://smtechnology133.github.io/images/firefly.jpeg"},
            
