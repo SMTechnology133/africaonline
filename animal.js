@@ -26,7 +26,9 @@ const data = {
           
          {name:"a Rabbit.", ch:"Kalulu.", img:"https://smtechnology133.github.io/images/rabbit.jpg"}, 
          
-         {name:"a Chicken.", ch:"Nkhuku.", img:"https://smtechnology133.github.io/images/chickenn.png"},      
+         {name:"a Chicken.", ch:"Nkhuku.", img:"https://smtechnology133.github.io/images/chickenn.png"}, 
+         
+            {name:"a Parrot.", ch:"Paroti.", img:"https://smtechnology133.github.io/images/parrot.jpg"},  
     ],
     //farm animals ends here
     
@@ -154,13 +156,11 @@ const data = {
     
     {name:"a Guinea Fowl.", ch:"Nkhanga.", img:"https://smtechnology133.github.io/images/guineafowl.jpg"},
     
-    {name:"a Kiwi.", ch:"Kiwi.", img:"https://smtechnology133.github.io/images/Kiwi.jpg"},
+    {name:"a Kiwi.", ch:"Kiwi.", img:"https://smtechnology133.github.io/images/kiwi.jpg"},
     
     {name:"an Ostrich.", ch:"Nthiwatiwa.", img:"https://smtechnology133.github.io/images/ostrich.jpg"},
     
     {name:"a Pelican.", ch:"Pelikani.", img:"https://smtechnology133.github.io/images/pelican.jpg"},
-    
-    {name:"a Parrot.", ch:"Paroti.", img:"https://smtechnology133.github.io/images/parrot.jpg"},
     
     {name:"a Phonix.", ch:"Fonikisi.", img:"https://smtechnology133.github.io/images/phonix.jpg"},
     
