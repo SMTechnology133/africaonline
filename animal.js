@@ -110,6 +110,8 @@ const data = {
          
          {name:"a Tortoise.", ch:"Kamba.", img:"https://smtechnology133.github.io/images/tortoise.jpg"},
          
+          {name:"a Turtle.", ch:"Kamba wa m'madzi'.", img:"https://smtechnology133.github.io/images/turtle.jpeg"},
+         
          {name:"a Rhinoceros.", ch:"Chipembere.", img:"https://smtechnology133.github.io/images/rhinoceros.jpeg"},
          
          {name:"a Tiger.", ch:"Nyalugwe.", img:"https://smtechnology133.github.io/images/tiger.jpg"},
@@ -130,7 +132,9 @@ const data = {
           
           {name:"a Porcupine.", ch:"Nungu.", img:"https://smtechnology133.github.io/images/porcupine.jpg"},
           
-          {name:"a Squirrel.", ch:"Sikwalelu.", img:"https://smtechnology133.github.io/images/squirrel.jpg"},                                                                                                                                                                 
+          {name:"a Squirrel.", ch:"Sikwalelu.", img:"https://smtechnology133.github.io/images/squirrel.jpg"},  
+          
+         {name:"a Warthog.", ch:"Nguluwe.", img:"https://smtechnology133.github.io/images/warthog.jpeg"},                                                                                                                                                                  
     ],
     //wild animals ends here
     
@@ -214,43 +218,13 @@ const data = {
            
         {name:"a Mosquito.", ch:"Udzudzu.", img:"https://smtechnology133.github.io/images/mosquito.gif"},
         
-         {name:"a Tick.", ch:"Nthata.", img:"https://smtechnology133.github.io/images/tick.jpg"},      
+         {name:"a Tick.", ch:"Nthata.", img:"https://smtechnology133.github.io/images/tick.jpg"}, 
+         
+         {name:"a Termite.", ch:"Chiswe.", img:"https://smtechnology133.github.io/images/termite.jpeg"},   
+         
+        {name:"a Moth.", ch:"Gulugufe wotuwa.", img:"https://smtechnology133.github.io/images/moth.jpeg"},     
     ]
     //Insects ends here
 };
 
 //_______________________________
-
-//Code to save app offline
-const CACHE_NAME = "my-website-v1";
-
-const FILES_TO_CACHE = [
-  "/",
-  "/animalNames.html",
-  "/profiler.css",
-  "/bootstrap.min.css",
-  "/jquery.min.js",
-  "/jquery-ui.min.js",
-  "/bootstrap.min.js",
-  "/profiler.js",
-  "/animal.js",
-];
-
-// Install and cache website files
-self.addEventListener("install", event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(FILES_TO_CACHE);
-    })
-  );
-});
-
-// Serve cached files when offline
-self.addEventListener("fetch", event => {
-  event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
-    })
-  );
-});
-//End code to save app offline
