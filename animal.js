@@ -154,7 +154,7 @@ const data = {
         
          {name:"a Lynx.", ch:"Mphaka wa nchire.", img:"https://smtechnology133.github.io/images/lynx.jpg"}, 
          
-         {name:"a Mammonth.", ch:"Njovu ya ubweya.", img:"https://smtechnology133.github.io/images/mammonth.jpg"},
+         {name:"a Mammonth.", ch:"Njovu ya ubweya.", img:"https://smtechnology133.github.io/images/mammoth.jpg"},
          
          {name:"a Mouse.", ch:"Mbewa.", img:"https://smtechnology133.github.io/images/mouse.jpg"},
          
