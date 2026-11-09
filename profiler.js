@@ -276,10 +276,6 @@ wikipedia=()=>{
 
 //________________________________
 
-
-
-//________________________________
-
 Gemini=()=>{
 	open("https://gemini.google.com/app");
 }
@@ -302,34 +298,68 @@ ARpasscode=()=>{
 	open("https://smtechnology133.github.io/ARmagic/ARpasscode.html");
 }
 
+//________________________________
+
 passcode=()=>{
 	open("https://smtechnology133.github.io/africaonline/passcode.html");
 }
+
+//________________________________
 
 onlineMarket=()=>{
 	open("https://smtechnology133.github.io/OnlineShopping/onlineShopping.html");
 }
 
+//________________________________
+
 studyTracking=()=>{
 	open("https://smtechnology133.github.io/africaonline/studyProgressTracker.html");
 }
+
+//________________________________
+
+salesTracking=()=>{
+	open("https://smtechnology133.github.io/SalesTracker/");
+}
+
+//________________________________
+
+documentConverter=()=>{
+	open("https://github.com/SMTechnology133/africaonline/documentConverter.html");
+}
+
+//________________________________
+
+timeTableGenerator=()=>{
+	open("https://smtechnology133.github.io/africaonline/timetable.html");
+}
+
+//________________________________
 
 PDFconverter=()=>{
 	open("https://smtechnology133.github.io/africaonline/PDFtoAudio.html");
 }
 
+//________________________________
+
 textEditor=()=>{
 	open("https://smtechnology133.github.io/africaonline/textEditor.html");
 }
+
+//________________________________
 
 testGenerator=()=>{
 	open("https://smtechnology133.github.io/africaonline/testGenerator.html");
 }
 
+//________________________________
+
 connect=()=>{
 	open("https://connect-nbdv.onrender.com/");
 }
 //end functions to open various pages
+
+//________________________________
 
 //functione to change button background color on click
 function color(element) {
