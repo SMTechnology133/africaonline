@@ -73,7 +73,7 @@ const data = {
        {name:"a Leopard.", ch:"Kambuku.", img:"https://smtechnology133.github.io/images/leopard.png"},
                                                           {name:"a Lobster.", ch:"Lobusitara.", img:"https://smtechnology133.github.io/images/lobster.png"},
                                                         {name:"a Monkey.", ch:"Nyani.", img:"https://smtechnology133.github.io/images/monkeyy.png"},
-                                                                                                             {name:"a Seal.", ch:"Silu.", img:"https://smtechnology133.github.io/images/seal.png"},
+                                                                                                             {name:"a Seal.", ch:"Silu.", img:"https://smtechnology133.github.io/images/seall.jpeg"},
                                                                                                              
             {name:"a Shrimp.", ch:"Shirimpi.", img:"https://smtechnology133.github.io/images/shrimp.png"},
             
@@ -164,7 +164,37 @@ const data = {
         
        {name:"a Rat.", ch:"Khoswe.", img:"https://smtechnology133.github.io/images/rat.jpg"}, 
        
-       {name:"a Sea Lion.", ch:"Mkango wa m'madzi.", img:"https://smtechnology133.github.io/images/sealion.jpg"},                                                                                                                                                             
+       {name:"a Sea Lion.", ch:"Mkango wa m'madzi.", img:"https://smtechnology133.github.io/images/sealion.jpg"},
+       
+       {name:"a Sea Cow.", ch:"Ng'ombe ya m'madzi.", img:"https://smtechnology133.github.io/images/seacow.jpeg"}, 
+       
+      {name:"a Centaur.", ch:"Munthu wa Hosi.", img:"https://smtechnology133.github.io/images/centaur.png"},
+      
+      {name:"a Dolphin.", ch:"Dofini.", img:"https://smtechnology133.github.io/images/dolphin.png"}, 
+      
+      {name:"an Electric Fish.", ch:"Nsomba ya nyetsi.", img:"https://smtechnology133.github.io/images/electricfish.jpeg"}, 
+      
+       {name:"an Elk.", ch:"Eki.", img:"https://smtechnology133.github.io/images/elk.jpeg"},
+       
+       {name:"a Flying Fish.", ch:"Nsomba yowuluka.", img:"https://smtechnology133.github.io/images/flyingfish.jpeg"},  
+       
+       {name:"a Mermaid.", ch:"Mamedi.", img:"https://smtechnology133.github.io/images/mermaid.jpeg"}, 
+       
+        {name:"a Merman.", ch:"Memani.", img:"https://smtechnology133.github.io/images/merman.jpeg"}, 
+        
+        {name:"a Mole.", ch:"Nfuko.", img:"https://smtechnology133.github.io/images/mole.jpeg"}, 
+        
+        {name:"a Newt.", ch:"Nyuti.", img:"https://smtechnology133.github.io/images/newt.jpeg"}, 
+        
+        {name:"a Quagga.", ch:"Kwaga.", img:"https://smtechnology133.github.io/images/quagga.jpeg"},
+        
+        {name:"a Salamander.", ch:"Salamanda.", img:"https://smtechnology133.github.io/images/salamander.jpeg"},  
+        
+        {name:"a Sloth.", ch:"Silosi.", img:"https://smtechnology133.github.io/images/sloth.jpg"}, 
+        
+         {name:"a stegosaurus.", ch:"Sitegosarasi.", img:"https://smtechnology133.github.io/images/stegosaurus.jpeg"},  
+         
+          {name:"a Venison.", ch:"Gwape wa mawanga.", img:"https://smtechnology133.github.io/images/venison.jpeg"},                                                                                                                                                       
     ],
     //wild animals ends here
     
@@ -219,6 +249,16 @@ const data = {
     {name:"a Turkey.", ch:"Nkhukundembo.", img:"https://smtechnology133.github.io/images/turkey.jpg"},
     
     {name:"a Vulture.", ch:"Mbulu.", img:"https://smtechnology133.github.io/images/vulture.jpg"},
+    
+    {name:"a Dodo.", ch:"Dodo.", img:"https://smtechnology133.github.io/images/dodo.jpeg"},
+    
+    {name:"a Flamingo.", ch:"Fulamingo.", img:"https://smtechnology133.github.io/images/flamingo.jpeg"},
+    
+    {name:"a Moa.", ch:"Moa.", img:"https://smtechnology133.github.io/images/moa.jpg"}, 
+    
+    {name:"a pterosaurs.", ch:"Chimbalame.", img:"https://smtechnology133.github.io/images/pterosaurs.jpg"},
+    
+    {name:"a Robin.", ch:"Robini.", img:"https://smtechnology133.github.io/images/robin.jpg"},
     ],
     //Birds ends here
     
