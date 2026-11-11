@@ -252,7 +252,7 @@ const data = {
     
     {name:"a Dodo.", ch:"Dodo.", img:"https://smtechnology133.github.io/images/dodo.jpeg"},
     
-    {name:"a Flamingo.", ch:"Fulamingo.", img:"https://smtechnology133.github.io/images/flamingo.jpeg"},
+    {name:"a Flamingo.", ch:"Fulamingo.", img:"https://smtechnology133.github.io/images/flamingoo.jpeg"},
     
     {name:"a Moa.", ch:"Moa.", img:"https://smtechnology133.github.io/images/moa.jpg"}, 
     
