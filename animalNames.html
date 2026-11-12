@@ -172,10 +172,88 @@ color: white;
      	border-radius:8px;
      	background:linear-gradient(135deg, teal, maroon, orange, teal);
      }
+     
+      	/*advert pop up window css*/
+        /* Darkened background overlay */
+        .popup-overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        /* Custom popup box */
+        .popup-box {
+        	border:1px solid orange;
+            background: lightgray;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            font-family: Arial, sans-serif;
+        }
+
+        /* Top-right 'X' button */
+        /*.close-icon {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #666;
+            cursor: pointer;
+            border: none;
+            background: none;
+            
+        }*/
+
+        .close-icon:hover {
+            color: #000;
+        }
+
+        /* Action close button */
+        .close-btn {
+            margin-top: 20px;
+            padding: 10px 24px;
+            background-color: maroon;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 10px;
+            cursor: pointer;
+            border:1px solid orange;
+        }
+
+        .close-btn:hover {
+            background-color: orange;
+        }
+        /*End advert pop up window css*/
 </style>
 </head>
 
 <body>
+	
+    <!-- Custom advert Popup HTML -->
+    <div id="welcomeOverlay" class="popup-overlay">
+        <div class="popup-box">
+            <!--<button id="closeIcon" class="close-icon" aria-label="Close">&times;</button>-->
+            <h4>Welcome to this application</h4>
+<img src="unicorn.png"/>
+            
+            <button id="closeBtn" class="close-btn" >Close</button>
+        </div>
+    </div>
+     <!--End Custom advert Popup HTML -->
+	
 	<!-- Help Modal -->
   <div id="confirmBox">
     <div class="confirm-content">
@@ -510,6 +588,42 @@ document.getElementById("level").innerText = "Level: 1";
       document.getElementById('confirmBox').style.display = 'none';
     }
     /*End Help modal script*/
+    
+     /*advert pop up window script*/      document.addEventListener("DOMContentLoaded", () => {
+            const overlay = document.getElementById("welcomeOverlay");
+            const closeBtn = document.getElementById("closeBtn");
+            const closeIcon = document.getElementById("closeIcon");
+            const STORAGE_KEY = "welcome_popup_shown";
+
+            // 1. Check if the user has already seen the popup
+            if (!sessionStorage.getItem(STORAGE_KEY)) {
+                
+                // 2. Wait 2 minutes (2 * 60 * 1000 = 120,000 ms)
+                setTimeout(() => {
+                    overlay.style.display = "flex";
+                    
+                    // Mark as shown immediately so refreshing won't trigger it again
+                    sessionStorage.setItem(STORAGE_KEY, "true");
+              }, 11000); //120000
+            }
+
+            // Function to hide the popup
+            function closePopup() {
+                overlay.style.display = "none";
+            }
+
+            // Close when clicking the 'X' or the 'Close' button
+            closeBtn.addEventListener("click", closePopup);
+            closeIcon.addEventListener("click", closePopup);
+
+            // Optional: Close if the user clicks outside the white box
+            overlay.addEventListener("click", (e) => {
+                if (e.target === overlay) {
+                    closePopup();
+                }
+            });
+        });
+        /*End advert pop up window script*/ 
 </script>
 
 <!--external scripts links-->
