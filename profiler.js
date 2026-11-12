@@ -319,7 +319,7 @@ studyTracking=()=>{
 //________________________________
 
 salesTracking=()=>{
-	open("https://smtechnology133.github.io/africaonline/salesTracker.html");
+	open("https://smtechnology133.github.io/africaonline/salesTracker/salesTracker.html");
 }
 
 //________________________________
