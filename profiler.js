@@ -319,13 +319,13 @@ studyTracking=()=>{
 //________________________________
 
 salesTracking=()=>{
-	open("https://smtechnology133.github.io/SalesTracker/");
+	open("https://smtechnology133.github.io/africaonline/salesTracker.html");
 }
 
 //________________________________
 
 documentConverter=()=>{
-	open("https://github.com/SMTechnology133/africaonline/documentConverter.html");
+	open("https://smtechnology133.github.io/africaonline/documentConverter.html");
 }
 
 //________________________________
