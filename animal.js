@@ -210,7 +210,7 @@ const data = {
          
          {name:"a Lemur.", ch:"Lema.", img:"https://smtechnology133.github.io/images/lemur.jpeg"}, 
          
-        {name:"a Raccoon.", ch:"Lakuni.", img:"https://smtechnology133.github.io/images/racoon.jpeg"},                                                                                                                                                      
+        {name:"a Raccoon.", ch:"Lakuni.", img:"https://smtechnology133.github.io/images/raccoon.jpeg"},                                                                                                                                                      
     ],
     //wild animals ends here
     
