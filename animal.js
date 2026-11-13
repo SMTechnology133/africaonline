@@ -210,7 +210,13 @@ const data = {
          
          {name:"a Lemur.", ch:"Lema.", img:"https://smtechnology133.github.io/images/lemur.jpeg"}, 
          
-        {name:"a Raccoon.", ch:"Lakuni.", img:"https://smtechnology133.github.io/images/raccoon.jpeg"},                                                                                                                                                      
+        {name:"a Raccoon.", ch:"Lakuni.", img:"https://smtechnology133.github.io/images/raccoon.jpeg"}, 
+        
+         {name:"a Wolf.", ch:"Nkhandwe.", img:"https://smtechnology133.github.io/images/wolf.jpg"}, 
+         
+         {name:"a Fox.", ch:"Nkhandwe.", img:"https://smtechnology133.github.io/images/fox.jpg"}, 
+         
+         {name:"a Koala.", ch:"Koala.", img:"https://smtechnology133.github.io/images/koala.jpg"},                                                                                                                                                        
     ],
     //wild animals ends here
     
@@ -281,6 +287,10 @@ const data = {
     {name:"a Nightjar.", ch:"Lumbe.", img:"https://smtechnology133.github.io/images/nightjar.jpeg"},
     
     {name:"a Woodpecker.", ch:"Chogogoda.", img:"https://smtechnology133.github.io/images/woodpecker.jpeg"},
+    
+     {name:"a Sparrow.", ch:"Mpheta.", img:"https://smtechnology133.github.io/images/sparrow.jpg"}, 
+     
+      {name:"a Swallow.", ch:"Swalo.", img:"https://smtechnology133.github.io/images/swallow.jpg"}, 
     ],
     //Birds ends here
     
