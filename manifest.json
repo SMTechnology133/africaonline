@@ -1,0 +1,20 @@
+{
+  "name": "Africa Online",
+  "short_name": "Unicorn",
+  "start_url": "/animalNames.html",
+  "display": "standalone",
+  "background_color": "orange",
+  "theme_color": "teal",
+  "icons": [
+    {
+      "src": "unicorn.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "unicorn.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
