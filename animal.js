@@ -82,7 +82,7 @@ const data = {
         
          {name:"a Heifer.", ch:"Msoti wa ng'ombe.", img:"https://smtechnology133.github.io/images/heifer.jpg"},  
          
-         {name:"a Kid.", ch:"Mwana wa Mbuzi.", img:"https://smtechnology133.github.io/images/kid.jpg"},
+         {name:"a Kid.", ch:"Mwana wa Mbuzi.", img:"https://smtechnology133.github.io/images/kid.jpeg"},
          
          {name:"a Foal.", ch:"Mwana wa Hosi.", img:"https://smtechnology133.github.io/images/foal.jpg"},
          
@@ -420,7 +420,7 @@ const data = {
          
          {name:"a Leafhopper.", ch:"Kachilombo ka m'masamba.", img:"https://smtechnology133.github.io/images/leafhopper.jpg"},
          
-          {name:"a Qeen Termite.", ch:"Mfumukazi ya chiswe.", img:"https://smtechnology133.github.io/images/qeentermite.jpg"},
+          {name:"a Qeen Termite.", ch:"Mfumukazi ya chiswe.", img:"https://smtechnology133.github.io/images/queentermite.jpg"},
           
            {name:"Locust.", ch:"Dzombe.", img:"https://smtechnology133.github.io/images/locust.jpg"},
            
