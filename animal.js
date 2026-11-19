@@ -424,7 +424,7 @@ const data = {
           
            {name:"Locust.", ch:"Dzombe.", img:"https://smtechnology133.github.io/images/locust.jpg"},
            
-        {name:"a Demodex.", ch:"Demodekisi.", img:"https://smtechnology133.github.io/images/demodex.jpg"},   
+        {name:"a Demodex.", ch:"Kachilombo ka kumaso.", img:"https://smtechnology133.github.io/images/demodexx.jpg"},   
     ]
     //Insects ends here
 };
