@@ -407,10 +407,8 @@ const data = {
         {name:"a Scorpion.", ch:"Chinkhanira.", img:"https://smtechnology133.github.io/images/scorpion.jpeg"},
         
          {name:"an Aphid.", ch:"Sabwe za m'masamba.", img:"https://smtechnology133.github.io/images/aphidd.jpg"},
-         
-          {name:"a Bedbug.", ch:"Nsikidzi.", img:"https://smtechnology133.github.io/images/bedbug.jpg"},
           
-         {name:"a Bedbug.", ch:"Nsikidzi.", img:"https://smtechnology133.github.io/images/bedbug.jpg"}, 
+         {name:"a Bed bug.", ch:"Nsikidzi.", img:"https://smtechnology133.github.io/images/bedbug.jpg"}, 
          
          {name:"an Earwig.", ch:"Iyewigi.", img:"https://smtechnology133.github.io/images/earwig.jpg"},
          
