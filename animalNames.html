@@ -263,7 +263,7 @@ color: white;
     <div class="confirm-content">
     	<h3 style="background:linear-gradient(135deg, teal, maroon, orange, teal); border:1px solid orange;">How to use the application</h3>
     		
-      <p style="background:teal; border:1px solid orange; border-radius:8px; color:orange; font-size:13px; text-shadow:none;">After opening the application, you will be required to enter a student name and then load the profile. From the drop down menu of the animals you can select any category, that done you can press the button that says speak 🔊, this will pronounce a sentence with the name of the animal on display at the end, other of these animals are exitnct while others are mythical, to learn more information copy the name and paste it into Wikipedia search or Gemini. The other button ⏩ is for selecting the next animal while the other button ⏪ is for selecting the previous one. From here there is a quiz questions, a sentence a student must complete with the name of the animal on display, the quiz is optional and it focuses on accumulating a highest score and passing many levels, and it also shows the student's level of progress. Once a profile is created it will always be in the application unless the browser is cleared, for more information reach out using the support button below.</p>
+      <p style="background:teal; border:1px solid orange; border-radius:8px; color:orange; font-size:13px; text-shadow:none;">After opening the application, you will be required to enter a student name and then load the profile. From the drop down menu of the animals you can select any category, that done you can press the button that says speak 🔊, this will pronounce a sentence with the name of the animal on display at the end, other of these animals are exitnct while others are mythical, to learn more information copy the name and paste it into Wikipedia search or Gemini AI. The other button ⏩ is for selecting the next animal while the other button ⏪ is for selecting the previous one. From here there is a quiz questions, a sentence a student must complete with the name of the animal on display, the quiz is optional and it focuses on accumulating a highest score and passing many levels, and it also shows the student's level of progress. Once a profile is created it will always be in the application unless the browser is cleared, for more information reach out using the support button below.</p>
       
       <button style="background:teal; color:orange;" onclick="color(this);" style="border-color: orange" type="button" class="btn btn-secondary btn-sm" id="installBtn" style="display: none;">📥</button>
       
@@ -286,10 +286,9 @@ color: white;
 
 <button onclick="showHelpBox()">Help 💡</button>
 
-<p id="currentUser">Please load student profile to start 👤</p>
-
-<hr>
-
+<p style="font-size:14px;" id="currentUser">Please load student profile to start 👤</p>
+**************************************
+	
 <select style="border:1px solid orange; background:maroon; color:white;" id="categorySelect" onchange="changeCategory(this.value)">
   <option value="farm">Farm 🐑</option>
   <option value="wild">Wild 🐒</option>
@@ -300,7 +299,7 @@ color: white;
 <button onclick="toggleLanguage()">Switch Language 🔡</button>
 
 <img id="img" src="https://smtechnology133.github.io/images/unicorn.png"> 
-<h3 style="border: 1px solid teal; border-radius:10px;" id="sentence"></h3>
+<h3 style="border: 1px solid teal; border-radius:10px; background:orange; font-size:30px" id="sentence"></h3>
 
 <button onclick="speak()">Speak 🔊</button>
 
@@ -308,7 +307,7 @@ color: white;
 <button onclick="prev()">⏪ Previous</button>&nbsp;
 <button onclick="next()">Next ⏩</button>
 
-<hr>
+*****************************************
 
 <h3 style="border:1px solid teal; border-radius:8px;">Quiz question </h3>
 <p style="font-size:20px;">The animal above is_______</p>
@@ -409,7 +408,7 @@ let index = 0;
 
 function loadUser(){
     let name = document.getElementById("username").value.trim();
-    if(!name) return alert("Enter name");
+    if(!name) return alert("Please enter student name 👤");
 
     currentUser = name;
 
@@ -422,7 +421,7 @@ function loadUser(){
     score = users[name].score || 0;
     level = users[name].level || 1;
 
-    document.getElementById("currentUser").innerText = "👤 Student Name: " + name;
+    document.getElementById("currentUser").innerText = "👤: " + name;
 
     update();
 }
@@ -521,7 +520,7 @@ function generateQuiz(){
 }
 
 function checkAnswer(ans){
-    if(!currentUser) return alert("Load profile first!");
+    if(!currentUser) return alert("Load student profile first! 👤");
 
     let correct = data[category][index].name;
 

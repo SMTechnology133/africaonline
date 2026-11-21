@@ -40,13 +40,13 @@ const data = {
        
        {name:"a Clown Fish.", ch:"Nsomba ya kulowuni.", img:"https://smtechnology133.github.io/images/clownfish.jpeg"}, 
        
-        {name:"a Billygoat.", ch:"Mbuzi yayimuna.", img:"https://smtechnology133.github.io/images/billygoat.jpg"},
+        {name:"a Billy Goat.", ch:"Mbuzi yayimuna.", img:"https://smtechnology133.github.io/images/billygoat.jpg"},
         
         {name:"a Bull.", ch:"Nkhuzi.", img:"https://smtechnology133.github.io/images/bull.jpg"},
         
         {name:"a Calf.", ch:"Mwana wa ng'ombe.", img:"https://smtechnology133.github.io/images/calf.jpg"},
         
-        {name:"a Bulldog.", ch:"Galu.", img:"https://smtechnology133.github.io/images/bulldog.jpg"},
+        {name:"a Bull Dog.", ch:"Galu.", img:"https://smtechnology133.github.io/images/bulldog.jpg"},
         
         {name:"a Chick.", ch:"Mwana wa nkhuku.", img:"https://smtechnology133.github.io/images/chick.jpg"},
         
@@ -208,7 +208,7 @@ const data = {
         
          {name:"a Lynx.", ch:"Mphaka wa nchire.", img:"https://smtechnology133.github.io/images/lynx.jpg"}, 
          
-         {name:"a Mammonth.", ch:"Njovu ya ubweya.", img:"https://smtechnology133.github.io/images/mammoth.jpg"},
+         {name:"a Wooly Mammonth.", ch:"Njovu ya ubweya.", img:"https://smtechnology133.github.io/images/mammoth.jpg"},
          
          {name:"a Mouse.", ch:"Mbewa.", img:"https://smtechnology133.github.io/images/mouse.jpg"},
          
@@ -356,7 +356,7 @@ const data = {
     
     //insects starts from here
     insects: [
-        {name:"a Cocroach.", ch:"Nphenvu.", img:"https://smtechnology133.github.io/images/cockroach.jpeg"},
+        {name:"a Cockroach.", ch:"Nphenvu.", img:"https://smtechnology133.github.io/images/cockroach.jpeg"},
         
          {name:"a Cricket.", ch:"Nkhululu.", img:"https://smtechnology133.github.io/images/cricket.jpeg"},
          
@@ -390,9 +390,9 @@ const data = {
         
          {name:"a Tick.", ch:"Nthata.", img:"https://smtechnology133.github.io/images/tick.jpg"}, 
          
-         {name:"a Termite.", ch:"Chiswe.", img:"https://smtechnology133.github.io/images/termite.jpeg"},   
+         {name:"a Soldier Termite.", ch:"Chiswe.", img:"https://smtechnology133.github.io/images/termite.jpeg"},   
          
-        {name:"a Moth.", ch:"Gulugufe wotuwa.", img:"https://smtechnology133.github.io/images/moth.jpeg"},
+        {name:"a Moth.", ch:"Gulugufe wausiku.", img:"https://smtechnology133.github.io/images/moth.jpeg"},
         
        {name:"a Caterpillar.", ch:"Mbozi.", img:"https://smtechnology133.github.io/images/caterpillar.jpg"},  
        
