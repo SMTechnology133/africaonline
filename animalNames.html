@@ -239,6 +239,75 @@ color: white;
             background-color: orange;
         }
         /*End advert pop up window css*/
+        
+    /*css for QR Code*/
+    /*button {
+      padding: 4px 6px;
+      font-size: 9px;
+      background-color: teal;
+      color: teal;
+      border: solid orange 1px;
+      border-radius: 5px;
+      cursor: pointer;
+      color: orange;
+    }*/
+
+    /* Modal backdrop */
+    .modall {
+      position: fixed;
+      display: none;
+      z-index: 1;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modall.show {
+      display: block;
+      opacity: 1;
+    }
+
+    .modall.hide {
+      opacity: 0;
+    }
+
+    /* Modal content box */
+    .modal-content {
+      background: linear-gradient(to right, teal, maroon);
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 12px;
+      width: 340px;
+      position: relative;
+      text-align: center;
+      animation: slideUp 0.3s ease forwards;
+      border: solid orange 1px;
+    }
+
+    .modal.hide .modal-content {
+      animation: slideDown 0.3s ease forwards;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 18px;
+      color: orange;
+      cursor: pointer;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(30px); opacity: 0; }
+    }
+    /*end css for QR Code*/    
 </style>
 </head>
 
@@ -265,7 +334,7 @@ color: white;
     		
       <p style="background:teal; border:1px solid orange; border-radius:8px; color:orange; font-size:13px; text-shadow:none;">After opening the application, you will be required to enter a student name and then load the profile. From the drop down menu of the animals you can select any category, that done you can press the button that says speak 🔊, this will pronounce a sentence with the name of the animal on display at the end, other of these animals are exitnct while others are mythical, to learn more information copy the name and paste it into Wikipedia search or Gemini AI. The other button ⏩ is for selecting the next animal while the other button ⏪ is for selecting the previous one. From here there is a quiz questions, a sentence a student must complete with the name of the animal on display, the quiz is optional and it focuses on accumulating a highest score and passing many levels, and it also shows the student's level of progress. Once a profile is created it will always be in the application unless the browser is cleared, for more information reach out using the support button below.</p>
       
-      <button style="background:teal; color:orange;" onclick="color(this);" style="border-color: orange" type="button" class="btn btn-secondary btn-sm" id="installBtn" style="display: none;">📥</button>
+      <button style="background:teal; color:orange;" onclick="color(this); showModal();" style="border-color: orange" type="button" class="btn btn-secondary btn-sm">🔳</button>
       
        <button style="background:teal; color:orange;" onclick="color(this);" style="border-color: orange" type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#myModal1">Info</button>
         
@@ -338,6 +407,8 @@ color: white;
 	 
 	 <ul style="background: linear-gradient(135deg, teal, maroon, orange, teal); border: solid orange 1px; margin:9px;" class="dropdown-menu"> 
 	 
+	 <li style="font-size: 12px;"><a onclick="color(this);africanCities();" style="color: orange;background:teal;">🌍 All Cities of Africa</a></li>
+	 
      <li style="font-size: 12px;"><a onclick="color(this);wikipedia();" style="color: orange;background:teal;">🌐 Wikipedia Search</a></li>
      
       <li style="font-size: 12px;"><a onclick="color(this);PDFconverter();" style="color: orange;background:teal;">🔊 Convert to Speech</a></li>
@@ -359,6 +430,8 @@ color: white;
       <li style="font-size: 12px;"><a onclick="color(this);documentConverter();" style="color: orange;background:teal;">🖼️Document Convert</a></li>
       
       <li style="font-size: 12px;"><a onclick="color(this);connect();" style="color: orange;background:teal;">💬Connect Chat App&nbsp;</a></li>
+      
+      <!--<li style="font-size: 12px;"><a onclick="color(this);seer();" style="color: orange;background:teal;">💬All Horoscope sign</a></li>-->
    </ul> 
   </div> 
  </div><br>
@@ -389,6 +462,16 @@ color: white;
 </div> 
 </div>
 <!--end details modal -->
+
+<!--QR Code Modal -->
+<div id="qrModal" class="modall">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">Close&times;</span>
+    <h3>Scan the QR Code</h3>
+    <div id="qrcode"></div>
+  </div>
+</div>
+<!--end QR Code Modal -->
 
 </div><br>
 
@@ -592,7 +675,8 @@ document.getElementById("level").innerText = "Level: 1";
       document.getElementById('confirmBox').style.display = 'none';
     }
     /*End Help modal script*/
-    
+
+//_______________________________     
      /*advert pop up window script*/      document.addEventListener("DOMContentLoaded", () => {
             const overlay = document.getElementById("welcomeOverlay");
             const closeBtn = document.getElementById("closeBtn");
@@ -629,6 +713,7 @@ document.getElementById("level").innerText = "Level: 1";
         });
         /*End advert pop up window script*/ 
         
+//_______________________________         
         /*script to save app on desktop and offline*/
         // Register the Service Worker for offline functionality
         if ('serviceWorker' in navigator) {
@@ -654,9 +739,52 @@ document.getElementById("level").innerText = "Level: 1";
             installBtn.style.display = 'none';
         });
         	/*End script to save app on desktop and offline*/
+      	
+//_______________________________ 
+       //script to generate QR Code
+  const modal = document.getElementById("qrModal");
+  const qrContainer = document.getElementById("qrcode");
+  const websiteURL = "https://smtechnology133.github.io/africaonline/animalNames.html";
+
+  function showModal() {
+    qrContainer.innerHTML = ""; // Clear old QR
+    new QRCode(qrContainer, {
+      text: websiteURL,
+      width: 200,
+      height: 200,
+      colorDark: "teal",
+      colorLight: "orange",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+
+    modal.classList.remove("hide");
+    modal.classList.add("show");
+  }
+
+  function closeModal() {
+    modal.classList.remove("show");
+    modal.classList.add("hide");
+
+    // Wait for animation to finish before hiding
+    setTimeout(() => {
+      modal.style.display = "none";
+      qrContainer.innerHTML = "";
+    }, 300); // Matches the transition duration
+  }
+
+  // Also close modal if clicking outside the modal content
+  window.onclick = function(event) {
+    if (event.target === modal) {
+      closeModal();
+    }
+  }
+  	//end script to generate QR Code       	
 </script>
 
 <!--external scripts links-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js">
+</script>
+
 <script src="jquery.min.js"></script>
 
 <script src="jquery-ui.min.js"></script>
